@@ -45,6 +45,7 @@ style bar:
     left_bar Frame("gui/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
     right_bar Frame("gui/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
 
+
 style vbar:
     xsize gui.bar_size
     top_bar Frame("gui/bar/top.png", gui.vbar_borders, tile=gui.bar_tile)
@@ -135,7 +136,12 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Transform(
+        Image("images/background_ui.png"),
+        xalign=0.5, yalign=0.02,
+        xsize=1920, ysize=300,
+        alpha=0.7
+    )
 
 style namebox:
     xpos gui.name_xpos

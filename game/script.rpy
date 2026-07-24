@@ -32,7 +32,10 @@ label start:
     n "SMK RADEN UMAR SAID Selection Results: Based on the decisions from the plenary meeting by the principal of SMK RADEN UMAR SAID KUDUS, together with the admissions committee for new students for the 2XXX/2XXX academic year on XX/XXXX/XXXX, it has been decided that, Name: p name Has been admitted to the 3D Animation Major."
     p "WOOOHOOOOOO! I got accepted in this new school"
 
-    n "Then you start"
+    n "Then you start prepare for tommorow"
+    n "next day..."
+    scene lobby_sketch
+    n "you arrive at lobby of school"
 
 
     return
