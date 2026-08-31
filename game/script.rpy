@@ -3,8 +3,16 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define p = Character("Player", color="#058aff")
+define p = Character("You", color="#058aff")
 define n = Character("")
+define move_transitions = {
+    "fade": Fade(0.5, 0.5, 0.5, color="#000"),
+    "move": MoveTransition(0.5, 0.5, 0.5, color="#000"),
+}
+define t = Character("Trida", color="#00ff7b")
+define m = Character("Mas It", color="#ff0000")
+default tridaAffection = 0
+default mapAcquired = False
 
 
 # The game starts here.
@@ -29,13 +37,73 @@ label start:
     show phone_background at pc_muncul, zorder 1
     n "You scroll through the messages... You heartbeat quickens as you see the phone screen light up."
 
-    n "SMK RADEN UMAR SAID Selection Results: Based on the decisions from the plenary meeting by the principal of SMK RADEN UMAR SAID KUDUS, together with the admissions committee for new students for the 2XXX/2XXX academic year on XX/XXXX/XXXX, it has been decided that, Name: p name Has been admitted to the 3D Animation Major."
-    p "WOOOHOOOOOO! I got accepted in this new school"
-
+    n "It say you accepted to join the school, you feel a sense of accomplishment and excitement for the future."
+    p "Yes! I did it! I got accepted!"
+    hide phone_foreground
+    hide phone_background
     n "Then you start prepare for tommorow"
-    n "next day..."
+    p "Better be i should sleep..."
+    menu:
+        "Go to sleep":
+            n "You go to sleep and dream about your future in the school"
     scene lobby_sketch
-    n "you arrive at lobby of school"
+    n "next day... you arrive at school excited to start your new journey"
+    n "you arrive at lobby of school, so many people gather at billboard, you had to effortfully push through the crowd to get a better view of the information posted on the board."
+    p "Oh i should find way to the tent!"
+    n "you start to look around the school"
+    jump MPLS
 
+
+label getting_map:
+    scene vw
+    p "Oh damn, i lost... why this school so big..."
+    n "you keep walking aroud till..."
+    n "accidently bump to someone"
+    p "Oh-"
+    m "Ow-"
+    p "Sorry, i didn't see you there"
+    m "Its okey kid, be careful"
+    n "Seem like he notice your confused look"
+    m "You lost huh? this place are really big"
+    p "Yeah, im new here so... can you help me?"
+    m "Sure, but not now... so for now i just can help you witth this..."
+    m "Give me your phone"
+    p "Eh? Okay...?"
+    menu:
+        "Give him your phone":
+            n "You give him your phone"
+    n "..."
+    m "Here your phone"
+    menu:
+        "Take it":
+            n "You take your phone"
+            n "Acquire map"
+    $ mapAcquired = True
+    p "Thanks sir!"
+    m "Anytime kid, good luck!"
+    n "he walk away, you decide to continue search the tent of MPLS"
+    jump MPLS
+    
+
+
+label MPLS:
+    p "Where i should go..."
+    if mapAcquired:
+        p "Oh right, i have the map"
+        n "You open the map and see the location of MPLS tent"
+        p "I should go to the tent of MPLS"
+        jump inside_MPLS_tent
+    else:
+        p "I should ask someone for help"
+        n "You look around but lost"
+        menu : 
+            "Walk inside":
+                jump getting_map
+        
+
+label inside_MPLS_tent:
+    # lanjutan cerita setelah sampai di tenda MPLS
+    n "You finally arrive at the MPLS tent."
+    p ""
 
     return

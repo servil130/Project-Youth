@@ -356,61 +356,82 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
-screen main_menu():
+transform button_hover:
+    on hover:
+        linear 0.15 zoom 1.08
+    on idle:
+        linear 0.15 zoom 1.0
 
-    ## This ensures that any other menu screen is replaced.
+
+screen main_menu():
     tag menu
 
-    add gui.main_menu_background
+    add "vw.png" xalign 0.5 yalign 0.5
 
-    ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+    hbox:
+        xalign 0.5
+        yalign 0.15
+        spacing 150
 
-    ## The use statement includes another screen inside this one. The actual
-    ## contents of the main menu are in the navigation screen.
-    use navigation
+        add "char1_standing"
+        add "char2_standing"
 
-    if gui.show_name:
+    vbox:
+        xalign 0.5
+        yalign 0.75
+        spacing 20
 
-        vbox:
-            style "main_menu_vbox"
+        hbox:
+            xalign 0.5
+            spacing 30
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            textbutton "Start":
+                action Start()
+                style "menu_button"
+                at button_hover
 
-            text "[config.version]":
-                style "main_menu_version"
+            textbutton "Load":
+                action ShowMenu("load")
+                style "menu_button"
+                at button_hover
+
+        hbox:
+            xalign 0.5
+            spacing 20
+
+            textbutton "Options":
+                action ShowMenu("preferences")
+                style "menu_button"
+                at button_hover
+
+            textbutton "Extra":
+                action ShowMenu("extras")
+                style "menu_button"
+                at button_hover
+
+            textbutton "About":
+                action ShowMenu("about")
+                style "menu_button"
+                at button_hover
+
+            textbutton "Quit":
+                action Quit(confirm=not main_menu)
+                style "menu_button"
+                at button_hover
 
 
-style main_menu_frame is empty
-style main_menu_vbox is vbox
-style main_menu_text is gui_text
-style main_menu_title is main_menu_text
-style main_menu_version is main_menu_text
+style menu_button:
+    xsize 150
+    ysize 80
+    background "#ffbfbf"
+    hover_background "#a97a7a"
 
-style main_menu_frame:
-    xsize 420
-    yfill True
-
-    background "gui/overlay/main_menu.png"
-
-style main_menu_vbox:
-    xalign 1.0
-    xoffset -30
-    xmaximum 1200
-    yalign 1.0
-    yoffset -30
-
-style main_menu_text:
-    properties gui.text_properties("main_menu", accent=True)
-
-style main_menu_title:
-    properties gui.text_properties("title")
-
-style main_menu_version:
-    properties gui.text_properties("version")
-
+style menu_button_text:
+    size 28
+    color "#fff"
+    hover_color "#fca6a3"
+    xalign 0.5
+    yalign 0.5
 
 ## Game Menu screen ############################################################
 ##
