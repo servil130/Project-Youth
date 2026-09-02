@@ -167,6 +167,9 @@ style say_dialogue:
 
     adjust_spacing False
 
+define config.screen_width = 1920
+define config.screen_height = 1080
+
 ## Input screen ################################################################
 ##
 ## This screen is used to display renpy.input. The prompt parameter is used to
@@ -358,80 +361,70 @@ style navigation_button_text:
 
 transform button_hover:
     on hover:
-        linear 0.15 zoom 1.08
+        linear 0.15 xoffset -20 zoom 1.03
     on idle:
-        linear 0.15 zoom 1.0
+        linear 0.15 xoffset 0 zoom 1.0
+transform logo_hover:
+    on hover:
+        linear 0.2 zoom 1.05
+    on idle:
+        linear 0.2 zoom 1.0
 
 
 screen main_menu():
     tag menu
 
-    add "vw.png" xalign 0.5 yalign 0.5
+    add Solid("#e8e8e8")
 
-    hbox:
-        xalign 0.5
-        yalign 0.15
-        spacing 150
+    add "illustration_characters.png":
+        xpos 10
+        ypos 10
+        xsize 1160
+        ysize 1080
 
-        add "char1_standing"
-        add "char2_standing"
+    # logo, sekarang dibungkus "button" biar bisa detect hover
+    button:
+        xpos 1160
+        ypos 0
+        xsize 760
+        ysize 530
+        action NullAction()
+        at logo_hover
+        background None
 
-    vbox:
-        xalign 0.5
-        yalign 0.75
-        spacing 20
+        add "logo_sweets_inspiration.png":
+            xsize 760
+            ysize 530
 
-        hbox:
-            xalign 0.5
-            spacing 30
+    imagebutton:
+        idle "button_play.png"
+        hover "button_play.png"
+        action Start()
+        xpos 1160
+        ypos 530
+        xsize 760
+        ysize 160
+        at button_hover
 
-            textbutton "Start":
-                action Start()
-                style "menu_button"
-                at button_hover
+    imagebutton:
+        idle "button_setting.png"
+        hover "button_setting.png"
+        action ShowMenu("preferences")
+        xpos 1160
+        ypos 690
+        xsize 760
+        ysize 160
+        at button_hover
 
-            textbutton "Load":
-                action ShowMenu("load")
-                style "menu_button"
-                at button_hover
-
-        hbox:
-            xalign 0.5
-            spacing 20
-
-            textbutton "Options":
-                action ShowMenu("preferences")
-                style "menu_button"
-                at button_hover
-
-            textbutton "Extra":
-                action ShowMenu("extras")
-                style "menu_button"
-                at button_hover
-
-            textbutton "About":
-                action ShowMenu("about")
-                style "menu_button"
-                at button_hover
-
-            textbutton "Quit":
-                action Quit(confirm=not main_menu)
-                style "menu_button"
-                at button_hover
-
-
-style menu_button:
-    xsize 150
-    ysize 80
-    background "#ffbfbf"
-    hover_background "#a97a7a"
-
-style menu_button_text:
-    size 28
-    color "#fff"
-    hover_color "#fca6a3"
-    xalign 0.5
-    yalign 0.5
+    imagebutton:
+        idle "button_gallery_doll.png"
+        hover "button_gallery_doll.png"
+        action ShowMenu("gallery")
+        xpos 1130
+        ypos 850
+        xsize 790
+        ysize 190
+        at button_hover
 
 ## Game Menu screen ############################################################
 ##
