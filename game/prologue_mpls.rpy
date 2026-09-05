@@ -305,4 +305,4 @@ label chie_bad:
 label mpls_end:
     n "The rest of the MPLS Day passes in a blur of introductions, games, and the warm buzz of a school finding its rhythm."
     n "By the time you head home, the first seeds of this new chapter have been planted—and a new school year is only just beginning."
-    return
+    jump week1_start

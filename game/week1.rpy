@@ -1,14 +1,10 @@
-# week1.rpy — WEEK 1 (ACT I CHAPTER I)
-# Reuses chars from script.rpy: p, n, t, r, ch, com
-# Vars: tridaAffection (default 0), mapAcquired (default False) — already in script.rpy
-
 label week1_start:
-    scene bg gates_morning  # placeholder visual
+    scene bg gates_morning
     n "Your body returns to the school gates after the MPLS ceremony."
     n "Students chatter, the air buzzes with talk about class arrangements."
     p "Here we go, another day."
 
-    scene bg classroom  # placeholder visual
+    scene bg classroom
     n "The classroom hums with the low whirr of the air‑conditioner."
     n "Everyone looks tense, eyes hidden behind textbooks."
     n "You step in, inhaling an unfamiliar scent."
@@ -28,11 +24,9 @@ label week1_start:
     t "What a coincidence!"
     n "You were about to respond when footsteps echoed in the doorway."
 
-    # --- TEACHER ENTERS ---
     com "Sit down, everyone."
     n "The homeroom teacher steps in. Everyone shifts to the front."
 
-    # --- ATTENDANCE ---
     com "Is everyone here today?"
     com "I'll check your attendance first, okay?"
     n "He calls out names. When he reaches yours..."
@@ -40,7 +34,6 @@ label week1_start:
     n "You stand briefly, then sit as he outlines classroom rules."
     n "Interactive learning, critical thinking, participation encouraged."
 
-    # --- BREAK OPTIONS ---
     com "It's all from me, you can take a break now."
     n "The teacher closes the attendance book and walks out."
     p "Where should I go now?"
@@ -53,62 +46,48 @@ label week1_start:
         "Stay in the class":
             jump week1_stay
 
-# -------------------------------------------------
-# OPTION A — Grapos (Radit route)
-# -------------------------------------------------
 label week1_grapos:
-    scene bg grapos_field  # placeholder visual
+    scene bg grapos_field
     n "You walk to the Grapos field, the green grass swaying gently."
     n "Outside, students mill about or head to the canteen."
     r "Hey, you look like you need a break."
     r "Want to grab a snack? I've got some chips."
 
     menu:
-        "Accept Radit's offer?":
-            "Yes":
-                $ radit_affection += 1
-                n "You sit beside Radit, sharing chips and laughing about morning chaos."
-            "No":
-                $ radit_affection -= 1
-                n "You decline politely, heading back alone."
+        "Accept Radit's offer":
+            $ radit_affection += 1
+            n "You sit beside Radit, sharing chips and laughing about morning chaos."
+        "Decline Radit's offer":
+            $ radit_affection -= 1
+            n "You decline politely, heading back alone."
 
     n "After a short chat, you head back toward the classroom."
     jump week1_back_to_class
 
-# -------------------------------------------------
-# OPTION B — RUS Animation Studio (Chie route)
-# -------------------------------------------------
 label week1_rus:
-    scene bg rus_studio  # placeholder visual
+    scene bg rus_studio
     n "You walk to the RUS Animation Studio, the doors open to a bright space."
     n "Julia sits at a table nearby, sketching with earbuds in."
     ch "Hey! You're here too."
     ch "Want to see what I'm working on?"
 
     menu:
-        "Browse Julia's sketch?":
-            "Yes":
-                $ ch_affection += 1
-                n "Julia shows you a quick animation demo. You both discuss the style."
-            "No":
-                $ ch_affection -= 1
-                n "You excuse yourself, returning to the classroom."
+        "Browse Julia's sketch":
+            $ ch_affection += 1
+            n "Julia shows you a quick animation demo. You both discuss the style."
+        "Don't browse Julia's sketch":
+            $ ch_affection -= 1
+            n "You excuse yourself, returning to the classroom."
 
     n "The studio visit feels inspiring, but time runs out."
     jump week1_back_to_class
 
-# -------------------------------------------------
-# OPTION C — Stay in class (Neutral)
-# -------------------------------------------------
 label week1_stay:
     scene bg classroom
     n "You stay put, watching the teacher outline the week's objectives."
     n "Lessons drag, but you keep your focus."
     jump week1_back_to_class
 
-# -------------------------------------------------
-# Return to class — 3D Animation intro
-# -------------------------------------------------
 label week1_back_to_class:
     scene bg classroom
     n "The bell rings, signaling the end of break."
@@ -120,7 +99,6 @@ label week1_back_to_class:
     t "This is gonna be fun, right?"
     p "Yeah. Should be interesting."
 
-    # --- 3D ANIMATION QUIZ (Trida gets called on) ---
     com "Trida, explain what 3D animation does."
     t "Oh‑yes. Yes, sir!"
     t "3D animation is basically giving digital stuff a little life..."
@@ -148,11 +126,8 @@ label week1_back_to_class:
     p "That sounds great."
     jump week1_teddy_cup
 
-# -------------------------------------------------
-# Teddy Cup stall — Trida route continues
-# -------------------------------------------------
 label week1_teddy_cup:
-    scene bg teddy_cup  # placeholder visual
+    scene bg teddy_cup
     n "The school is nearly empty now. You and Trida sit near the stall."
     n "Two cups of iced tea arrive. You chat about today's topics."
 
@@ -174,11 +149,9 @@ label week1_teddy_cup:
     t "It's been a good day."
     p "Yeah. Me too."
 
-    # --- Bedroom scene — part-time job decision ---
-    jump week1_bedroom
-
 label week1_bedroom:
-    scene bg bedroom_late_afternoon  # placeholder visual
+    
+    scene bg bedroom_late_afternoon
     n "You arrive home and let out a slow exhale."
     n "Your bags are resting on the chair."
     n "Lying back on the bed, your thoughts drift."
@@ -192,8 +165,9 @@ label week1_bedroom:
             n "Maybe you'll enjoy the calm atmosphere."
         "Open a commission or merchandise store":
             n "A creative outlet — could be fun."
-
-    return  # → continue to week2 or wherever
+    n "With a decision in mind, you close your eyes and let the exhaustion of the first week fade into sleep."
+    n "Before you know it, another week at school begins..."
+    jump week2_start
 
 default radit_affection = 0
 default ch_affection = 0
