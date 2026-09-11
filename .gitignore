@@ -1,26 +1,87 @@
-# Directories that Ren'Py changes files in.
-/game/saves
-/game/cache
+# ==============================================================================
+# OS & File System Artifacts
+# ==============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
 
-# Compiled script files. These are important for saving, and so should
-# be preserved by developer and build systems after the game has been released.
-/game/**/*.rpyc
-/game/**/*.rpymc
+# ==============================================================================
+# Ren'Py Runtime & Compiled Files
+# ==============================================================================
+# Compiled scripts (auto-generated at runtime)
+*.rpyc
+*.rpymc
+*.rpyb
+game/**/*.rpyc
+game/**/*.rpymc
+game/**/*.rpyb
 
-# Files Ren'Py can generate.
-/game/**/*.bak
-/game/**/*.new
-/game/**/*.old
+# Cache & saves directories
+/game/saves/
+/game/cache/
+**/saves/
+**/cache/
 
-# Error, log, and output files.
-/errors.txt
-/files.txt
-/image_cache.txt
-/log.txt
-/save_dump.txt
-/traceback.txt
+# Backup & temporary files
+*.bak
+*.new
+*.old
+*~
+*.swp
+game/**/*.bak
+game/**/*.new
+game/**/*.old
 
-# Launcher-generated files.
-/dialogue.tab
-/dialogue.txt
-/strings.json
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# ==============================================================================
+# Ren'Py Diagnostics, Logs & Dumps
+# ==============================================================================
+errors.txt
+log.txt
+traceback.txt
+files.txt
+image_cache.txt
+save_dump.txt
+**/errors.txt
+**/log.txt
+**/traceback.txt
+
+# Launcher-generated exports
+dialogue.tab
+dialogue.txt
+strings.json
+
+# ==============================================================================
+# Ren'Py Live Debug & MCP Bridge
+# ==============================================================================
+game/_mcp/
+game/_mcp_bridge.rpyc
+
+# ==============================================================================
+# Editor & IDE Caches
+# ==============================================================================
+.opencode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ==============================================================================
+# Distribution & Build Outputs
+# ==============================================================================
+*-dists/
+*-dist/
+dist/
+build/
+*.zip
+*.tar.bz2
+*.apk
+*.aab
