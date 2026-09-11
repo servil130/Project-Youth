@@ -284,6 +284,7 @@ label week2_partner_moment:
     n "Your fingers graze against each other—a fleeting brush of skin."
 
     # (Visual Splash Art: Trida and Player Hand Touching - placeholder)
+    $ splash_art = True
     n "A sudden spark of surprise courses through your fingertips."
     n "For a split second, time seems to freeze in the warm amber glow of the classroom."
     n "The air feels charged, almost electric, momentarily blurring the boundary of simple friendship."
@@ -291,6 +292,7 @@ label week2_partner_moment:
     trida "-Ah, sorry!"
     n "A bright, flustered flush blooms across Trida's cheeks."
     n "They yank their hand back too quickly, breaking the spell but leaving a lingering warmth between your hands."
+    $ splash_art = False
 
     menu:
         "It's... fine.":

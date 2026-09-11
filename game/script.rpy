@@ -22,9 +22,12 @@ define dissolve_scene_half = MultipleTransition([
 
 image black = Solid("#000")
 
-# Declare characters used by this game (no color, named by character name)
+
+# ==============================================================================
+# CHARACTER
+# ==============================================================================
+
 define trida = Character("Trida")
-define mas_it = Character("Mas It")
 define committee = Character("Student Committee")
 define radit = Character("Radit")
 define chie = Character("Chie")
@@ -41,9 +44,16 @@ define moderator = Character("Moderator")
 define classmate_a = Character("Classmate A")
 define classmate_b = Character("Classmate B")
 
-# Centralized Game State (Rollback-Safe Store Defaults)
+
+# ==============================================================================
+# GAME STATE
+# ==============================================================================
+
 default player_name = "You"
 default current_week = "Prologue"
+default splash_art = False
+default current_splash_art = False
+default trida_route = None
 default mapAcquired = False
 default player_has_bouquet = False
 default tridaAffection = 0
@@ -53,13 +63,13 @@ default sabian_affection = 0
 default julia_affection = 0
 
 # ==============================================================================
-# UNCLE MUGEN BACKGROUNDS
+# BACKGROUNDS
 # ==============================================================================
 image bg classroom = "images/mugen/pack1/School/Classroom_01_day.webp"
 image bg rus_studio = "images/mugen/pack1/School/monele_arts_building.webp"
 image bg grapos_field = "images/mugen/pack1/School/football_field_day.webp"
 image bg gates_morning = "images/mugen/pack1/School/generic_school_gate.webp"
-image bg bedroom_late_afternoon = "images/mugen/pack1/Modern Urban/home_evening.webp"
+image bg bedroom_late_afternoon = "images/mugen/pack1/Assorted/room.webp"
 image bg teddy_cup = "images/mugen/pack1/Cafe Memoria/cafe_memoria_inside_01_afternoon.webp"
 image bg room = "images/mugen/pack1/Assorted/room.webp"
 
@@ -144,5 +154,9 @@ image mod_announcer = Placeholder("boy", text="Moderator")
 image moderator = Placeholder("boy", text="Moderator")
 image shy = Placeholder("girl", text="Shy Classmate")
 image shy_classmate = Placeholder("girl", text="Shy Classmate")
+
+image teacher = Placeholder("boy", text="Teacher")
+image teacher neutral = Placeholder("boy", text="Teacher\n(Neutral)")
+image teacher smile = Placeholder("boy", text="Teacher\n(Smile)")
 
 

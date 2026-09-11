@@ -280,6 +280,7 @@ label week5_dinner_trida:
     trida "It's not about the dark... When it's just me, all the thoughts about the animation portfolio, the grades, and the pressure from home? They get so loud. They feel like they're going to swallow me whole."
 
     # Visual Splash Art: Trida looking at Player
+    $ splash_art = True
     n "They glance at you, a small, sheepish smile tugging at the corners of their mouth."
     trida "Like I said, if I had company or someone to talk to... It's like the noise stops. It's actually quiet in my head for once."
     trida "You're kind of like a save point in a game, you know? The place where I can actually catch my breath before the next boss fight."
@@ -287,6 +288,7 @@ label week5_dinner_trida:
     trida "I'm really, really glad you're the one I'm walking with. It makes the world feel... I don't know, a little less terrifying."
     n "Their hand brushes against yours as you walk, not quite holding it, but close enough that you can feel the warmth of their skin. They don't pull away."
     $ tridaAffection += 2
+    $ splash_art = False
     jump week5_night_end
 
 
@@ -320,6 +322,7 @@ label week5_dinner_seniors:
 # ==============================================================================
 
 label week5_night_end:
+    $ splash_art = False
     scene bg bedroom_late_afternoon
     with fade
 

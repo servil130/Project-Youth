@@ -1,6 +1,6 @@
 label week1_start:
     $ current_week = "Week 1"
-    play music "audio/bgm_classroom.ogg" fadein 1.5 loop volume 0.5
+    # play music "audio/bgm_classroom.ogg" fadein 1.5 loop volume 0.5 # [Pending BGM asset]
 
     # ==============================================================================
     # ACT I - CHAPTER I: FIRST DAY OF CLASS & ENCOUNTERS
@@ -42,9 +42,13 @@ label week1_start:
     trida "Wow, what a coincidence!"
 
     n "You were about to respond when the sound of footsteps made you pause."
-    n "The figure you recognised as your homeroom teacher entered the classroom. Everyone shifted their focus to the front as the teacher surveyed the class."
+    n "The figure you recognised as your homeroom teacher entered the classroom."
+    show teacher at right with dissolve
+    teacher "Sit down, everyone."
+    n "The sound of scraping chairs and the clattering of desks shattered the lingering quiet, creating an echo that bounced off the walls."
+    n "A few seats were occupied, their occupants shifting restlessly as they settled in. You glanced over at Trida, who remained poised beside your table."
 
-    show trida surprised
+    show trida surprised at left with ease
     trida "That was the teacher, wasn't it!"
     n "They shot a glance your way, their eyes wide with urgency and a hint of panic."
     trida "Mind if I sit next to you?"
@@ -53,7 +57,7 @@ label week1_start:
         "Let them sit beside you":
             $ tridaAffection += 1
             p "Yeah, sure!"
-            show trida happy
+            show trida happy at left
             trida "Really? Thank you!"
             n "You nodded eagerly as Trida hurried to take a seat at the desk next to you."
             n "They looked at you with a wide, cheerful smile, just like a kid who's just been given a delicious piece of candy!"
@@ -66,17 +70,13 @@ label week1_start:
         "Ask them to sit anywhere else":
             $ tridaAffection -= 1
             p "Uh, I don't know… Sorry, I think someone's already sitting there."
-            show trida sad
+            show trida sad at left
             n "You bit your lip, a nervous habit that betrayed your anxious thoughts."
             n "Trida's eyes dimmed, a poignant reflection of their sadness, as they tried to play it cool and looked for other remaining seats."
             n "But the teacher had already cleared his throat, making them panic as they still sat down at the desk next to you."
             trida "I didn't have time, I'm sorry…"
             n "They said with a wry smile, disappointment evident on their face."
 
-    show teacher at right with dissolve
-    show trida neutral at left with ease
-    teacher "Sit down, everyone."
-    n "The sound of scraping chairs and the clattering of desks shattered the lingering quiet, creating an echo that bounced off the walls."
     teacher "Is everyone here today?"
     n "A noticeable silence fell over the room as the students refrained from answering."
     teacher "I'll check your attendance first, okay?"
@@ -236,9 +236,11 @@ label week1_back_to_class:
     teacher "These computer-generated objects appear on a two-dimensional screen, but are crafted to mimic the principles of a 3D world; they appear to move, turn, and rotate like real-world objects."
 
     # Visual Splash Art: Trida Doodling
+    $ splash_art = True
     show trida happy at left with dissolve
     n "Trida was still doodling through their notes, making scratch sketches with their tongue sticking out—a cat and a dog intertwining their hands together."
 
+    $ splash_art = False
     teacher "You there…"
     teacher "Are you still with us?"
 
@@ -265,9 +267,11 @@ label week1_back_to_class:
             show teacher smile
             n "The teacher put on a slight smile before explaining more about the topic, leaving Trida to glance at you with a bright grin."
             # Visual Splash Art: Trida Leaning In and Smiling
+            $ splash_art = True
             show trida smile at left
             n "They deliberately lean in to you."
             trida "Thank you!"
+            $ splash_art = False
 
         "Gave them the wrong answer":
             $ tridaAffection -= 1
@@ -366,7 +370,7 @@ label week1_bedroom:
     scene bg bedroom_late_afternoon
     with fade
 
-    # Visual Players Room
+    # Visual Player Room
     n "You just arrived in your room and let out a slow exhale."
     n "Your bags are resting on the chair while you lie back on the bed."
     n "The ceiling of your room feels emptier, but your chest is filled with joy from today's activities, mainly because you now have a friend."
@@ -384,5 +388,6 @@ label week1_bedroom:
             n "A creative outlet — could be fun."
 
     n "With a decision in mind, you close your eyes and let the exhaustion of the first week fade into sleep."
+
     n "Before you know it, another week at school begins..."
     jump week2_start

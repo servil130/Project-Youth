@@ -192,6 +192,7 @@ label week6_post_competition:
     n "You start thinking over all those things that have happened over the last few months—how they brought you food, waited for you, and looked at you as if you were the only one in the world."
 
     # Visual Splash Art: Trida looking at the stage
+    $ splash_art = True
     n "Trida leans close to you, the warmth of their shoulder barely brushing against your own as they talk over the deafening music."
     trida "Man, listen to that vocalist. I mean, the way they were singing really sounded incredible... Honest, you know."
 
@@ -214,6 +215,7 @@ label week6_post_competition:
     n "They're still close, impossibly close, watching the stage as they hum along to the music almost absentmindedly, a lopsided smile playing across their lips."
     trida "Maybe. I don't know, but it's nice to hear something really true for once, isn't it?"
 
+    $ splash_art = False
     n "Before you have time to react, you find yourself caught up in the surging mass of people around you."
     n "The band launches into a second number with a driving rhythm that seesaws furiously, while the lead singer joins in, his voice a rich ballad of longing."
     n "You are so unaware of the surging mass around you that you are caught completely off guard when suddenly Trida runs right into you, knocking you off balance sideways."
@@ -223,12 +225,14 @@ label week6_post_competition:
     trida "They sound really good, don't they? This guitarist... I mean, it's a beautiful song! Just beautiful music..."
 
     # Visual Splash Art: Trida is close to Player with a blushing face
+    $ splash_art = True
     p "My heart is hitting my ribs so hard I'm terrified they can actually hear it over the music."
     p "It's ridiculous. It was just a bump, just an accident. God, the air in here is suddenly so unbearably hot. I don't know where to look, I don't know what to do with my hands..."
 
     n "Trida clears their throat as they turn back toward you, their hand hovering just above your sleeve."
     n "When the final note fades into the cheers of the crowd, the lights change abruptly from violet haze to bright white, and the magic is broken."
     n "The band begins to clear the stage as the chatter and noise of the next group drown out the music, leaving the charged tension between you and Trida to linger softly in the air."
+    $ splash_art = False
 
     if player_has_bouquet:
         jump week6_bouquet_gifting

@@ -8,7 +8,7 @@ label week9_start:
     scene bg classroom
     with fade
     play sound "audio/school_bell.ogg"
-    play music "audio/bgm_classroom.ogg" fadein 2.0 loop volume 0.5
+    # play music "audio/bgm_classroom.ogg" fadein 2.0 loop volume 0.5 # [Pending BGM asset]
 
     n "The sound of the school bell's ring fills the room in a familiar rhythm, signaling the usual 12 PM break."
     n "After the events of Saturday night, the return to routine feels welcome and reassuring, a breath of fresh air for your mind."
@@ -225,6 +225,7 @@ label week9_start:
     menu:
         "Someone… I want to be more than friends with":
             $ tridaAffection += 2
+            $ trida_route = "romance"
             n "You stutter out your honest feelings, thinking back to how many times the small moments with Trida have made your heart race."
             n "Everything from the funny moments, the tender moments, the emotional Saturday night in your room… all culminating into a first admission of your feelings for Trida to Julia."
             julia "I see…"
@@ -247,6 +248,7 @@ label week9_start:
 
         "A close friend I trust a lot":
             $ tridaAffection += 1
+            $ trida_route = "friendship"
             julia "I see… I can really see that Trida is important to you."
             julia "Maybe this is an odd thing to say about someone else's friendship, but I have a feeling you two will always have each other's backs until the end."
             n "Julia's thoughtful words felt unexpected from someone like her, but you couldn't deny her pleased expression and tone of voice."

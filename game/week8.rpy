@@ -100,6 +100,7 @@ label week8_start:
     p "Look at me, Trida."
 
     # Visual Splash Art: Trida Held Hands with Players
+    $ splash_art = True
     n "Slowly your hands took Trida's fingers as both of your skin brushed against each other, making a little shudder through their hands."
     n "Your voice was firm with deep earnestness, and stripped of any hesitation."
     n "It took a moment, but Trida slowly raised their head, their tear-filled eyes blinking in surprise as they met your gaze."
@@ -129,6 +130,7 @@ label week8_start:
     trida "Nobody... nobody's ever said stuff like that to me before. Thank you. Seriously... thank you."
 
     $ tridaAffection += 2
+    $ splash_art = False
 
     n "You didn't let go of the contact, keeping your hand steady against their arm and rubbing a reassuring thumb soothingly against their sleeve."
     p "Are you actually, really... like really okay now?"

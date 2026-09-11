@@ -1,11 +1,11 @@
 
+transform pc_muncul:
+    xalign 0.5
+    yoffset 300
+    alpha 0
+    ease 0.6 yoffset 0 alpha 1.0
+
 label start:
-    transform pc_muncul:
-        xalign 0.5
-        yoffset 300
-        alpha 0
-        ease 0.6 yoffset 0 alpha 1.0
-        
     $ current_week = "Prologue"
     stop music fadeout 1.5
     scene black
@@ -17,7 +17,7 @@ label start:
 
     scene bg room
     with dissolve_scene_full
-    play music "audio/bgm_classroom.ogg" fadein 2.0 loop volume 0.5
+    # play music "audio/bgm_classroom.ogg" fadein 2.0 loop volume 0.5 # [Pending BGM asset]
 
     n "The dim light of a study lamp casts a shadow across the desk."
     n "The soft, amber glow bathed the room in warmth, creating a cozy cocoon against the creeping chill of the evening outside."
@@ -31,10 +31,10 @@ label start:
     n "Just as you were about to refresh the website page once more, a sudden “ding!” jolted you to a halt."
     n "It echoed through the quiet room like a signal from another world."
     p "Oh its from school that i signed up for"
-    show phone_foreground at pc_muncul, zorder 2
+    show phone_foreground at pc_muncul zorder 2
     n "You open the phone as you excited..."
 
-    show phone_background at pc_muncul, zorder 1
+    show phone_background at pc_muncul zorder 1
     n "You scroll through the messages... You heartbeat quickens as you see the phone screen light up."
 
     n "It say you accepted to join the school, you feel a sense of accomplishment and excitement for the future."
@@ -90,6 +90,8 @@ label inside_MPLS_tent:
     n "The air around you is filled with a symphony of chatter."
     n "The warmth of the crowded tent makes beads of sweat trickle down your back."
     n "With a slow, deliberate glance, you notice someone your age sitting next to you."
+    # Visual Splash Art: Trida Sitting Next To Players
+    $ splash_art = True
     show trida happy at left with dissolve
     n "Their eyes twinkle with excitement as they dart around the tent, drinking in the vibrant atmosphere."
     n "The rich orange of their irises sparkles like the sunset, drawing your attention."
@@ -98,6 +100,7 @@ label inside_MPLS_tent:
 
     n "Just as you're about to look at them for a second too long, a clear voice breaks through the chatter."
     n "It commands the room's focus."
+    $ splash_art = False
     show trida happy at left with ease
     show committee speaking at right with dissolve
     committee "Good morning, everyone!"
@@ -174,8 +177,11 @@ label trida_lunch_nice:
     show trida laugh
     n "The fellow grinned widely as they slowly moved closer."
     trida "You can call me Trida, [player_name]. Nice to meet you too!"
+    # Visual Splash Art Trida: Eating Lunch Together
+    $ splash_art = True
     n "That meeting was your first spark in this new school."
     n "Both of you continued to chat happily as the first flower of your friendship blossomed."
+    $ splash_art = False
     hide trida with dissolve
     jump mpls_end
 
