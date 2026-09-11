@@ -1,0 +1,17 @@
+[2026-09-05T18:35:24.735Z] [plugin] Server running on port 5173
+[2026-09-05T18:35:24.743Z] [plugin] Connected to server on attempt 1
+[2026-09-05T18:38:29.750Z] [plugin] Server running on port 5173
+[2026-09-05T18:38:29.757Z] [plugin] Connected to server on attempt 1
+[2026-09-05T19:06:10.932Z] [plugin] Server not started (port 5173 in use — another instance is the leader)
+[2026-09-05T19:06:10.943Z] [plugin] Connected to server on attempt 1
+[2026-09-05T19:19:29.910Z] [plugin] Server running on port 5173
+[2026-09-05T19:42:03.863Z] [plugin] Server not started (port 5173 in use — another instance is the leader)
+[2026-09-05T19:42:03.878Z] [plugin] Connected to server on attempt 1
+[2026-09-05T19:50:27.778Z] [plugin] Server not started (port 5173 in use — another instance is the leader)
+[2026-09-05T19:50:27.779Z] [plugin] Connected to server on attempt 1
+[2026-09-05T19:50:57.555Z] [plugin] Server not started (port 5173 in use — another instance is the leader)
+[2026-09-05T19:50:57.556Z] [plugin] Connected to server on attempt 1
+[2026-09-05T20:11:53.874Z] [plugin] Server not started (port 5173 in use — another instance is the leader)
+[2026-09-05T20:11:53.895Z] [plugin] Connected to server on attempt 1
+[2026-09-05T20:11:55.281Z] [plugin] Server not started (port 5173 in use — another instance is the leader)
+[2026-09-05T20:11:55.403Z] [plugin] Connected to server on attempt 1

@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Initialization
 ################################################################################
 
@@ -269,8 +269,37 @@ screen quick_menu():
 ## the player has not explicitly hidden the interface.
 init python:
     config.overlay_screens.append("quick_menu")
+    config.overlay_screens.append("week_indicator")
 
 default quick_menu = True
+
+## Week indicator HUD (displayed in-game at the top-right corner)
+screen week_indicator():
+    zorder 50
+    if quick_menu and current_week:
+        frame:
+            style "week_indicator_frame"
+            if isinstance(current_week, int):
+                text ("Prologue" if current_week <= 0 else "Week [current_week]"):
+                    style "week_indicator_text"
+            else:
+                text "[current_week]":
+                    style "week_indicator_text"
+
+style week_indicator_frame:
+    xalign 0.985
+    yalign 0.025
+    background Frame("gui/frame.png", gui.frame_borders)
+    xpadding 24
+    ypadding 10
+
+style week_indicator_text:
+    size 24
+    bold True
+    color "#ffffff"
+    outlines [ (1, "#000000", 0, 0) ]
+    xalign 0.5
+    yalign 0.5
 
 style quick_menu is hbox
 style quick_button is default

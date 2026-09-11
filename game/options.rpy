@@ -1,4 +1,4 @@
-﻿## This file contains options that can be changed to customize your game.
+## This file contains options that can be changed to customize your game.
 ##
 ## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
@@ -62,7 +62,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/bgm_classroom.ogg"
 
 
 ## Transitions #################################################################

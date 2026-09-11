@@ -1,9 +1,5 @@
-# ==============================================================================
-# PROJECT YOUTH: SWEET INSPIRATION
-# ACT II - CHAPTER III: WEEK 7
-# ==============================================================================
-
 label week7_start:
+    $ current_week = "Week 7"
     scene bg classroom
     with fade
 
@@ -28,26 +24,26 @@ label week7_start:
     n "They fumbled with the chocolate bar, nearly dropping it, before letting out a loud, high-pitched laugh."
     n "Their fingers drummed anxiously against the desk, trying to hide their reaction behind a burst of panic."
 
-    t "E-eh?! What do you mean?!"
-    t "Good food has its own timeline, okay! It's called savoring, look it up!"
+    trida "E-eh?! What do you mean?!"
+    trida "Good food has its own timeline, okay! It's called savoring, look it up!"
     n "They gestured wildly with the half-eaten chocolate bar, nearly dropping it onto their keyboard."
-    t "Besides, it's not like it went bad or anything!"
+    trida "Besides, it's not like it went bad or anything!"
 
     n "You let out a soft chuckle, watching them scramble to defend their snacking habits."
     p "Sure, keep telling yourself that. Don't come crying to me if your stomach starts acting up during third period."
 
     n "Trida grinned, the nervous tension instantly draining from their shoulders as they settled back into their chair."
     n "They reached out, giving your arm a quick, familiar nudge with their elbow—that subconscious physical touch they always did without realizing it."
-    t "Jeez, look at you, acting all worried. Who knew you cared so much about my digestive health?"
+    trida "Jeez, look at you, acting all worried. Who knew you cared so much about my digestive health?"
 
     n "They laughed dryly, but their gaze suddenly shifted, bouncing nervously toward the edge of the desk before locking back onto yours."
     n "The bright cadence in their voice faltered and was replaced by a strange hesitation."
     n "They cleared their throat, and you suddenly found their half-eaten chocolate bar very, very interesting to look at."
 
-    t "Um... actually..."
+    trida "Um... actually..."
     n "Their voice dropped an octave, turning much quieter, stripped of its usual performative silliness."
     n "They rubbed the back of their neck with their free hand, their fingers fidgeting nervously against their collar."
-    t "The truth is... I was saving it on purpose."
+    trida "The truth is... I was saving it on purpose."
 
     n "You blinked, caught off guard by the sudden shift in tone."
     p "Saving it?"
@@ -55,23 +51,23 @@ label week7_start:
 
     n "Trida's eyes darted up to meet yours, maintaining that intense, unblinking eye contact they always held when trying desperately to be sincere."
     n "Their ears were bright red now."
-    t "It's not 'just' anything when it was... you know. Given by you."
+    trida "It's not 'just' anything when it was... you know. Given by you."
 
     n "They let out a dry, self-deprecating chuckle, their gaze dropping back to the desk as they tried to laugh it off."
-    t "Listen to me, ugh... I sound so cheesy right now. Ignore me."
+    trida "Listen to me, ugh... I sound so cheesy right now. Ignore me."
 
     n "They tried to look away, but you didn't move, and they kept rushing their words as if trying to outrun their own vulnerability."
-    t "No, but seriously—I don't get stuff like that very often. Nobody really just... hands me something nice out of nowhere before."
-    t "It genuinely made my whole week better, okay?"
+    trida "No, but seriously—I don't get stuff like that very often. Nobody really just... hands me something nice out of nowhere before."
+    trida "It genuinely made my whole week better, okay?"
 
     n "For a second, the bustling noise of the classroom around you seemed to fade away entirely."
     n "The raw, unguarded honesty caught you completely off guard."
-    t "It made me feel like... maybe I'm not totally invisible here."
+    trida "It made me feel like... maybe I'm not totally invisible here."
 
     n "You stood there, suddenly struggling to find a casual reply, feeling a hot flush creep up your own neck as you stared back at them."
     n "Trida noticed your silence, and their eyes widened in mild panic, their hands immediately flying to their pockets as if wanting to disappear into their chair."
-    t "A-anyway! Back to work, right? Before the teacher explains another thing!"
-    t "Can't have us failing, can we?"
+    trida "A-anyway! Back to work, right? Before the teacher explains another thing!"
+    trida "Can't have us failing, can we?"
 
     menu:
         "Right...":
@@ -121,40 +117,40 @@ label week7_grapos_radit:
     n "Radit appeared, his easy-going demeanor evident as he sauntered over, hands tucked deep into the pockets of his jacket."
     n "With a gentle shake of his head, he cast off the last remnants of moisture from his hurried trip to the washroom."
 
-    r "Man... sometimes I think about dropping out to become a professional sleeper."
+    radit "Man... sometimes I think about dropping out to become a professional sleeper."
     n "Radit spoke softly, his words drawn out as he slipped into his signature easygoing rhythm."
     n "After a moment of deep contemplation, he let the silence linger before continuing, his tone languid and unhurried, as if savoring each syllable."
-    r "My bed's calling me from across town, I swear."
+    radit "My bed's calling me from across town, I swear."
 
     n "You let out a soft huff of laughter, glancing sideways at him."
     p "Your bed is a mattress on the floor in a cramped boarding room, Radit. It's not calling you, it's begging for mercy."
 
-    r "True. But at least my mattress doesn't crash when I'm halfway through saving a file."
+    radit "True. But at least my mattress doesn't crash when I'm halfway through saving a file."
     n "Radit gave a leisurely grin as his shoulders dropped with a laugh."
-    r "Speaking of terrible life choices..."
+    radit "Speaking of terrible life choices..."
     n "He hesitated, transferring his weight to the opposite foot, his gaze wandering toward the horizon before returning to you with a wry sparkle in his eye."
-    r "I found this absolute trash-tier garage band from Shimokitazawa yesterday. Their entire aesthetic is just four guys standing in a dark basement playing out-of-tune guitars."
+    radit "I found this absolute trash-tier garage band from Shimokitazawa yesterday. Their entire aesthetic is just four guys standing in a dark basement playing out-of-tune guitars."
 
     p "And?"
-    r "And honestly? It's speaking to my soul."
+    radit "And honestly? It's speaking to my soul."
 
     n "You raised an eyebrow and then crossed your arms with a knowing smile."
     p "Let me guess. Another band with double-digit monthly listeners on Spotify, and you're about to spend half your allowance on an import vinyl that'll take three months to clear customs?"
 
     n "Radit just stared at you for a beat, with an amused twitch at the corner of his mouth."
-    r "First of all, it's a cassette tape, not a vinyl. Get your indie hipster formats right."
-    r "Second is... wow, okay! Look at you, tracking my purchasing habits like an auditor."
+    radit "First of all, it's a cassette tape, not a vinyl. Get your indie hipster formats right."
+    radit "Second is... wow, okay! Look at you, tracking my purchasing habits like an auditor."
     n "He tilted his head, his hands staying firmly planted in his pockets as he leaned a shoulder against the railing next to you."
-    r "Should I be flattered that you remember what kind of garbage I waste my money on, or worried that you're turning into a stalker?"
+    radit "Should I be flattered that you remember what kind of garbage I waste my money on, or worried that you're turning into a stalker?"
 
     p "I don't need to stalk you when your room practically smells like shrink-wrapped album art and regret."
     n "You retorted, nudging your elbow into Radit, who smirked with sincere warmth shining through his typical stoic demeanor, though he quickly masked it again with another casual jest."
     $ radit_affection += 1
 
-    r "Hey, someone's gotta keep the local underground scene alive..."
+    radit "Hey, someone's gotta keep the local underground scene alive..."
     n "He glanced back toward the doorway of the classroom, catching a brief glimpse of the frantic energy still humming inside."
-    r "Anyways, we should probably head back before the teacher locks us out and assumes we ran away to join an indie band ourselves."
-    r "Though, honestly? Not the worst backup plan."
+    radit "Anyways, we should probably head back before the teacher locks us out and assumes we ran away to join an indie band ourselves."
+    radit "Though, honestly? Not the worst backup plan."
 
     n "With an eased shrug, Radit pushed away from the railing, withdrawing one hand from his pocket briefly to point toward the door."
     n "With an unhurried pace, the two of you turned and floated back into the classroom together."
@@ -175,43 +171,43 @@ label week7_stay_trida:
 
     n "Trida flinched, their pencil clattering onto the desk as they spun around in their chair."
     n "They let out a loud, high-pitched squawk and threw their hands up dramatically."
-    t "Oh, you're going to give me a heart attack!"
-    t "Don't sneak up on people like that when I'm trying to focus—or failing to focus!"
+    trida "Oh, you're going to give me a heart attack!"
+    trida "Don't sneak up on people like that when I'm trying to focus—or failing to focus!"
 
     n "They laughed nervously, their gaze darting around the empty room before landing on you with unblinking focus."
-    t "Besides, the ink isn't running away because it's scared of me. It's running away because my layouts are a total disaster. Look at this nonsense."
+    trida "Besides, the ink isn't running away because it's scared of me. It's running away because my layouts are a total disaster. Look at this nonsense."
     n "They shoved the sketchbook closer to you, tapping aggressively on a messy sketch panel."
-    t "I swear, every time I try to map out the pacing for this sequence, my brain just short circuits."
-    t "Why is structuring a story so hard? I just wanted to make something cool that made you feel like you could take on the world, but here I am making garbage."
+    trida "I swear, every time I try to map out the pacing for this sequence, my brain just short circuits."
+    trida "Why is structuring a story so hard? I just wanted to make something cool that made you feel like you could take on the world, but here I am making garbage."
 
     n "They slumped forward, letting their forehead thump gently against the edge of the desk next to your arm, letting out a heavy sigh."
-    t "Sometimes I wonder why I even try to aim high. Look at the other kids in our major—they're already creating amazing animation with gorgeous concepts, and here I am struggling to make a simple timeline make sense."
-    t "I kind of felt stupid, you know..."
+    trida "Sometimes I wonder why I even try to aim high. Look at the other kids in our major—they're already creating amazing animation with gorgeous concepts, and here I am struggling to make a simple timeline make sense."
+    trida "I kind of felt stupid, you know..."
 
     n "You chuckled and reached over to give their shoulder a comforting squeeze."
     p "You're too hard on yourself, Trida. You just need a break."
 
     n "At your warm touch, Trida perked up, a bright smile replacing their moment of doubt as if those heavy thoughts had vanished."
     n "They leaned into your touch, bumping their shoulder against yours without realizing it."
-    t "See? That's why you're the best. Always showing up with the right words at the right time."
+    trida "See? That's why you're the best. Always showing up with the right words at the right time."
     n "They laughed, their voice speeding up when they started talking animatedly again, gesturing wildly with their hands."
 
-    t "It's kind of out of nowhere, you know..."
-    t "But did I tell you about the lore video I watched last night? It's this masterpiece of a classic RPG, and the plot twists just keep coming—?"
+    trida "It's kind of out of nowhere, you know..."
+    trida "But did I tell you about the lore video I watched last night? It's this masterpiece of a classic RPG, and the plot twists just keep coming—?"
 
     n "They suddenly stopped, narrowing their eyes at you, though a pleased smile tugged at the corners of their mouth."
     n "They noticed how close you were sitting and that you hadn't left for break like everyone else."
     n "The tips of their ears turned a faint pink, and they quickly rubbed the back of their neck."
-    t "Hold on, I just realized that you stayed inside during break?"
+    trida "Hold on, I just realized that you stayed inside during break?"
 
     p "Yeah, well... Do you have any problems with that?"
-    t "I mean, instead of going out for actual fresh air or hanging out with anyone else like your usual?"
+    trida "I mean, instead of going out for actual fresh air or hanging out with anyone else like your usual?"
     n "You heard their voice lose some of its theatrical bounce and genuine warmth."
-    t "You didn't have to stay just for me, you know. I'm totally fine."
+    trida "You didn't have to stay just for me, you know. I'm totally fine."
 
     p "I was just trying to keep you company so you don't accidentally fold your sketchpad in half out of panic."
     n "You replied with a smirk tugging as you saw Trida let out a flustered laugh affectionately."
-    t "Jeez, you're impossible. Yeah, I'm glad you're here."
+    trida "Jeez, you're impossible. Yeah, I'm glad you're here."
     $ tridaAffection += 1
     jump week7_civics_assignment
 
@@ -229,8 +225,8 @@ label week7_civics_assignment:
     n "In their place, vibrant notebooks and well-worn textbooks are spread out across the desks, hinting at a bustling environment where creativity intertwines with academic pursuit."
 
     n "The civics teacher walked in front of the class, her black shoes squeaking softly against the linoleum floor as she dropped a handful of reference handouts onto the front desk."
-    civ_t "Quiet down, please. For today's assignment, you don't need the computers. Just open your textbook to the chapter on the 1945 Constitution."
-    civ_t "Your task is simple: look at the group task, circle the instructions, and coordinate with your group to either answer the exercise questions, draft a short paper, or summarise the material. Get to work."
+    civics_teacher "Quiet down, please. For today's assignment, you don't need the computers. Just open your textbook to the chapter on the 1945 Constitution."
+    civics_teacher "Your task is simple: look at the group task, circle the instructions, and coordinate with your group to either answer the exercise questions, draft a short paper, or summarise the material. Get to work."
 
     n "With a sharp click of her pen, she turned back to the whiteboard to write down the page numbers."
     n "Around the room, the sound of chairs scraping against the worn floor echoed as students pulled out sheets of loose-leaf paper and began rifling through their textbooks."
@@ -250,7 +246,7 @@ label week7_civics_assignment:
     n "It bounced off your shoe with a soft thud."
 
     n "The boy didn't even look up from his page. His expression remained entirely flat, devoid of any emotional spike, as he delivered a deadpan critique with the casual detachment of an automated system reading a prompt."
-    glasses "You dropped it. And you skipped the circle instruction. It's not that complicated."
+    glasses_boy "You dropped it. And you skipped the circle instruction. It's not that complicated."
 
     n "Trida's hand froze mid-air above the floor. The tips of their ears turned into a mortified shade of red, and they pulled their arm back in an instant, resting it limply against their knee."
     n "Trida didn't bend down to pick up the eraser. The only thing they did was stare blankly at the crease of the book, biting their lower lip until it turned white."
@@ -258,7 +254,7 @@ label week7_civics_assignment:
     n "Trida couldn't even force a laugh, completely unable to find words to defend themself."
 
     n "The boy turned the page of his textbook with a quiet rustle of paper, entirely unbothered by the sudden vacuum of air at the table."
-    glasses "Anyway. We have to pick between answering the questions or writing the summary. I'm just going to write the summary so we can leave early. Let me know if you guys are doing something else, or if you're just going to sit there."
+    glasses_boy "Anyway. We have to pick between answering the questions or writing the summary. I'm just going to write the summary so we can leave early. Let me know if you guys are doing something else, or if you're just going to sit there."
 
     n "His voice carried no malice, which somehow made it infinitely worse."
     n "It was the absolute, crushing indifference of someone treating Trida not even as a frustrating obstacle, but as a mildly inconvenient system error to be bypassed."
@@ -269,13 +265,13 @@ label week7_civics_assignment:
 
     n "Trida stared down at the open page, their throat working as if trying to swallow glass."
     n "The crushing weight of feeling entirely useless—of being viewed with mechanical disregard—finally forced a fractured, defensive murmur past their lips."
-    t "I... I was going to circle it..."
+    trida "I... I was going to circle it..."
     n "Trida whispered with a voice cracking slightly, so quiet it was almost swallowed by the ambient noise of the classroom."
     n "They stared down at their desk, fingers clutching the edges of their textbook like a lifeline, desperately trying to excuse the panic."
-    t "I just... I was rushing. I can still do it. I'm not... I'm not trying to mess it up on purpose."
+    trida "I just... I was rushing. I can still do it. I'm not... I'm not trying to mess it up on purpose."
 
     n "The boy didn't look up from his textbook, letting out a sharp, dismissive sigh through his nose as he tapped his pen against the margin."
-    glasses "Well, whatever, it doesn't matter, let's just get this over with."
+    glasses_boy "Well, whatever, it doesn't matter, let's just get this over with."
 
     n "The flatness of his tone carried a sharp edge of annoyance, dropping like another lead weight over the small cluster of desks."
     n "Instantly, any lingering sound from their corner completely vanished. The silence that followed was an absolute, suffocating awkward tension that made the air feel thin."
@@ -308,10 +304,10 @@ label week7_reassure_okay:
     n "For a long, agonizing second, the only movement was the faint, rapid twitch of their fingers where they were balled into tight fists in their lap."
     n "When they finally raised their head slightly, their eyes were glossy, avoiding your gaze entirely as they fixed on a scuff mark on the wooden desk."
 
-    t "I'm... yeah. I'm fine,"
+    trida "I'm... yeah. I'm fine,"
     n "Trida whispered back with that strained voice that seemed entirely unconvincing."
     n "They managed a weak, pathetic ghost of a smile that didn't reach their eyes at all before giving a subtle shake of their head."
-    t "Just... don't worry about it right now. We need to finish this before the bell. Let's just... let's just get it done."
+    trida "Just... don't worry about it right now. We need to finish this before the bell. Let's just... let's just get it done."
 
     n "You saw Trida's hands pick up their pencil again, their knuckles turning white from how hard they were gripping, and forced those tangerine eyes to stare back down at the blank lines of the paper."
     n "But you could see right through the fragile facade."
