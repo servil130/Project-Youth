@@ -68,7 +68,7 @@ label start:
     n "After a minute of searching, you finally found your name."
 
     # Visual Paper on a Board
-    n "[Group 01: 1. [player_name]]"
+    n "[[Group 01: 1. [player_name]]"
 
     n "You exhaled deeply, aware of the information weighing on your mind."
     n "Determined not to forget your place, you walked deeper into the school buildings."
