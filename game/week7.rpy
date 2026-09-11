@@ -369,5 +369,5 @@ label week7_conclusion:
     n "You stand alone by your desk, a heavy ache lingering in your chest."
     n "You know you cannot leave things like this..."
 
-    # End of Week 7
-    return
+    # Connect to Week 8
+    jump week8_start

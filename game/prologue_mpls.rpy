@@ -1,13 +1,23 @@
+
 label start:
-    $ current_week = "Prologue"
-    play music "audio/bgm_classroom.ogg" fadein 2.0 loop volume 0.5
     transform pc_muncul:
         xalign 0.5
         yoffset 300
         alpha 0
         ease 0.6 yoffset 0 alpha 1.0
+        
+    $ current_week = "Prologue"
+    stop music fadeout 1.5
+    scene black
+    with dissolve_scene_full
+
+    $ player_name = renpy.input(_("Please enter your name:"), default="You", length=20).strip()
+    if not player_name:
+        $ player_name = "You"
 
     scene bg room
+    with dissolve_scene_full
+    play music "audio/bgm_classroom.ogg" fadein 2.0 loop volume 0.5
 
     n "The dim light of a study lamp casts a shadow across the desk."
     n "The soft, amber glow bathed the room in warmth, creating a cozy cocoon against the creeping chill of the evening outside."
@@ -31,70 +41,41 @@ label start:
     p "Yes! I did it! I got accepted!"
     hide phone_foreground
     hide phone_background
-    n "Then you start prepare for tommorow"
-    p "Better be i should sleep..."
-    menu:
-        "Go to sleep":
-            n "You go to sleep and dream about your future in the school"
+
+    # Timeskip
+    n "Two months later…"
+
+    scene bg gates_morning
+    with fade
+
+    n "The wind blows, causing your hair to move in waves."
+    n "Your shoes tap against the ground as you walk with a nervous thrill towards the building of your new school."
+    n "Today marks your first day as an official student at SMK Raden Umar Said."
+
     scene lobby_sketch
-    n "next day... you arrive at school excited to start your new journey"
-    n "you arrive at lobby of school, so many people gather at billboard."
-    n "you had to effortfully push through the crowd to get a better view of the information posted on the board."
-    p "Oh i should find way to the tent!"
-    n "you start to look around the school"
-    jump MPLS
+    with dissolve
 
+    n "As you walked deeper into the school grounds, the striking red and grey buildings loomed above you, exuding a sense of modernity and excitement."
+    n "The air buzzed with energy as students and parents hurried about, chatting and unloading supplies."
+    n "Laughter and footsteps filled the atmosphere, reminding you that you weren't alone."
+    n "Each person you saw shared the same mix of anxiety and eagerness, all ready to begin their own journey in this new school life."
 
-label getting_map:
-    scene vw
-    p "Oh damn, i lost... why this school so big..."
-    n "you keep walking aroud till..."
-    play sound "audio/bump.opus"
-    n "accidently bump to someone"
-    p "Oh-"
-    show mas_it neutral at center with dissolve
-    mas_it "Ow-"
-    p "Sorry, i didn't see you there"
-    mas_it "Its okey kid, be careful"
-    n "Seem like he notice your confused look"
-    mas_it "You lost huh? this place are really big"
-    p "Yeah, im new here so... can you help me?"
-    mas_it "Sure, but not now... so for now i just can help you witth this..."
-    show mas_it smile
-    mas_it "Give me your phone"
-    p "Eh? Okay...?"
-    menu:
-        "Give him your phone":
-            n "You give him your phone"
-    n "..."
-    mas_it "Here your phone"
-    menu:
-        "Take it":
-            n "You take your phone"
-            n "Acquire map"
-    $ mapAcquired = True
-    p "Thanks sir!"
-    mas_it "Anytime kid, good luck!"
-    hide mas_it with dissolve
-    n "he walk away, you decide to continue search the tent of MPLS"
-    jump MPLS
-    
+    p "This felt like a dream…"
 
+    n "You checked the board in front of the lobby, checking for any more information."
+    n "More people started to hover around the board; you leaned into the crowd effortfully to read it."
+    n "Upon further inspection, you could see rows of names divided into groups."
+    n "After a minute of searching, you finally found your name."
 
-label MPLS:
-    p "Where i should go..."
-    if mapAcquired:
-        p "Oh right, i have the map"
-        n "You open the map and see the location of MPLS tent"
-        p "I should go to the tent of MPLS"
-        jump inside_MPLS_tent
-    else:
-        p "I should ask someone for help"
-        n "You look around but lost"
-        menu : 
-            "Walk inside":
-                jump getting_map
-        
+    # Visual Paper on a Board
+    n "[Group 01: 1. [player_name]]"
+
+    n "You exhaled deeply, aware of the information weighing on your mind."
+    n "Determined not to forget your place, you walked deeper into the school buildings."
+
+    # Ext. SMK RADEN UMAR SAID ASSEMBLY AREA - Visual Tenda MPLS
+    jump inside_MPLS_tent
+
 
 label inside_MPLS_tent:
     # ===== PROLOGUE: Tenda MPLS (kelanjutan setelah sampai/ketemu tenda) =====
@@ -189,10 +170,10 @@ label trida_lunch_nice:
     n "They smiled, showing you their own lunchbox."
     n "The delicious-looking fried rice lay nestled among perfectly cooked eggs, making your stomach growl."
     n "Perhaps you were just hungry, but it was the most appetising fried rice you had ever seen."
-    p "Oh, thanks!"
+    p "Oh, thanks! By the way, my name is [player_name]. Nice to meet you."
     show trida laugh
     n "The fellow grinned widely as they slowly moved closer."
-    trida "You can call me Trida. Nice to meet you!"
+    trida "You can call me Trida, [player_name]. Nice to meet you too!"
     n "That meeting was your first spark in this new school."
     n "Both of you continued to chat happily as the first flower of your friendship blossomed."
     hide trida with dissolve
@@ -240,7 +221,7 @@ label radit_nice:
     n "He appeared more approachable, a warmth radiating from his expression as he gradually moved closer."
     radit "I'm Radit, nice to meet you...?"
     n "He drew out the last syllable of his phrase, leaving a deliberate pause so you may introduce yourself."
-    p "Nice to meet you, too, Radit."
+    p "I'm [player_name]. Nice to meet you, too, Radit."
     n "You intertwine your hand with his, creating a small, unexpected handshake."
     show radit amused
     radit "So, are you joining the queue?"
@@ -308,9 +289,9 @@ label chie_nice:
     chie "No worries. Oh yeah, I didn't catch your name!"
     n "You paused. Chie was a very nice person."
     n "She might seem like a rabbit hopping around in her own words, but she is just another spirited individual."
-    p "It's been a long morning... but thanks again for your help, Chie."
+    p "I'm [player_name]. Thanks again for your help, Chie."
     show chie smile
-    chie "Nice to meet you then, new friend!"
+    chie "Nice to meet you then, [player_name]!"
     n "Suddenly, an announcement was faintly heard in your ears."
     n "It must have been a sign that your break was ending. Chie lightly tapped your back."
     show chie happy

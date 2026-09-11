@@ -389,11 +389,13 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 transform button_hover:
+    subpixel True
     on hover:
         linear 0.15 xoffset -20 zoom 1.03
     on idle:
         linear 0.15 xoffset 0 zoom 1.0
 transform logo_hover:
+    subpixel True
     on hover:
         linear 0.2 zoom 1.05
     on idle:

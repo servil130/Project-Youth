@@ -3,12 +3,24 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define p = Character("You")
+define p = Character("[player_name]")
 define n = Character("")
-define move_transitions = {
-    "fade": Fade(0.5, 0.5, 0.5, color="#000"),
-    "move": MoveTransition(0.5, 0.5, 0.5, color="#000"),
-}
+
+# Core Engine Transitions
+define ease = MoveTransition(0.5, enter=None, leave=None, enter_time_warp=_warper.ease, leave_time_warp=_warper.ease)
+
+# Team Salvato / DDLC Cinematic Scene Transitions
+define dissolve_scene_full = MultipleTransition([
+    False, Dissolve(1.0),
+    Solid("#000"), Pause(0.5),
+    Solid("#000"), Dissolve(1.0),
+    True])
+define dissolve_scene_half = MultipleTransition([
+    Solid("#000"), Pause(0.5),
+    Solid("#000"), Dissolve(1.0),
+    True])
+
+image black = Solid("#000")
 
 # Declare characters used by this game (no color, named by character name)
 define trida = Character("Trida")
@@ -21,6 +33,7 @@ define sabian = Character("Sabian")
 define julia = Character("Julia")
 define modelling_teacher = Character("Modelling Teacher")
 define civics_teacher = Character("Civics Teacher")
+define teacher = Character("Teacher")
 define glasses_boy = Character("Glasses Boy")
 define cap_boy = Character("Cap Boy")
 define braided_girl = Character("Braided Girl")
@@ -28,12 +41,16 @@ define moderator = Character("Moderator")
 define classmate_a = Character("Classmate A")
 define classmate_b = Character("Classmate B")
 
-default tridaAffection = 0
+# Centralized Game State (Rollback-Safe Store Defaults)
+default player_name = "You"
+default current_week = "Prologue"
 default mapAcquired = False
+default player_has_bouquet = False
+default tridaAffection = 0
+default radit_affection = 0
+default ch_affection = 0
 default sabian_affection = 0
 default julia_affection = 0
-default player_has_bouquet = False
-default current_week = "Prologue"
 
 # ==============================================================================
 # UNCLE MUGEN BACKGROUNDS
