@@ -63,31 +63,79 @@ default sabian_affection = 0
 default julia_affection = 0
 
 # ==============================================================================
-# BACKGROUNDS
+# BACKGROUNDS (DDLC 1080p)
 # ==============================================================================
-image bg classroom = "images/mugen/pack1/School/Classroom_01_day.webp"
-image bg rus_studio = "images/mugen/pack1/School/monele_arts_building.webp"
-image bg grapos_field = "images/mugen/pack1/School/football_field_day.webp"
-image bg gates_morning = "images/mugen/pack1/School/generic_school_gate.webp"
-image bg bedroom_late_afternoon = "images/mugen/pack1/Assorted/room.webp"
-image bg teddy_cup = "images/mugen/pack1/Cafe Memoria/cafe_memoria_inside_01_afternoon.webp"
-image bg room = "images/mugen/pack1/Assorted/room.webp"
+image bg classroom = "images/ddlc/class.png"
+image bg rus_studio = "images/ddlc/club.png"
+image bg grapos_field = "images/ddlc/corridor.png"
+image bg gates_morning = "images/ddlc/residential.png"
+image bg bedroom_late_afternoon = "images/ddlc/bedroom.png"
+image bg teddy_cup = "images/ddlc/kitchen.png"
+image bg room = "images/ddlc/bedroom.png"
+
+# DDLC Additional Backgrounds
+image bg club = "images/ddlc/club.png"
+image bg corridor = "images/ddlc/corridor.png"
+image bg closet = "images/ddlc/closet.png"
+image bg residential = "images/ddlc/residential.png"
+image bg house = "images/ddlc/house.png"
+image bg kitchen = "images/ddlc/kitchen.png"
+image bg sayori_bedroom = "images/ddlc/sayori_bedroom.png"
+image bg space_room = "images/ddlc/space_room.png"
 
 # ==============================================================================
 # CHARACTER EXPRESSIONS (Ren'Py Tag Attributes)
 # ==============================================================================
-# Trida
-image trida = Placeholder("boy", text="Trida")
-image trida neutral = Placeholder("boy", text="Trida\n(Neutral)")
-image trida smile = Placeholder("boy", text="Trida\n(Smile)")
-image trida happy = Placeholder("boy", text="Trida\n(Happy)")
-image trida laugh = Placeholder("boy", text="Trida\n(Laugh)")
-image trida surprised = Placeholder("boy", text="Trida\n(Surprised)")
-image trida sad = Placeholder("boy", text="Trida\n(Sad)")
-image trida crying = Placeholder("boy", text="Trida\n(Crying)")
-image trida nervous = Placeholder("boy", text="Trida\n(Nervous)")
-image trida blush = Placeholder("boy", text="Trida\n(Blush)")
-image trida annoyed = Placeholder("boy", text="Trida\n(Annoyed)")
+# Trida (Outfits: uniform, casual | Expressions: neutral, happy, sad, embarrassed)
+init -1 python:
+    TRIDA_ZOOM = 1.30
+    TRIDA_YOFFSET = 240
+
+    def trida_sprite(outfit, expr):
+        path = f"images/trida/trida_{outfit}_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=TRIDA_ZOOM, yoffset=TRIDA_YOFFSET)
+        return Placeholder("boy", text=f"Trida\n[{outfit.capitalize()}]\n{expr.capitalize()}")
+
+# Base fallback (Uniform Neutral)
+image trida = trida_sprite("uniform", "neutral")
+
+# --- UNIFORM ---
+image trida uniform neutral = trida_sprite("uniform", "neutral")
+image trida uniform happy = trida_sprite("uniform", "happy")
+image trida uniform sad = trida_sprite("uniform", "sad")
+image trida uniform embarrassed = trida_sprite("uniform", "embarrassed")
+
+# --- CASUAL ---
+image trida casual neutral = trida_sprite("casual", "neutral")
+image trida casual happy = trida_sprite("casual", "happy")
+image trida casual sad = trida_sprite("casual", "sad")
+image trida casual embarrassed = trida_sprite("casual", "embarrassed")
+
+# --- BACKWARD COMPATIBILITY & CONVENIENCE ALIASES ---
+# Default to uniform when outfit is omitted:
+image trida neutral = "trida uniform neutral"
+image trida happy = "trida uniform happy"
+image trida sad = "trida uniform sad"
+image trida embarrassed = "trida uniform embarrassed"
+image trida blush = "trida uniform embarrassed"
+
+# Aliases for existing script scenes (Week 1 - Week 9)
+image trida smile = "trida uniform happy"
+image trida laugh = "trida uniform happy"
+image trida surprised = "trida uniform happy"
+image trida nervous = "trida uniform embarrassed"
+image trida crying = "trida uniform sad"
+image trida annoyed = "trida uniform sad"
+
+# Casual aliases
+image trida casual blush = "trida casual embarrassed"
+image trida casual smile = "trida casual happy"
+image trida casual laugh = "trida casual happy"
+image trida casual surprised = "trida casual happy"
+image trida casual nervous = "trida casual embarrassed"
+image trida casual crying = "trida casual sad"
+image trida casual annoyed = "trida casual sad"
 
 # Radit
 image radit = Placeholder("boy", text="Radit")

@@ -71,12 +71,13 @@ label week3_ask_trida:
 
     n "Trida finally really turns their body to you, as the room finally lights up around them."
     n "The two classmates were finally turning their eyes on you."
-    show trida at center with dissolve
+    show trida uniform neutral at center with dissolve
     trida "Oh-hey!"
     p "Hey, could you help me for a bit?"
 
     n "You could feel Trida's hands instinctively grab your arms as they now faced you fully."
     n "Their expression hints at some messages; they wanted to get out of there quickly."
+    show trida happy at center, hop
     trida "You need help, too? Oh yeah, yeah, I got you."
     n "They rushed their sentence, feeling the rustle of your hands as they were dragged to your seats."
 
@@ -94,6 +95,7 @@ label week3_ask_trida:
 
     n "Trida's eyes squinted through the screen as you left-clicked the mouse two or three times."
     n "Then, as your hands move, Trida finally nods in confidence."
+    show trida happy at center with dissolve
     trida "Yeay, I get it. Easy fix."
     n "Trida grabs the mouse from your hands, while pausing to glance at you for a second, before continuing their explanation."
 
@@ -128,6 +130,7 @@ label week3_trida_cook_success:
     n "They freeze for a moment, then gradually lean in closer, studying the details with a mix of curiosity and determination."
     n "After a pause, they turn to you immediately."
 
+    show trida happy at center, hop
     trida "WAIT—okay, that actually worked?!"
     n "Trida exclaims for a second before they open their lips again. Now they’re partially jumping from the chair."
     trida "See?! I knew it!"
@@ -136,8 +139,10 @@ label week3_trida_cook_success:
     p "…You didn’t."
 
     n "Trida pauses for a moment, their eyes sparkling, then bursts into loud laughter—a sound that fills the room and brings a smile to everyone around them."
+    show trida happy at center, hop
     trida "Okay, yeah, I didn’t—but it counts!"
     n "Trida says, and there’s a strange charm to their enthusiasm."
+    hide trida with dissolve
     jump week3_break_time
 
 
@@ -148,15 +153,18 @@ label week3_trida_cook_doubt:
     n "They halt their rapid clicking on the mouse and turn toward you, their brow furrowed slightly in concern."
     n "A moment of uncertainty hangs in the air before they break into a wide, reassuring grin, as if to say everything will be okay."
 
+    show trida happy at center, hop
     trida "Trust me."
     n "They say that with too much confidence, they don’t even wait for your response."
     trida "It looks bad now, but it’ll come together. Like—like crafting builds in games, you know?"
     n "They just keep moving forward, but with more speed and chaos."
+    show trida embarrassed at center, panic
     trida "—and then you just align this here—no, wait—hold on—"
 
     n "Click and everything breaks."
     n "The UV explodes into a distorted mess, and silence follows as they stare at it."
     n "Then slowly leaned back in a beat, before they quietly added."
+    show trida embarrassed at center, dip
     trida "…Okay."
     trida "That… wasn’t the plan."
     n "They rub their face as they glance with a sense of guilt, but try to smile."
@@ -178,6 +186,7 @@ label week3_trida_retry_cook:
 
     n "Upon hearing your words, Trida immediately straightens up."
     n "Their eyes widen with determination, and a big smile spreads across their face."
+    show trida happy at center, hop
     n "They turn their attention back to the computer, locking in their focus completely."
     trida "Okay. Okay—this time we’ll do it properly."
 
@@ -189,9 +198,11 @@ label week3_trida_retry_cook:
 
     n "Trida exhales, and you can feel the heaviness of their earlier panic wash away with this small victory."
     n "They finally turn to look at you again, their eyes sparkling with pride like a bright star that could swallow you whole."
+    show trida happy at center, hop
     trida "Okay, that one was real."
     n "A small grin spreads across their face, followed by a moment of sincerity."
     trida "Thanks for trusting me."
+    hide trida with dissolve
     jump week3_break_time
 
 
@@ -202,6 +213,7 @@ label week3_trida_retry_cancel:
     n "With both hands, you reach forward, taking back the keyboard and pressing CTRL + Z multiple times to reset everything."
 
     n "As your work returns to a clean state, you glance back, and Trida freezes in place."
+    show trida sad at center, dip
     n "The mouse is still in their hand, unmoving like a symbol of guilt reflected faintly on the screen."
     n "Slowly, they let go of the mouse as a heavy, tense atmosphere fills the room."
     n "A small pause of silence hangs between you before you finally break it with a quiet voice."
@@ -235,6 +247,7 @@ label week3_trida_retry_together:
     p "Wait, let’s figure it out together."
 
     n "Trida’s head snapped from side to side in a quick, defensive shake. Panic surged through them."
+    show trida embarrassed at center, panic
     n "On the screen, the cursor jerked as they shoved the mouse, rotating the model and clicking wildly in a desperate bid to fix the mess before it worsened."
     n "Instead, it only grew more chaotic. The UV map tangled into an unrecognisable knot of vertices."
     n "Trida went rigid, the colour draining from their face as the realisation of the disaster set in."
@@ -242,6 +255,7 @@ label week3_trida_retry_together:
     trida "No, no—I’ve got it. Just—give me a second—"
     n "Slowly, they turned to look at you, a familiar, hollow grin creeping across their lips."
     n "It was a mask for the embarrassment radiating off them, and you could practically feel the helplessness in the way their posture sagged."
+    show trida embarrassed at center, dip
     trida "Okay, maybe I don’t have it."
     n "They leaned back, finally yielding the space you needed."
     trida "Team effort?"
@@ -253,6 +267,7 @@ label week3_trida_retry_together:
     p "What if we cut here first?"
 
     n "Trida’s eyes followed your gesture."
+    show trida neutral at center with dissolve
     trida "Oh—wait, yeah."
     n "Trida pauses."
     trida "That might actually—hold on—"
@@ -265,14 +280,17 @@ label week3_trida_retry_together:
     n "The two of you sat in silence for a moment, simply staring at the screen."
     n "Then, the tension broke. Trida burst into a grin—a genuine one this time, fueled by a flood of relief."
 
+    show trida happy at center, hop
     trida "Wait—we actually did it,"
     n "They said, letting out a laugh that sounded lighter, stripped of the usual force."
     n "Trida glanced at you, their expression softening."
     trida "Okay, yeah. That felt way better."
     p "…I like this more."
+    show trida embarrassed at center, dip
     trida "Working together, you mean…"
     n "Their hands lifted, hovering for a heartbeat as if they intended to tap your shoulder or offer a grateful touch."
     n "They hesitated, the hand suspended in the air, before it finally dropped back to their side."
+    hide trida with dissolve
     jump week3_break_time
 
 
@@ -363,6 +381,7 @@ label week3_studio_sabian:
     n "He leans in slightly, grinning."
     sabian "Name’s Sabian. Sophomore year and currently an intern here."
     n "He shakes your hand confidently, offering a firm grip."
+    show sabian smile with dissolve
     n "Sabian's face breaks into a surprisingly friendly smile, reminiscent of any corporate CEO you could’ve seen on the big screen."
 
     p "I’m [player_name], nice to know you-uh, Sabian."
@@ -381,6 +400,7 @@ label week3_studio_sabian:
 
     $ sabian_affection += 1
     n "Sabian hesitates for half a second before suddenly brightening with excitement."
+    show sabian laugh at center, hop with dissolve
     sabian "HA! I knew it!"
     n "He bursts into laughter, giving your shoulder a playful slap that leaves a bit of a sting."
 
@@ -389,9 +409,11 @@ label week3_studio_sabian:
     sabian "C’mon, you’re on break. You don’t look like you’ve eaten either."
 
     n "He gestures toward the screen, directing you as they look at you, his smile growing."
+    show sabian smile with dissolve
     sabian "We’re grabbing snacks."
     n "Sabian pauses."
     sabian "You’re coming by the way. No arguments."
+    hide sabian with dissolve
     jump week3_second_break
 
 
@@ -429,11 +451,13 @@ label week3_lounge_julia:
     p "Are you into photography?"
 
     n "Julia stills. For a moment, she looks like she’s going to give a polite, one-word answer, but then her expression softens."
+    show julia smile with dissolve
     julia "…Yeah. I mean—yeah. A little."
 
     n "She shifts her weight, angling her body toward yours. Her grip on the camera lens relaxes as her fingers trace the edge of the frame."
     julia "I just like capturing… the quiet stuff. The small things that people usually walk right past without seeing."
     n "She holds your gaze for a beat longer than usual, then suddenly blinks, her eyes dropping back to the floor as she realises how much she just shared."
+    show julia shy with dissolve
     julia "…Sorry. Was that a bit too much? I’m probably rambling."
 
     p "No. It’s fine."
@@ -495,7 +519,7 @@ label week3_lab_trida:
 
     n "Trida jolts, their chair screeching harshly against the floor. They whip around, blinking rapidly as they adjust to your presence."
     n "A practised, weary smile quickly masks their frustration."
-    show trida at center with dissolve
+    show trida uniform happy at center, dip with dissolve
     trida "Oh! Hey. You scared me for a second."
 
     n "They straighten up, smoothing their uniform with a shaky hand."
@@ -514,6 +538,7 @@ label week3_lab_trida:
     n "Trida slams their mouse down with a decisive thud, the sound slicing through the room's silence like a sharp knife."
     n "There’s an unmistakable finality in the action, with nothing but a lingering pause, even the attempt to save any files or salvage any work didn’t occur to them—just a resolute gesture, an emphatic declaration that this chapter is thoroughly closed."
 
+    show trida happy at center, hop
     trida "Yeah, break sounds good."
     n "With a swift and graceful motion, they send their bag tumbling from the edge of the table, the contents shifting and clattering as it falls."
     n "Just in time, they snatch the strap from the air, preventing it from landing with a thud on the floor."
@@ -522,6 +547,7 @@ label week3_lab_trida:
 
     trida "You’re coming too, right?"
     p "Of course!"
+    hide trida with dissolve
     jump week3_second_break
 
 
@@ -559,6 +585,7 @@ label week3_chie_encounter:
     n "The sound of Chie giggling waving through your ears. You stunned for a moment, before opening your lips."
 
     p "Yeah, kind of. Are you still at work?"
+    show chie smile with dissolve
     n "Chie looks making a sound of tired laughter hearing that. She tucked her hair to her ears."
     n "There is a nervous gesture she kind of pushes to the air. She makes a vague, restless gesture in the air."
     chie "Well, I don't wanna look like I'm whining about my work. But you know the deadlines are ruthless.."

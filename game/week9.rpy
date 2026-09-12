@@ -15,7 +15,7 @@ label week9_start:
     n "You stretch in your seat to the warmth of the afternoon sun after the long lesson period, and as you do, catch a glimpse of Trida's figure approaching with a beaming grin and phone in hand."
     n "Although it feels as though you can feel their animated presence before you even see them."
 
-    show trida happy at center with dissolve
+    show trida uniform happy at center with dissolve
     trida "[player_name]!!!"
     n "Trida's urgent booming voice was only amplified by how close their face was to yours, their eyes wide open in delight and breaths labored as visible sweat dripped down their neck."
     n "You wondered what Trida could've been possibly doing during class to inflict such a reaction."
@@ -30,28 +30,28 @@ label week9_start:
     menu:
         "Woah, you actually did it?!":
             $ tridaAffection += 1
-            show trida laugh
+            show trida happy with dissolve
             n "Trida chuckled in gratification, a giddy smirk showing through the corners of their lips; you could see a twinkle in their eyes."
             n "Trida's tone was humorous, but you could sense they were genuinely psyched by the new achievement."
             trida "You bet I did! Heh, crazy, right?"
         "So THAT'S what got you fired up, huh?":
             $ tridaAffection += 1
-            show trida annoyed
+            show trida embarrassed at center, dip with dissolve
             trida "Hey! What's that supposed to mean?!"
             n "Trida's lips scrunch into a childish pout as they whined out each word."
             n "Despite Trida's typical reaction when teased, you couldn't help but find this expression of theirs more endearing than usual."
             n "You let out a quiet, amused chuckle."
             p "Just wasn't expecting the strong reaction is all."
-            show trida happy
+            show trida happy with dissolve
             trida "Well I'd say my reaction was very reasonable, if I do say so myself!"
 
-    show trida smile at center
+    show trida happy at center with dissolve
     n "Trida let out a small proud huff, redirecting their gaze back to the phone screen with a radiant grin as their fingers fervently screenshotted the feat repeatedly as though it would disappear at a moment's notice."
     n "The sudden switch from the vulnerable Trida in your room was evident in every little jittery mannerism."
     n "As Trida's eyebrows perked up in delight, you found yourself paying extra attention to Trida's every move once more."
     n "How their feet shuffle on the floor from side to side, how their thumbs frantically hover over the phone screen, how their cheeks tremble with how intensely they tense their smile…"
 
-    show trida blush at center
+    show trida embarrassed at center with dissolve
     trida "Uh—[player_name]? Do I look funny or something?"
     n "Your thoughts get interrupted by Trida's face leaning in so close you could see the warm flush of fluster taking form on their ears, a confused smile and furrowed brows playing on their features as you realize that you had been staring at them for what probably felt oddly long."
 
@@ -64,7 +64,7 @@ label week9_start:
             p "Just… thinking."
 
     n "You croak out your quick excuse, however unconvincing it was judging by Trida's quiet chuckles."
-    show trida smile
+    show trida happy with dissolve
     trida "I mean, you looked pretty focused on me just now…"
     n "Despite the joking words, Trida's tender voice would suggest otherwise."
     n "Their eyes darted away for a moment, lips pressed together as if physically holding back the words as they fiddled with their phone buttons."
@@ -113,16 +113,16 @@ label week9_start:
 
     p "Trida, please—"
     n "As you were about to try to interrupt a second time, Trida straightened their back without warning and placed their phone down on your desk, exhaling deeply as the song came to an end."
-    show trida happy at left
+    show trida happy at left with dissolve
     trida "Ahh, finally…"
 
     n "As though re-orienting with reality, Trida finally blinked a few times and looked around, where the boy in glasses was staring right back with a small grin, stifling a giggle at the ridiculousness of the situation."
 
-    show trida surprised at left
+    show trida neutral at left, hop
     trida "AH! What the—!"
     n "Trida flinched back at the sudden appearance, letting out a loud yelp."
     p "Yeah, I've been trying to tell you…"
-    show trida nervous at left
+    show trida embarrassed at left with dissolve
     trida "O-oh, it's you… Sorry…"
 
     n "Trida diverted their gaze to the boy, trying to keep a small smile despite the obvious guilt showing through their shakier voice and fidgeting hands."
@@ -137,7 +137,7 @@ label week9_start:
     trida "…!"
     glasses_boy "I just… let my confusion turn to anger and went off the deep end, when I really should've just… tried to be cool about it."
 
-    show trida smile at left
+    show trida happy at left with dissolve
     n "Trida's tensed face loosened at the boy's candid apology, their eyes on him as they swallowed their breath."
     trida "It's… it's all good. I mean, I shouldn't have dragged the team down as much as I did, I understand…"
 
@@ -148,7 +148,7 @@ label week9_start:
 
     glasses_boy "No, I—I should be thanking you… honestly, it made me realize how insensitive I can be. I probably wouldn't have known otherwise…"
     n "You notice the boy's demeanor relaxing the more he talks to Trida, the grin naturally remaining on his face as he eases into the conversation."
-    show trida happy at left
+    show trida happy at left, hop
     trida "Really…? Well… I didn't really do anything special, but… I'm glad it helped you… somehow!"
 
     n "Trida's happy disbelief made the atmosphere feel breathable. The boy nodded briefly before looking back at you."
@@ -177,17 +177,17 @@ label week9_start:
     with fade
 
     n "Trida leads you to the lively canteen. Although not without bumping into at least one other student, they swiftly pocketed their phone and approached the noodle stall."
-    show trida happy at center with dissolve
+    show trida uniform happy at center with dissolve
     trida "I'll have one of the Aceh fried noodles with an egg on the side!"
     n "All it took was one look at Trida's enthusiastic ordering before the lady running the stall was already up and ready to cook."
     n "You sit down on a nearby bench and lean back as Trida shifts back and forth in anticipation."
 
     p "Do you have that order on speed-dial or something? The lady barely looked at you."
-    show trida smile at center
+    show trida happy at center with dissolve
     trida "Hah, what can I say? If this was a Teddy Cups stall, I would have so many loyalty cards filled to the brim by now!"
     p "Right…"
 
-    show trida surprised at center
+    show trida neutral at center with dissolve
     n "Before you could settle on your lunch order, you notice Trida's hands confusedly rummaging through their tight pockets with a perplexed look."
     trida "Crap! I think I forgot—no, I definitely forgot my wallet!"
     p "How shocking…"
@@ -218,6 +218,7 @@ label week9_start:
     julia "Oh, it's just… to be frank, I've been noticing you and Trida becoming closer for quite a while now."
     julia "You guys seem to make a great pair. Seeing you two have fun always brings up the mood, and I can't imagine the two of you ever separating, so I was just wondering…"
 
+    show julia neutral with dissolve
     n "Julia suddenly turns toward you and holds eye contact, an uncharacteristic but sincere, determined look on her face."
     julia "Perhaps this is a bit too direct, but if you don't mind being honest with me for a second…"
     julia "…Who is Trida to you, [player_name]?"
@@ -228,9 +229,11 @@ label week9_start:
             $ trida_route = "romance"
             n "You stutter out your honest feelings, thinking back to how many times the small moments with Trida have made your heart race."
             n "Everything from the funny moments, the tender moments, the emotional Saturday night in your room… all culminating into a first admission of your feelings for Trida to Julia."
+            show julia smile with dissolve
             julia "I see…"
             n "Julia smiles to herself upon hearing your confession, sighing quietly in relief."
             p "…What? Don't go around telling people."
+            show julia shy with dissolve
             julia "Oh, of course not! You see… I had a feeling you'd say that. From what I've observed, the way you look at Trida is simply unmistakable…!"
             julia "If I may admit something too, I've had a few romantic escapades with my own friends in the past, so I understand you must be feeling very conflicted."
             p "Oh! Well… yeah, but I wouldn't have expected that from you."
@@ -249,6 +252,7 @@ label week9_start:
         "A close friend I trust a lot":
             $ tridaAffection += 1
             $ trida_route = "friendship"
+            show julia smile with dissolve
             julia "I see… I can really see that Trida is important to you."
             julia "Maybe this is an odd thing to say about someone else's friendship, but I have a feeling you two will always have each other's backs until the end."
             n "Julia's thoughtful words felt unexpected from someone like her, but you couldn't deny her pleased expression and tone of voice."
@@ -262,25 +266,29 @@ label week9_start:
 
     n "It was then you heard loud pants and footsteps approaching from behind."
     show julia smile at left with ease
-    show trida happy at right with dissolve
+    show trida uniform happy at right with dissolve
     trida "I'm back!!"
     n "Trida's announcement pierced through the ambiance of the crowd as they came running towards you, flailing the acquired wallet in their hand like a gold medal."
     n "Within barely a second, Trida speeded past you and Julia, bent over gasping for air as they counted the bills in their hand."
 
     p "Speak of the devil…"
+    show julia shy at left with dissolve
     julia "I reckon you'd like to keep our discussions a secret, yes?"
     n "Julia chuckled with a glint in her eyes, her knowing grin playfully teasing your embarrassment."
 
     n "Trida soon arrived at your bench with a styrofoam box abundant with fried noodles and a sizable sunny-side-up egg."
-    show trida smile at right
+    show trida happy at right with dissolve
     trida "Sorry for the wait, guys! I swear I did {i}not{/i} recall my wallet being under my table of all places—"
     trida "Eh, Julia? Hey, Julia! Didn't realize you were here too!"
+    show julia smile at left with dissolve
     julia "Ah, hey, Trida…! It's been a while since we talked, right?"
     trida "Oh, totally!"
 
     n "You could already see the gears revving up in Trida's head upon talking to a fellow nerd, their smile widening with energy."
     trida "You know, I watched that Nimecart series you told me about! Ah, what was it called—the Sanity one?"
+    show julia smile at left with dissolve
     julia "Oh! You actually watched it? What did you think of it?"
+    show trida happy at right, hop
     trida "It's SO fun! The storytelling is so cool, and all of the members are really good improvisers—I'm really curious how it's gonna go for future episodes!"
     julia "Right? The world-building is subtle, but still so effective. Oh, I could go on, but—wait, who's your favorite, Trida?"
     trida "Oh man, they all have really interesting storylines…"
@@ -294,27 +302,40 @@ label week9_start:
     menu:
         "Nothing important":
             p "We were just chatting about nothing in particular."
+            show trida neutral at right with dissolve
             trida "And why do I find that hard to believe, hm? You two seem a little less awkward now."
+            show julia shy at left with dissolve
             julia "Heh…"
             trida "And that laugh isn't convincing either!"
         "About Nimecart":
             p "Julia was just talking to me about Nimecart."
+            show trida happy at right with dissolve
             trida "Huh, wouldn't have thought of you as a Nimecart type of person."
             trida "Tell me something about the series then!"
             p "Uhm… the, uh… Insanity series is—"
+            show trida happy at right, hop
             trida "Pfft, you couldn't even get the name of it right!"
             julia "Heheh…"
         "About how slow you were":
             p "Ah, we were just agonizingly waiting for you to come back with your wallet."
-            show trida annoyed at right
+            show trida embarrassed at right, panic
             trida "HEY! Didn't you see how fast I was sprinting?!"
             p "No amount of sprinting could save how slow your eyes are."
+            show trida embarrassed at right, dip
             trida "I REALLY couldn't tell where it was for the life of me!"
             julia "Ehehe…"
 
-    show trida smile at right
+    show trida happy at right, hop
+    show julia smile at left with dissolve
     n "The three of you laugh together around the warm smell of noodles and canteen chatter."
     n "As the lunch bell approaches, you look at Trida—happier, lighter, and closer to you than ever before."
 
+    hide trida
+    hide julia
+    with dissolve
+    scene black with fade
+
     # End of Week 9
+    $ debug_auto_skip = False
+    $ config.skipping = None
     return

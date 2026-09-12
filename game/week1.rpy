@@ -33,10 +33,10 @@ label week1_start:
     n "A voice catches your attention, its familiar tone ringing in your ears."
     n "You turn to see the same brown hair that you noticed during the MPLS event. Those sunset-orange eyes are already etched in your memory."
 
-    show trida smile at center with dissolve
+    show trida uniform happy at center with dissolve
     trida "Hey!"
     trida "Sooo… we're in the same class, huh?"
-    show trida laugh
+    show trida happy at center, hop
     n "They smile, revealing a grin and teeth you've never seen before."
     n "Your memory of them being all awkward has changed to someone who is maybe more confident and bright."
     trida "Wow, what a coincidence!"
@@ -48,7 +48,7 @@ label week1_start:
     n "The sound of scraping chairs and the clattering of desks shattered the lingering quiet, creating an echo that bounced off the walls."
     n "A few seats were occupied, their occupants shifting restlessly as they settled in. You glanced over at Trida, who remained poised beside your table."
 
-    show trida surprised at left with ease
+    show trida neutral at to_left
     trida "That was the teacher, wasn't it!"
     n "They shot a glance your way, their eyes wide with urgency and a hint of panic."
     trida "Mind if I sit next to you?"
@@ -57,7 +57,7 @@ label week1_start:
         "Let them sit beside you":
             $ tridaAffection += 1
             p "Yeah, sure!"
-            show trida happy at left
+            show trida happy at tleft, hop
             trida "Really? Thank you!"
             n "You nodded eagerly as Trida hurried to take a seat at the desk next to you."
             n "They looked at you with a wide, cheerful smile, just like a kid who's just been given a delicious piece of candy!"
@@ -70,7 +70,7 @@ label week1_start:
         "Ask them to sit anywhere else":
             $ tridaAffection -= 1
             p "Uh, I don't know… Sorry, I think someone's already sitting there."
-            show trida sad at left
+            show trida sad at tleft, dip
             n "You bit your lip, a nervous habit that betrayed your anxious thoughts."
             n "Trida's eyes dimmed, a poignant reflection of their sadness, as they tried to play it cool and looked for other remaining seats."
             n "But the teacher had already cleared his throat, making them panic as they still sat down at the desk next to you."
@@ -87,7 +87,7 @@ label week1_start:
 
     teacher "It's all from me, you can take a break now. Gather here again later, as I will provide a subtle overview of our curriculum and materials."
     hide teacher with dissolve
-    show trida smile at center with ease
+    show trida happy at to_center
     n "Your homeroom teacher takes a walk out of the class, leaving you sitting there with exhaled breath."
 
     p "Where should I go now?"
@@ -127,24 +127,24 @@ label week1_grapos:
     menu:
         "Only if there's a binding snack-sharing agreement involved.":
             $ radit_affection += 1
-            show radit amused
+            show radit amused with dissolve
             n "Radit looked at you with an amused expression as he let out a small scoff, placing one hand in his pocket."
             radit "Straight to negotiation, huh? Fair enough."
-            show radit smile
+            show radit smile with dissolve
             radit "Deal. But don't complain when I take the better snacks."
 
         "I mean… I don't fight people usually, so… that counts as getting along, right?":
             $ radit_affection += 1
-            show radit neutral
+            show radit neutral with dissolve
             n "Radit tilted his head as his calm eyes glanced straight towards you."
             radit "That's… a pretty low standard."
-            show radit smile
+            show radit smile with dissolve
             n "After a pause, a small chuckle slips from his lips."
             radit "But I'll take it. Peaceful is a good start."
 
         "Yeah, sure. We'll be seeing each other a lot anyway, so might as well get along.":
             $ radit_affection += 1
-            show radit smile
+            show radit smile with dissolve
             n "There was a brief silence before you saw him nod lightly, placing a smirk on his lips."
             radit "Guess we're stuck with each other then."
 
@@ -179,7 +179,7 @@ label week1_rus:
     menu:
         "Hey, I remember you, of course. You're not that easy to forget!":
             $ ch_affection += 1
-            show chie smile
+            show chie smile with dissolve
             n "Hearing that, her shoulders visibly relaxed, the tension melting away."
             chie "Really? You do?"
             chie "Aaa, that makes me so happy! I was seriously overthinking it."
@@ -188,7 +188,7 @@ label week1_rus:
 
         "Of course I remember you!":
             $ ch_affection += 1
-            show chie laugh
+            show chie laugh at center, hop with dissolve
             chie "Yay!! I knew it!"
             n "She lets out a delighted squeal, hopping on her heels like a playful rabbit."
             chie "See, I'm memorable, right?"
@@ -197,7 +197,7 @@ label week1_rus:
 
         "Chie, right? About that internship… then you are my senior?":
             $ ch_affection += 1
-            show chie smile
+            show chie smile with dissolve
             chie "Oh! Yeah, I guess that makes me your senior, huh?"
             chie "Don't worry, I'm a nice one! If you need help, you can totally ask me!"
 
@@ -216,6 +216,8 @@ label week1_stay:
     with fade
     p "Maybe I should just stay in here."
     n "Half of the people in the room had already left. You sat there scrolling through your phone, passing the break time."
+    scene black
+    with dissolve_scene_half
     jump week1_back_to_class
 
 
@@ -225,7 +227,7 @@ label week1_stay:
 
 label week1_back_to_class:
     scene bg classroom
-    with fade
+    with dissolve_scene_half
     play sound "audio/school_bell.ogg"
 
     n "The lights are cast through the window, making a faint glow in the classroom."
@@ -237,7 +239,7 @@ label week1_back_to_class:
 
     # Visual Splash Art: Trida Doodling
     $ splash_art = True
-    show trida happy at left with dissolve
+    show trida uniform happy at tleft with dissolve
     n "Trida was still doodling through their notes, making scratch sketches with their tongue sticking out—a cat and a dog intertwining their hands together."
 
     $ splash_art = False
@@ -245,11 +247,11 @@ label week1_back_to_class:
     teacher "Are you still with us?"
 
     n "It was a sudden move that made everyone turn their attention to Trida."
-    show trida surprised at left
+    show trida neutral at tleft, dip
     trida "Oh-yes. Yes, sir!"
     teacher "Could you explain to me what 3D Animation does?"
 
-    show trida nervous at left
+    show trida embarrassed at tleft, panic
     trida "It's…"
     n "They hesitated, their eyeballs rolling through the corners of the room before both of your gazes met."
     n "Their hair antenna is bouncing, looking like they are sending a telepathic message to help them."
@@ -260,15 +262,15 @@ label week1_back_to_class:
             $ tridaAffection += 1
             p "3D animation makes digital objects look like they're moving in real 3D space, even though you're just seeing them on a flat screen."
             n "You whispered slowly to them, making them blink repeatedly before returning an awkward smile."
-            show trida happy at left
+            show trida happy at tleft, hop
             trida "3D animation is basically giving digital stuff a little life—like, 'go on, move around, spin a bit'."
             trida "So it looks like it's living in a real 3D world, even though it's just chilling on a flat screen."
             teacher "That was the simplest one to say."
-            show teacher smile
+            show teacher smile with dissolve
             n "The teacher put on a slight smile before explaining more about the topic, leaving Trida to glance at you with a bright grin."
             # Visual Splash Art: Trida Leaning In and Smiling
             $ splash_art = True
-            show trida smile at left
+            show trida happy at tleft with dissolve
             n "They deliberately lean in to you."
             trida "Thank you!"
             $ splash_art = False
@@ -277,19 +279,22 @@ label week1_back_to_class:
             $ tridaAffection -= 1
             p "3D animation tells a story by making drawings move in a flat space, frame by frame, by hand or on a computer."
             n "You whispered slowly to them. Trida rotates their head to face the teacher."
-            show trida nervous at left
+            show trida embarrassed at tleft, dip
             trida "3D animation is like flipping through a bunch of drawings really fast, so they start moving and telling a story on a flat screen."
             teacher "That was slightly incorrect. Those were 2D animation techniques."
-            show trida sad at left
+            show trida sad at tleft with dissolve
             n "The teacher explained more about the topic, leaving Trida to glance at you with a bitten lip and a defeated look."
             trida "It's alright, don't be bothered by it…"
 
     hide teacher with dissolve
-    show trida smile at center with ease
     n "On that day, time seemed to race ahead. The teacher piled on lessons not far beyond what a beginner could handle."
     n "By midday, relief washed over you as the class finally drew to a close. People started packing their stuff into bags, and you did too."
 
     n "You feel someone come up to your desk."
+    if tridaAffection > 0:
+        show trida happy at to_center
+    else:
+        show trida embarrassed at to_center
     trida "Hey, so… thanks for earlier."
 
     menu:
@@ -307,8 +312,10 @@ label week1_back_to_class:
     trida "Actually, that was kind of funny, you know… About me being all distracted… and goofy, I guess?"
     p "Yeah, that was kind of hilarious."
     n "Both of you burst into laughter, recalling the surprise pop quiz from today."
+    show trida happy with dissolve
 
     trida "Anyways, that tension earlier makes me crave an iced tea."
+    show trida embarrassed with dissolve
     n "Trida looks at the floor fidgeting with their tie, glancing from the corner of their eye waiting for your reaction."
 
     menu:
@@ -319,7 +326,7 @@ label week1_back_to_class:
             $ tridaAffection += 1
             p "Should we buy something to drink?"
 
-    show trida happy
+    show trida happy at center, hop
     trida "Let's go buy it together!"
     n "For a moment, you can feel Trida's hands gripping your wrist, pulling you enthusiastically toward the Teddy Cup stall."
     hide trida with dissolve
@@ -340,7 +347,7 @@ label week1_teddy_cup:
     n "You and Trida sat near the stall and ordered two cups of iced tea."
     n "While waiting for the drinks, both of you began chatting about today's topics and discussing what the curriculum would be like for the next three years."
 
-    show trida smile at center with dissolve
+    show trida uniform happy at center with dissolve
     trida "Not gonna lie, when they brought up the Final Assignment in twelfth grade? I was a little excited. I mean—how bad could it be?"
 
     menu:
@@ -354,7 +361,7 @@ label week1_teddy_cup:
     # Visual Trida Looking at Players
     n "The winds rustled around them, tousling their hair in a wild dance, while the crisp sound of leaves crunching underfoot filled the air."
     n "As Trida breathed out slowly, a serene softness washed over their expression, as if they were lost in a vivid daydream."
-    show trida blush
+    show trida embarrassed at center, dip
     trida "Well, however it is, I hoped we are on the same team."
     trida "I know it will be fun, with you."
 

@@ -49,6 +49,7 @@ label week6_cheer_subtle:
 
 label week6_quiz_start:
     n "The referee steps up to the center mic and clears his throat. The crowd goes quiet."
+    show moderator at center with dissolve
     moderator "Alright! Candidates, assume positions. We're going to test your general knowledge. First to three points takes the prize!"
 
     $ quiz_score = 0
@@ -86,6 +87,7 @@ label week6_quiz_start:
         "Raphael":
             moderator "Incorrect!"
 
+    hide moderator with dissolve
     if quiz_score >= 2:
         jump week6_quiz_win
     else:
@@ -138,6 +140,7 @@ label week6_post_competition:
     n "Their hair is all messy from the humidity. Their cheeks are red from cheering so much. They're full of energy."
     n "They hand you a cup of tea and grab your elbow to take you to the shade under the bleachers."
 
+    show trida uniform happy at center with dissolve
     trida "You were great. Do not worry about the score. Come on, sit down for a minute. You look like you are going to faint."
     p "Thanks..."
 
@@ -146,6 +149,7 @@ label week6_post_competition:
     n "Trida pulls out a paper bag from their hoodie. They open it."
     n "You see your favorite snack, but it is all smashed and messy. They see you looking at it. Their ears turn pink."
 
+    show trida uniform embarrassed with dissolve
     trida "I know it is a mess. I got hungry waiting for you to finish. I am sorry. It does not look very good, does it?"
 
     menu:
@@ -171,6 +175,7 @@ label week6_post_competition:
     p "—Now, I feel them in everything they do, from the food they bring me and them helping me in class, or even every single time they wave at me and tell me how glad they are to know me."
 
     n "Trida turns their head to the stage, and their eyes light up. Without thinking, they reach out and grab your wrist with a firm grip."
+    show trida uniform happy at center, hop
     trida "They already started the live music, let's go!"
     p "W-wait, Trida!"
     trida "Come on, we're gonna miss it!"
@@ -178,6 +183,7 @@ label week6_post_competition:
     n "You feel a shock when they touch you. It is like a spark of electricity that goes up your arm and to your chest."
     n "It is not a casual touch. It feels like they're trying to hold onto you. As they pull you up, your knees feel weak. Your heart is beating fast."
     n "You stumble forward, unsure if it is because of the music or because of the way they are touching you."
+    hide trida with dissolve
 
     # In the live concert crowd
     n "Trida works their way through the thick crowd of students until they find themself swallowed by the mass, where you watch from the inside."
@@ -251,6 +257,7 @@ label week6_bouquet_gifting:
     n "The walk back is silent, the rustling of leaves covering the noise of the school's rabble after the performance."
     n "You find yourself by the trunk of a tree, feeling that you have found a part of the world that is solely your own."
     n "You and Trida stand in the shade of the tree, facing each other."
+    show trida uniform neutral at center with dissolve
     n "You smooth the stems of the bouquet one last time before presenting the flowers across the small distance between you."
     n "You take a steadying breath."
 
@@ -258,6 +265,7 @@ label week6_bouquet_gifting:
     n "You are surprised by how quiet your voice sounds."
     p "I'm being serious. I don't really like those... so the flowers are probably better going to someone who actually wants them."
 
+    show trida uniform embarrassed with dissolve
     n "Trida turns to you, regarding the flowers with an expression of utter, undiluted shock."
     n "Their eyes are wide, blinking rapidly, and for a moment, you think they'll refuse to take them."
     n "They tentatively reach forward and pull your wrist towards them before taking the stems from your grasp gently."
@@ -276,26 +284,35 @@ label week6_bouquet_gifting:
     n "They look so surprised by your thoughtful gesture, so utterly not themself, that you think you have never seen them more beautiful in your life."
 
     trida "I..."
+    show trida uniform embarrassed with dissolve
     n "Trida whimpers, saying nothing more, only brushing their lips together before giving you a small, tiny smile."
     n "You feel so overwhelmingly happy, if only because they look so utterly stunned by your gesture."
     n "A calming stillness surrounds the tree as a gentle silence falls around both of you, as if the world paused to give Trida a moment of peace."
 
     # Friends interrupt
+    show trida uniform embarrassed at left with ease
+    show braided_girl at right with dissolve
     braided_girl "Trida! Hey, come here! We were looking for you!"
     n "Two of their friends round the corner from the gym, cell phones in hand, shouting excitedly."
     n "Trida jumps at the sudden intrusion, eyes widening in surprise as they cradle the small bouquet of flowers."
 
     trida "Oh! Uh, hey guys..."
+    show cap_boy at center with dissolve
     cap_boy "Radit has already begun his competition. Let us go and watch!"
     trida "Uhm..."
     p "It's fine, just go there. I still have to do something after this..."
     trida "Really? But..."
     p "...it's fine, Trida."
 
+    show trida uniform happy at left with dissolve
     trida "Oh god. Sorry, I... I have to go. I mean, I'll see you later."
     p "Yeah, yeah..."
     trida "Thank you so much for all of this, by the way... See you later, I mean—I hope I see you later!"
 
+    hide trida
+    hide braided_girl
+    hide cap_boy
+    with dissolve
     n "They do not wait for you to respond, their boundless energy already pushing them to take off running, clutching the flowers to their chest as if they were a prize."
     n "As they turn around, a flash of guilt crosses their face before they trot off toward their friends, giving you one last parting glance, cheeks flushed with embarrassment."
     n "You see them turn around once more, showing off the bouquet of flowers to their friends, no doubt telling them an exaggerated tale."

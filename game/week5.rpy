@@ -19,11 +19,16 @@ label week5_start:
     n "Then you catch a glimpse of someone familiar standing near a clothing stall."
     n "With your courage and curiosity peeking a sense to approach, you take a step there before finally spotting Trida, who was seen leaning against a rack of shirts, looking more at ease than you've seen them all week."
 
+    show cap_boy at left with dissolve
+    show braided_girl at right with dissolve
     cap_boy "...I'm telling you, I spent three hours just trying to get the bridge tool to cooperate in Blender. My mesh looked like a crumpled piece of paper by the time I was done."
     braided_girl "That's because you're probably just extruding faces without thinking about your topology, dude."
 
     n "As Trida's gaze lands on you before anyone else, a smile tugging on their face brings a sudden contrast of warmth jolted from your stomach."
     n "Their eyes light up with a spark igniting the room before their mouth is running around again."
+    show cap_boy at to_left
+    show braided_girl at to_right
+    show trida casual happy at center with dissolve
     trida "Oh, hey! Look who it is!"
 
     n "The two friends glance at each other before they turn to see what's happening."
@@ -60,6 +65,10 @@ label week5_start:
     n "You know she looks like she is picking up a hint the entire convo, before she subtly nudges the boy, who stares at her with a nod in response."
 
     cap_boy "Right! Totally. Catch you later, Trida! Don't spend too much on useless things!"
+    hide cap_boy
+    hide braided_girl
+    with dissolve
+    show trida casual neutral at center with dissolve
     n "The two friends share a knowing smirk before disappearing into the vibrant crowd."
     n "With their departure, a refreshing stillness envelops you and Trida."
     n "Trida lets out a long, exaggerated sigh of confusion and tiredness, watching both of their friends."
@@ -87,6 +96,7 @@ label week5_start:
 label week5_cfd_walk_trida:
     $ tridaAffection += 1
     p "Sure, I'd love to. It's nice to have some company."
+    show trida casual happy at center, hop
     n "Trida's face lights up—not just a smile, but a look of genuine, unfiltered relief."
     n "They quickly tuck their phone into their pocket and adjust their bag."
     trida "Really? I was worried that I would bother you."
@@ -107,14 +117,17 @@ label week5_cfd_walk_trida:
 
     p "Whoa! Are you okay?"
     n "You grab their arm, hauling them up before they hit the concrete hard."
+    show trida casual embarrassed at center, dip
     n "As they stand up with a face turning bright red like a boiled tomato, frantically brushing dust off their jeans."
     trida "I—I meant to do that! It was, uh... testing the ground friction. Super important for, uh, principles of animation, right?"
     p "You're a total disaster."
 
+    show trida casual happy with dissolve
     n "Trida chuckled, although their cheeks remained bright red."
     trida "Shut up! My legs are just tired, okay? Just... don't tell the others!"
 
     n "As the laughter faded, both of you eventually found a bench far away from the hustle and bustle."
+    show trida casual neutral with dissolve
     n "Trida dropped their body onto the seat and slumped there looking as if they had just returned from war."
     trida "Sorry for the drop in energy. I think I'm just... super fried, you know?"
     p "Yeah, this event is really crowded. No wonder you felt like that."
@@ -132,12 +145,14 @@ label week5_cfd_walk_trida:
     n "Before they paused, their orange gaze softening as looking at you deeply."
     trida "Thank you for that."
     $ tridaAffection += 1
+    hide trida with dissolve
     jump week5_evening_dinner
 
 
 # --- BRANCH: WALK ALONE ---
 label week5_cfd_walk_alone:
     p "I think I'll pass for now. I'm actually craving a bit more me-time before the week starts."
+    show trida casual sad at center, dip
     n "Trida blinks, a flicker of disappointment crossing their face before they quickly mask it with a supportive nod."
     trida "No, yeah, I totally get that. These days, it is a pressure cooker—you definitely earned some space."
     n "Trida takes a half-step back, slowly giving you a slightly lopsided grin that feels awkward."
@@ -145,16 +160,19 @@ label week5_cfd_walk_alone:
     p "It would be fun."
     trida "It is! It was a food restaurant near school called Bazinga. You would love it. I'll text you later..."
     p "Yeah, see you, Trida."
+    hide trida with dissolve
     n "Trida gives an awkward final wave as their figure disappears into the bustling morning crowd."
 
     n "You get a snack, you get some cimol, and find a quiet place to watch the city."
     n "When the afternoon light starts to look like gold, your eyes catch a figure of your senior Sabian bargaining with a vendor cart."
     p "Sabian? You're out here?"
+    show sabian smile at center with dissolve
     sabian "Yo! If it isn't my favorite junior themselves! I thought you were locked in on your work!"
     p "I actually managed to escape for once."
     sabian "Good! You gotta get out, man. I ran into Trida earlier—that kid's been stressed, right? Needs to eat. You should keep an eye on them—they forget to relax when they're deep in their work."
     p "Yeah, they've been a bit overworked."
     sabian "Well, tell them not to overthink their life. Alright, let's get out of here!"
+    hide sabian with dissolve
     $ sabian_affection += 1
     jump week5_evening_dinner
 
@@ -190,7 +208,9 @@ label week5_dinner_julia:
     n "KPK Cafe is a sanctuary of warm atmosphere with a bittersweet scent of espresso."
     n "Julia is tucked into a booth near the back. A professional-grade camera lens is resting on the table next to a stack of reference books, and her attention is fixed on a handheld console."
     n "She's wearing oversized headphones, with a furrowed expression in deep concentration."
+    show julia neutral at center with dissolve
     n "She looks up, quickly pulling one earphone back, and a smile finally blooms."
+    show julia smile with dissolve
     julia "Oh. Hello. Didn't think I'd see you here tonight."
     n "She gestures to the empty seat opposite her."
 
@@ -203,6 +223,7 @@ label week5_dinner_julia:
     julia "I'm just... taking a break now. Choosing somewhere not in my room kind of helps me sometimes."
     julia "I was just doing some research for a project. I found this hidden lore bit in a game, and it's honestly fascinating how they handled the environmental storytelling, and I want to look it up."
     n "She pauses, her fingers tightening slightly on the edge of the table."
+    show julia shy with dissolve
     julia "Sorry. I—I didn't mean to info-dump. I just... I get lost in these things. Was that too much?"
 
     menu:
@@ -217,9 +238,11 @@ label week5_dinner_julia:
             $ julia_affection += 1
 
     n "Julia paused before you could see a glimpse of her eyes sparkling in the dim light of the cafe."
+    show julia smile with dissolve
     julia "That was—thank you, honestly... I really appreciate that. It's the first time someone really put their attention on this stuff."
     p "We are friends, right?"
     n "Both of you were drowned in that funny tickle in your feet, because a book of friendship journey is opened there."
+    hide julia with dissolve
     jump week5_night_end
 
 
@@ -230,19 +253,24 @@ label week5_dinner_trida:
 
     n "Bazinga is a total sensory overload. The air is thick with the scent of stir-fried garlic and heavy smoke."
     n "The heavy wooden chairs screech against the concrete, and the wall of chatter is loud enough to drown out the pop music blaring from a corner speaker."
+    show trida casual happy at left with dissolve
+    show radit neutral at right with dissolve
     trida "YO! OVER HERE! HEY!"
     n "Trida's voice cuts through the noise like a siren. They're grinning and waving both arms like they're signaling a plane."
     n "Radit, sitting across from them, just drops his head into his hands, totally done with the drama."
 
     p "Hey, guys..."
+    show radit annoyed with dissolve
     radit "I swear, one day this guy is gonna get us banned from every place in town."
     trida "Relax! You're just boring. Look, I've got a craving for fried rice tonight. You should start ordering [player_name], I'm seriously starving."
 
     n "You grab the greasy, laminated menu. The talk shifts to gaming."
+    show radit neutral with dissolve
     radit "Well, as I said, I finally cleared another run of Final Fantasy VII last night."
     trida "Yeah, the lore is actually insane. Honestly, you're right. Why am I killing myself over Maya when I could just live addicted to video games?"
     radit "You would miss touching grass."
     trida "But for real, when I'm not glued to a screen, I lowkey miss hiking. Just being out here, you know? No deadlines or anything."
+    show trida casual embarrassed at left, dip
     n "They catch themself, their shoulders slumping as the excitement fades into a sheepish grin."
     trida "My bad, I'm totally yapping again. I just... I needed to not be a hard-working student for five minutes, you know?"
 
@@ -262,6 +290,7 @@ label week5_dinner_trida:
 
     n "The table feels smaller, more private, despite the surrounding noise."
     n "Radit pulls out his phone to check messages, effectively giving you and Trida a pocket of space."
+    show trida casual neutral at left with dissolve
     trida "For real though... thanks for listening earlier. I know I'm a lot. I feel like I've been tired of myself with all this constant pressure to be perfect."
     trida "I don't really tell anyone else this, but sometimes the stress hits so hard I just sit on my floor in the dark. It's the only way I can force myself to feel something other than crushing panic."
     trida "I'm really glad you're the one I ended up sitting with tonight."
@@ -272,6 +301,8 @@ label week5_dinner_trida:
     trida "Man, I think that's my limit. Hey, let's call it a night. I'm wiped."
     radit "Alright, I'm out first. I need to go to the Indoapril. Don't spend the whole walk home making a fuss about your games to [player_name], Trida. See you guys later."
 
+    hide radit with dissolve
+    show trida casual embarrassed at center with dissolve
     n "Radit departs on his bike, leaving the two of you standing on the edge of the dark, quiet street."
     trida "Hey... are you heading back to the boarding house now? If you don't mind... Could we walk together? I really don't want to walk back alone tonight."
     n "They sound uncharacteristically small. Trida sticks close to your side as you start walking."
@@ -289,6 +320,7 @@ label week5_dinner_trida:
     n "Their hand brushes against yours as you walk, not quite holding it, but close enough that you can feel the warmth of their skin. They don't pull away."
     $ tridaAffection += 2
     $ splash_art = False
+    hide trida with dissolve
     jump week5_night_end
 
 
@@ -298,6 +330,8 @@ label week5_dinner_seniors:
     with fade
 
     n "Abahciek skips conventional doors; the front is a spacious, open-air gathering spot with elevated wooden platforms and floor mats."
+    show chie happy at left with dissolve
+    show sabian smile at right with dissolve
     chie "[player_name]! No way, are you serious?! Over here!"
     n "Chie is halfway out of her seated position on the floor, waving animatedly in the air. Across from her, Sabian leans casually against the wall with an amused smirk."
     p "What should I order?"
@@ -314,6 +348,9 @@ label week5_dinner_seniors:
     $ ch_affection += 1
     chie "Anyways, tell me, how's your week actually going? Don't give me the boring version—I want the messy stuff!"
     n "Laughter fills the warm circle around the low table as the three of you enjoy a cheerful, lively dinner."
+    hide chie
+    hide sabian
+    with dissolve
     jump week5_night_end
 
 

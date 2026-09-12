@@ -23,7 +23,7 @@ label week4_start:
 
     # Trida skids in
     show radit at right with ease
-    show trida at left with dissolve
+    show trida uniform neutral at left with dissolve
     trida "RADIT!"
     n "A rhythmic jingle of keys announced their presence before the door even clicked open."
     n "Trida skidded into the room, their chest heaving and their hair disheveled from the dash."
@@ -85,20 +85,30 @@ label week4_start:
 label week4_agree_radit:
     $ radit_affection += 1
     p "He's got a point, Trida. You're overthinking the mechanics. Just listen to him for once."
+    show radit smile with dissolve
     n "Radit's smirk turns into a genuine, smug grin. He points a finger at Trida with a triumphant look."
     radit "See? Even [player_name] is tired of your noise pollution. Admit it, I'm right."
+    show trida sad at left, dip
     n "Trida's jaw drops as they look at you with clear betrayal, their shoulders slumping as they grumble."
     trida "Wow. Fine. Everyone's a critic."
+    hide radit
+    hide trida
+    with dissolve
     jump week4_break_grapos
 
 
 label week4_defend_trida:
     $ tridaAffection += 1
     p "Stop being a jerk, Radit. Just because you're good at the game doesn't mean you have to be a total elitist about it."
+    show radit neutral with dissolve
     n "He stops spinning his pen as his smirk fades, replaced by an unreadable expression. He shrugs, looking unaffected."
     radit "Elitist? Just being honest. But sure, keep playing wrong if it makes you feel better."
+    show trida happy at left, hop
     n "Trida practically beams, their mood shifting from frustration to relief instantly. They hit their fist against the desk, pointing it at Radit."
     trida "Exactly! Thank you! See, Radit? Even [player_name] thinks you're being a pain."
+    hide radit
+    hide trida
+    with dissolve
     jump week4_break_grapos
 
 
@@ -158,22 +168,26 @@ label week4_canteen_sabian:
     p "Catch you later, Radit. I'm starving, and I don't think I can handle Trida's gaming meltdowns on an empty stomach."
     n "Radit scoffs, his lazy eyes rolling toward the ceiling."
     radit "Traitor. Leaving me alone with the hurricane? Fine, go eat. Just don't let Sabian talk your ear off about his latest project."
+    hide radit with dissolve
 
     scene bg teddy_cup
     with fade
     # Visual Canteen
     show sabian at center with dissolve
     n "You jog to catch up with Sabian, leaving the studio behind. The canteen is buzzing—a welcome escape from the tension of the workspace."
+    show sabian smile with dissolve
     n "As you enter, Sabian claps a hand on your shoulder."
     sabian "Took you long enough! Thought you were going to spend your whole break running errands. Sit, sit."
     n "You made your orders and hopped into the seat across from him."
     n "The conversation shifts to topics worlds away from your daily grind. It's very chaotic, and for once, you don't have to think about tasks or anything to fix Trida's game stats."
     n "It's the perfect small recharge, even as the guilty part of you wonders how Radit will survive."
+    hide sabian with dissolve
     jump week4_sunset_walk
 
 
 label week4_classroom_radit:
     $ radit_affection += 2
+    show radit smile with dissolve
     n "Radit looks at you, his smirk softening into something almost... relieved."
     n "He starts walking toward the classroom, his posture finally relaxing."
     radit "Honestly? Let's go, I've got some leftover snacks in my bag if you're actually gonna die of hunger."
@@ -201,6 +215,7 @@ label week4_classroom_radit:
         "I'm literally too fried to talk. Just enjoying the silence, man. Don't take it the wrong way.":
             p "I'm literally too fried to talk. Just enjoying the silence, man. Don't take it the wrong way."
 
+    show radit laugh with dissolve
     n "Radit lets out a low, genuine laugh that you rarely catch; he looks more relaxed. He taps his screen down, then glances over at you."
     radit "Don't get used to it, man. I've got a whole list of sarcastic comments ready for when the others get back."
     n "He tosses his phone onto his desk and leans back, closing his eyes for a second. The classroom is silent again; even so, it was not an awkward quietness. There is something warmer about it."
@@ -209,6 +224,7 @@ label week4_classroom_radit:
     p "I think he just wanted someone to be his pack mule."
     radit "Exactly. Which is why you have top-tier taste in friends. Keep it up."
     n "He went back to his phone, but the silence shifted, and a whole lot more was earned. For these few minutes, everything feels like it can be tossed aside."
+    hide radit with dissolve
     jump week4_sunset_walk
 
 
@@ -221,7 +237,7 @@ label week4_sunset_walk:
     with fade
 
     # Visual: SMK Raden Umar Said Gates
-    show trida at center with dissolve
+    show trida uniform happy at center with dissolve
     n "The golden hour light stretched long across the pavement, painting the world in warm, hazy tones as you and Trida drifted away from the gates of SMK Raden Umar Said."
     n "A cooling breeze carried the savory, irresistible scent of round tofu frying nearby, grounding you in the simple peace of the late afternoon."
 
@@ -276,6 +292,7 @@ label week4_walk_conclusion:
     n "Trida pauses softly."
     trida "That makes the whole thing feel way less like a nightmare."
 
+    show trida uniform happy with dissolve
     n "They offer a lopsided, genuine smile, nudging your arm with their elbow—a faint attempt to lighten the sudden weight of the moment."
     trida "Don't worry, I'm not sweating it. Not yet. We did a lot of work this year. You're stuck with me until you graduate, am I right?"
     p "Heh, I'd like to see that."
@@ -284,5 +301,6 @@ label week4_walk_conclusion:
     n "Your mind starts to wander and contemplate what Trida promised."
     p "Stuck with me, huh?"
 
+    hide trida with dissolve
     # End of Week 4 -> Continue to Week 5
     jump week5_start

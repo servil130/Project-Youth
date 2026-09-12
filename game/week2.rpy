@@ -12,6 +12,7 @@ label week2_start:
 
     # Trida approaches
     n "You shift your gaze as a familiar figure approaches your desk."
+    show trida uniform neutral at center with dissolve
     n "Trida holds a worn textbook against their chest, their posture a mix of hesitation and nervous energy."
 
     if player_name:
@@ -34,6 +35,7 @@ label week2_start:
     p "I don't think I've got one yet... why?"
 
     trida "Because I'm calling dibs on you as my partner!"
+    show trida happy at center, hop
     n "The quick, playful declaration catches you off guard."
     n "Even though you've only known each other for a couple of weeks, it's flattering to know they wanted to work with you."
 
@@ -44,6 +46,7 @@ label week2_start:
             $ tridaAffection += 1
         "Sure! Honestly, that sounds kinda great.":
             p "Sure! Honestly, that sounds kinda great."
+            show trida happy at center, hop
             trida "Really?! Awesome! This is gonna be a breeze!"
             $ tridaAffection += 2
         "Well, it was a pretty good idea.":
@@ -59,11 +62,13 @@ label week2_start:
     n "You and Trida look over to see a soft-spoken girl standing a few paces away, clutching her notebook tightly."
 
     shy_classmate "May I... join you two?"
+    show trida happy at to_left
     n "You and Trida exchange a brief glance before Trida speaks up with natural warmth."
     trida "Yeah, of course! The more the merrier, right?"
 
     shy_classmate "R-Really? Thank you..."
     n "A look of profound relief washes over her face, her knuckles unclenching slightly."
+    show shy_classmate at right with dissolve
     n "She steps closer to your desks as a brief, awkward quiet settles among the three of you."
     n "Someone needs to break the ice..."
 
@@ -78,6 +83,7 @@ label week2_start:
     trida "No, no, hey! You don't have to take on everything by yourself."
 
     n "Trida scratches the back of their neck, offering a reassuring, lopsided smile."
+    show trida neutral at tleft with dissolve
     trida "We're a team now, so we'll divide it fairly."
 
     n "The girl blinks, staring at Trida with quiet surprise before giving a gentle nod."
@@ -86,6 +92,9 @@ label week2_start:
     n "You can practically hear the slow exhale from Trida, clearly relieved to have put her at ease."
     p "Guess this works out pretty well."
 
+    hide shy_classmate
+    hide trida
+    with dissolve
     jump week2_project_afternoon
 
 
@@ -101,6 +110,7 @@ label week2_project_afternoon:
     n "Some hours pass, and the classroom gradually empties as students head home."
     n "Long, golden shafts of afternoon sunlight stream through the tall windows, casting amber lines across the desks."
     n "Only the three of you remain, huddled around a shared table with notebooks and profile drafts spread out."
+    show trida uniform happy at tleft with dissolve
     n "Trida is enthusiastically rambling about their hometown, gesturing animatedly with a pen."
 
     n "You chuckle along, but as you glance across the desk, a faint sense of unease tugs at you."
@@ -119,6 +129,7 @@ label week2_project_afternoon:
     shy_classmate "Ah—yeah, I'm fine. Just a little—"
 
     n "She tries to brush it off, but her eyebrows twitch and she sways slightly in her chair."
+    show trida embarrassed at to_center, dip
     trida "Whoa! Hey!"
 
     n "Trida shoots up so fast the wooden legs of the chair screech harshly against the linoleum floor."
@@ -130,6 +141,7 @@ label week2_project_afternoon:
     n "Spotting their open notebook, Trida grabs it and begins fanning her with frantic, high-speed gusts."
 
     shy_classmate "I-I'm okay. Really—"
+    show trida embarrassed at center, panic
     trida "What do we do?!"
 
     n "The violent flapping sends loose worksheets fluttering across the desk, only adding to the chaos."
@@ -138,6 +150,7 @@ label week2_project_afternoon:
     p "You're making her more overwhelmed..."
 
     n "Trida freezes, horrified, a drop of cold sweat glistening near their hairline."
+    show trida sad at center, dip
     n "They slowly lower the notebook, their chest heaving as they rein in their panic."
     p "Can you stand?"
 
@@ -149,7 +162,9 @@ label week2_project_afternoon:
 
     n "Trida spins around instantly—and slams their knee right into the corner of the desk with a loud clatter."
     n "They hiss in pain, clutching their leg for half a second before willing themselves upright."
+    show trida embarrassed at center, dip
     trida "-I'm okay!"
+    hide trida with easeoutleft
 
     n "They bolt out the classroom door, footsteps echoing down the quiet corridor."
     shy_classmate "I'm sorry..."
@@ -164,6 +179,7 @@ label week2_project_afternoon:
 
     # Trida returns with water
     n "The heavy classroom door swings open as hurried footsteps rush back in."
+    show trida uniform sad at center with easeinleft
     n "Trida hurries over, carefully unscrewing a chilled water bottle before handing it to her."
     trida "Here, drink slowly..."
 
@@ -184,6 +200,7 @@ label week2_project_afternoon:
     n "The three of you pack up her belongings, and together you and Trida walk her down to the lobby until her parents arrive to pick her up."
     shy_classmate "I'll message you both later..."
     trida "Take care, okay? Rest up!"
+    hide trida with dissolve
 
     jump week2_classroom_sunset
 
@@ -201,6 +218,7 @@ label week2_classroom_sunset:
     n "The rhythmic ticking of the wall clock seems unusually loud in the quiet room."
 
     n "Trida stands near your shared table, one hand rubbing the back of their neck."
+    show trida uniform sad at center with dissolve
     trida "I panicked."
 
     n "A small, self-deprecating laugh slips from their lips."
@@ -219,6 +237,7 @@ label week2_classroom_sunset:
 label week2_trida_reassure_noticed:
     p "Yeah, I noticed."
     n "A sharp wince crosses Trida's features, followed by a soft, breathy laugh."
+    show trida embarrassed at center, dip
     trida "Wow, okay. No need to confirm it like that!"
     n "You step closer, placing a comforting hand on their shoulder."
     p "I know you just wanted to help. That's what counts."
@@ -231,6 +250,7 @@ label week2_trida_reassure_fine:
     n "Trida hesitates for a moment, their vibrant orange eyes settling on yours."
     n "It's a penetrating look, stripped of their usual comedic deflection."
     trida "Guess that includes me, too. Thanks."
+    show trida happy at center, hop
     n "Their lips curve into a genuine, warm smile, their voice carrying a quiet relief."
     jump week2_trida_bond
 
@@ -242,6 +262,7 @@ label week2_trida_reassure_wrong:
     n "The words seem to sink deep beneath their defenses."
     n "Their shoulders finally slump, a long, slow breath releasing the tight knot in their chest."
     trida "Maybe, but I still wasn't helping much..."
+    show trida neutral at center, dip
     trida "Still... thanks. Really."
     n "Their gaze lingers on yours, an unspoken bond of empathy and understanding tightening between you."
     jump week2_trida_bond
@@ -258,12 +279,14 @@ label week2_trida_bond:
 
     trida "Hey! So I'm the chaotic one now?"
     n "A fleeting look of exaggerated bewilderment crosses their face, as if processing the accusation."
+    show trida happy at center, hop
     trida "Okay, yeah. That's fair."
 
     n "Trida's signature cheeky grin breaks through, completely sweeping away the remaining gloom."
     p "So, guess it's just us for now..."
 
     n "Trida clears their throat with an awkward laugh, their fingers drumming against the draft paper."
+    show trida embarrassed at center, dip
     trida "Anyway—uh, we should probably start over, right?"
     trida "...Partner."
 
@@ -290,6 +313,7 @@ label week2_partner_moment:
     n "The air feels charged, almost electric, momentarily blurring the boundary of simple friendship."
 
     trida "-Ah, sorry!"
+    show trida embarrassed at center, dip
     n "A bright, flustered flush blooms across Trida's cheeks."
     n "They yank their hand back too quickly, breaking the spell but leaving a lingering warmth between your hands."
     $ splash_art = False
@@ -313,10 +337,12 @@ label week2_partner_moment:
     n "A silent, electric curiosity hangs between you."
 
     p "Right. About these paragraphs..."
+    show trida happy at center, hop
     n "A soft, radiant smile dances across Trida's lips, warm and bright in the evening light."
     trida "...We do make a pretty good team."
 
     n "The quiet dusk wraps around the classroom as you both continue working side by side."
     n "And for the first time, you feel a quiet certainty that this year is going to be unforgettable."
+    hide trida with dissolve
     # End of Week 2 -> Continue to Week 3
     jump week3_start

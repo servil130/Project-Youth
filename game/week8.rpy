@@ -17,7 +17,7 @@ label week8_start:
     play sound "audio/bump.opus"
     n "Frowning, you pushed yourself up and pulled the door open, expecting the building manager or a neighbour. Instead, your breath caught."
 
-    show trida nervous at center with dissolve
+    show trida casual embarrassed at center with dissolve
     n "Standing in the dim hallway light was Trida. They looked a little worn out, and they offered a painfully hesitant, tight-lipped smile that didn't quite reach their eyes."
     n "Their hands were shoved deep into their front pocket, nervously fidgeting with the fabric."
 
@@ -75,7 +75,7 @@ label week8_start:
     n "You shifted closer on the couch, with your chest tightening."
     p "Trida, he wasn't right. He was just being an asshole."
 
-    show trida crying at center
+    show trida sad at center with dissolve
     trida "No, he {i}was{/i} right!"
     n "Trida suddenly snapped, their voice cracking sharply as the fragile barrier they'd built all week finally shattered."
     n "They turned to look at you, their eyes swimming with tears, the raw, unfiltered devastation on their face making it hard to breathe."
@@ -119,7 +119,7 @@ label week8_start:
     n "A fresh swell of emotion hit them, but this time, the heavy, crushing despair began to dissolve, replaced by a sudden, overwhelming rush of warmth."
 
     # Visual Splash Art: Trida Blushing and Smiling to Players While Holding Hands
-    show trida blush at center with dissolve
+    show trida embarrassed at center with dissolve
     n "A watery chuckle slipped past Trida's lips, and despite the fresh tears still tracking down their flushed cheeks, a wide, genuine grin broke across their face—radiant, messy, and entirely disarming."
     n "Seeing that sudden, brilliant smile bloom right through their tears made your breath hitch, and your heart gave an unexpected, heavy thud against your ribs, skipping a beat entirely."
 
@@ -142,7 +142,7 @@ label week8_start:
 
     n "For a few quiet moments, the only sound in the room was the steady hum of the air conditioner and the even rhythm of their breathing as it finally stabilised."
 
-    show trida smile at center
+    show trida happy at center with dissolve
     n "Then, a faint, familiar spark flickered back to life behind their tear-damp lashes."
     n "Trida shifted slightly, letting out a small, self-deprecating snort as a hint of their classic, overly dramatic flair crept back into their voice."
 
@@ -153,6 +153,7 @@ label week8_start:
     n "Even though their voice was a little raspy from crying, the teasing jab was unmistakably {i}them{/i}."
     n "It was the return of the Trida you knew—not hiding behind a loud, frantic mask this time, but sharing an intimate, quiet joke just between the two of you, sitting shoulder-to-shoulder in the dim light of your room."
 
+    hide trida with dissolve
     scene black
     with dissolve_scene_full
 

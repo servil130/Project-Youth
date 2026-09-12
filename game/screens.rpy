@@ -194,6 +194,9 @@ screen input(prompt):
             text prompt style "input_prompt"
             input id "input"
 
+    if debug_auto_skip:
+        timer 0.02 action Return("You")
+
 style input_prompt is default
 
 style input_prompt:
@@ -219,6 +222,11 @@ screen choice(items):
     vbox:
         for i in items:
             textbutton i.caption action i.action
+
+    if debug_auto_skip and items:
+        $ _debug_choice_act = get_first_valid_choice(items)
+        if _debug_choice_act:
+            timer 0.02 action _debug_choice_act
 
 
 style choice_vbox is vbox
@@ -257,7 +265,7 @@ screen quick_menu():
 
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton (_("Skip (DBG)") if debug_auto_skip else _("Skip")) action ToggleDebugAutoSkip()
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
             textbutton _("Q.Save") action QuickSave()
@@ -1300,7 +1308,10 @@ screen skip_indicator():
         hbox:
             spacing 9
 
-            text _("Skipping")
+            if debug_auto_skip:
+                text _("Debug Auto-Skip (Opsi 1)") color "#ff5555"
+            else:
+                text _("Skipping")
 
             text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
             text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
@@ -1612,7 +1623,7 @@ screen quick_menu():
             style_prefix "quick"
 
             textbutton _("Back") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton (_("Skip (DBG)") if debug_auto_skip else _("Skip")) action ToggleDebugAutoSkip()
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Menu") action ShowMenu()
 

@@ -41,8 +41,11 @@ label start:
     p "Yes! I did it! I got accepted!"
     hide phone_foreground
     hide phone_background
+    with dissolve
 
     # Timeskip
+    scene black
+    with dissolve_scene_half
     n "Two months later…"
 
     scene bg gates_morning
@@ -92,7 +95,6 @@ label inside_MPLS_tent:
     n "With a slow, deliberate glance, you notice someone your age sitting next to you."
     # Visual Splash Art: Trida Sitting Next To Players
     $ splash_art = True
-    show trida happy at left with dissolve
     n "Their eyes twinkle with excitement as they dart around the tent, drinking in the vibrant atmosphere."
     n "The rich orange of their irises sparkles like the sunset, drawing your attention."
     n "Their brown hair bounces rhythmically as they fidget with enthusiasm."
@@ -101,8 +103,6 @@ label inside_MPLS_tent:
     n "Just as you're about to look at them for a second too long, a clear voice breaks through the chatter."
     n "It commands the room's focus."
     $ splash_art = False
-    show trida happy at left with ease
-    show committee speaking at right with dissolve
     committee "Good morning, everyone!"
     committee "Has everyone taken a breakfast yet?"
     committee "It seems like you guys haven't charged up energy yet."
@@ -123,8 +123,7 @@ label inside_MPLS_tent:
     committee "It's break time! We repeat, it's break time!"
     committee "If anyone has brought lunch, feel free to enjoy it now."
     committee "But, if you prefer the school canteen, TeddyCup stall, or RB Mart, they are open for food too!"
-    hide committee with dissolve
-    hide trida with dissolve
+    with dissolve
     n "Excitement ripples through the crowd as students spring to their feet."
     n "Eager for a moment of freedom and the chance to explore the tantalising options awaiting them."
     n "You start to feel your stomach rumbling as everyone starts to disperse and take out their lunch boxes."
@@ -145,7 +144,7 @@ label trida_lunch:
     n "You sat there, slowly opening your blue container box with a bunny drawing that you had doodled when you were younger."
     n "The smell of the fresh savoury sandwich hits your nose."
     n "Before you could pick it up, you could feel eyes glancing towards you."
-    show trida surprised at center with dissolve
+    show trida uniform neutral at center with dissolve
     n "You blinked as you saw that the person earlier looked like they were mesmerised by your food."
     n "Before then, they noticed and flicked their attention fully towards you."
     menu:
@@ -158,7 +157,7 @@ label trida_lunch:
 label trida_lunch_nice:
     # OPTION 01.5 - Normal Option
     $ tridaAffection += 1
-    show trida happy
+    show trida happy at center, hop
     n "The fellow's eyes shimmered with excitement at the moment you posed your question."
     n "Their brilliance reminiscent of precious gems glinting in the sunlight, as if they had just unearthed a rare treasure."
     trida "Really?"
@@ -167,14 +166,14 @@ label trida_lunch_nice:
     n "Slowly, almost as if caught in a trance, you nodded your head."
     n "Your eyes flickered back to them, where you noticed the sparkly light dancing in their eyes."
     n "A mixture of curiosity and warmth that made your heart skip a beat."
-    show trida smile
+    show trida happy with dissolve
     trida "Thank you...!"
     trida "You could also take mine!"
     n "They smiled, showing you their own lunchbox."
     n "The delicious-looking fried rice lay nestled among perfectly cooked eggs, making your stomach growl."
     n "Perhaps you were just hungry, but it was the most appetising fried rice you had ever seen."
     p "Oh, thanks! By the way, my name is [player_name]. Nice to meet you."
-    show trida laugh
+    show trida happy at center, hop
     n "The fellow grinned widely as they slowly moved closer."
     trida "You can call me Trida, [player_name]. Nice to meet you too!"
     # Visual Splash Art Trida: Eating Lunch Together
@@ -190,7 +189,7 @@ label trida_lunch_bad:
     # OPTION 01.5 - Bad Option
     $ tridaAffection -= 1
     n "You slowly shifted your gaze away and clutched your lunchbox to yourself."
-    show trida sad
+    show trida sad at center, dip
     n "The person was startled for a moment, but they then returned to their own lunchbox."
     n "There is complete silence between the two of you. Perhaps you'll barely interact with the sunset fellow afterwards, if ever."
     hide trida with dissolve
@@ -221,7 +220,7 @@ label radit_teddy:
 
 label radit_nice:
     # OPTION 02.5 - Normal Option
-    show radit smile
+    show radit smile with dissolve
     radit "Mmm, I can see why. The ground's very down-to-earth."
     n "He said with a soft laugh that colored his tone."
     n "He appeared more approachable, a warmth radiating from his expression as he gradually moved closer."
@@ -229,13 +228,13 @@ label radit_nice:
     n "He drew out the last syllable of his phrase, leaving a deliberate pause so you may introduce yourself."
     p "I'm [player_name]. Nice to meet you, too, Radit."
     n "You intertwine your hand with his, creating a small, unexpected handshake."
-    show radit amused
+    show radit amused with dissolve
     radit "So, are you joining the queue?"
     n "He raises one eyebrow, making you realise that the line is getting longer, and you haven't stepped in line."
     p "You're right. I should hurry!"
     n "You were just about to step into line when you realised it would be rude to leave Radit alone."
     p "Don't you want to get some food too?"
-    show radit smile
+    show radit smile with dissolve
     radit "I'm cool. Have fun though."
     hide radit with dissolve
     n "He softly patted your shoulder before walking away. You kept your gaze on Radit as he departed."
@@ -246,7 +245,7 @@ label radit_nice:
 
 label radit_bad:
     # OPTION 02.5 - Bad Option
-    show radit frown
+    show radit frown with dissolve
     n "Wordlessly, you begin to turn your back on the calm boy and search for another food stall to retreat to."
     n "For a split second out of the corner of your eye, you notice the boy's playful expression subtly sour into a small frown."
     hide radit with dissolve
@@ -276,31 +275,31 @@ label chie_bathroom:
 
 label chie_nice:
     # OPTION 03.5 - Normal Option
-    show chie smile
+    show chie smile with dissolve
     n "With an air of amusement, she wore a smile as her eyes followed the softness of her gesture."
     chie "It's alright! Everyone has their first days, after all."
     n "She reaches for your hand, her grasp is gentle yet firm, conveying warmth and friendliness."
     chie "Here, I'll take you to the bathroom. I'm Chie, by the way!"
     n "You barely had a chance to respond before the girl pulled you along with her. The energy Chie had was truly unstoppable."
     n "You had just taken one step forward, and suddenly, both of you were standing in front of the toilet stalls."
-    show chie laugh
+    show chie laugh at center, hop
     chie "Here you go!"
     n "She spread her arms in a grand motion; you could almost forget that she was leading you to a toilet."
     chie "Yeah, it's not that amazing. But hey, it's better than the other toilets around here..."
-    show chie smile
+    show chie smile with dissolve
     chie "Let's just say the smell is... pungent."
     n "She glanced back at you with a playful smile on her lips. She let out a soft laugh, observing your stiff posture."
     p "Thank you, uh... Chie."
-    show chie happy
+    show chie happy with dissolve
     chie "No worries. Oh yeah, I didn't catch your name!"
     n "You paused. Chie was a very nice person."
     n "She might seem like a rabbit hopping around in her own words, but she is just another spirited individual."
     p "I'm [player_name]. Thanks again for your help, Chie."
-    show chie smile
+    show chie smile with dissolve
     chie "Nice to meet you then, [player_name]!"
     n "Suddenly, an announcement was faintly heard in your ears."
     n "It must have been a sign that your break was ending. Chie lightly tapped your back."
-    show chie happy
+    show chie happy with dissolve
     chie "I think it's also my time to head back. Good luck!"
     hide chie with dissolve
     n "You waved at her as you watched her run and disappear around the corner."
@@ -311,9 +310,9 @@ label chie_nice:
 label chie_bad:
     # OPTION 03.5 - Bad Option
     n "You gave a brief, neutral reply and turned away."
-    show chie surprised
+    show chie surprised with dissolve
     chie "Oh."
-    show chie sad
+    show chie sad at center, dip
     n "Her expression immediately dropped, revealing a hint of disappointment."
     n "She fiddled with her hands as she shifted her gaze from her fingers to your face."
     chie "Ah, sorry 'bout that. I was just worried, you know."
@@ -330,6 +329,8 @@ label chie_bad:
 
 # ==== Penutup prologue + sambung cerita ====
 label mpls_end:
+    scene black
+    with fade
     n "The rest of the MPLS Day passes in a blur of introductions, games, and the warm buzz of a school finding its rhythm."
     n "By the time you head home, the first seeds of this new chapter have been planted—and a new school year is only just beginning."
     jump week1_start

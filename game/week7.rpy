@@ -14,11 +14,13 @@ label week7_start:
     n "That day had been so tense your stomach felt like it was in knots, and your heartbeat and breath kept catching."
 
     n "You walked up to them, stepping quietly before leaning your weight against the edge of their desk."
+    show trida uniform neutral at center with dissolve
     p "You're seriously still eating that?"
 
     n "You crossed your arms with a small smirk of morning greetings, with just a pinch of teasing."
     p "I bet it's been sitting in your bag since yesterday."
 
+    show trida uniform embarrassed at center, panic
     n "Trida jerked upright in their chair, their whole body giving a startled twitch as your voice cut through their focus."
     n "Their eyes widened, and a bright red flush crept up from their neck to the tips of their ears."
     n "They fumbled with the chocolate bar, nearly dropping it, before letting out a loud, high-pitched laugh."
@@ -32,6 +34,7 @@ label week7_start:
     n "You let out a soft chuckle, watching them scramble to defend their snacking habits."
     p "Sure, keep telling yourself that. Don't come crying to me if your stomach starts acting up during third period."
 
+    show trida uniform happy with dissolve
     n "Trida grinned, the nervous tension instantly draining from their shoulders as they settled back into their chair."
     n "They reached out, giving your arm a quick, familiar nudge with their elbow—that subconscious physical touch they always did without realizing it."
     trida "Jeez, look at you, acting all worried. Who knew you cared so much about my digestive health?"
@@ -42,6 +45,7 @@ label week7_start:
 
     trida "Um... actually..."
     n "Their voice dropped an octave, turning much quieter, stripped of its usual performative silliness."
+    show trida uniform embarrassed with dissolve
     n "They rubbed the back of their neck with their free hand, their fingers fidgeting nervously against their collar."
     trida "The truth is... I was saving it on purpose."
 
@@ -79,6 +83,7 @@ label week7_start:
             p "Of course, we don't."
             $ tridaAffection += 1
 
+    hide trida with dissolve
     jump week7_break_time
 
 
@@ -114,6 +119,7 @@ label week7_grapos_radit:
     n "You found yourself leaning against the cool concrete railing, relishing the quiet reprieve, the bustle around you fading into a soft background hum."
 
     n "Suddenly, you noticed footsteps padding softly against the pavement nearby."
+    show radit neutral at center with dissolve
     n "Radit appeared, his easy-going demeanor evident as he sauntered over, hands tucked deep into the pockets of his jacket."
     n "With a gentle shake of his head, he cast off the last remnants of moisture from his hurried trip to the washroom."
 
@@ -126,6 +132,7 @@ label week7_grapos_radit:
     p "Your bed is a mattress on the floor in a cramped boarding room, Radit. It's not calling you, it's begging for mercy."
 
     radit "True. But at least my mattress doesn't crash when I'm halfway through saving a file."
+    show radit smile with dissolve
     n "Radit gave a leisurely grin as his shoulders dropped with a laugh."
     radit "Speaking of terrible life choices..."
     n "He hesitated, transferring his weight to the opposite foot, his gaze wandering toward the horizon before returning to you with a wry sparkle in his eye."
@@ -137,6 +144,7 @@ label week7_grapos_radit:
     n "You raised an eyebrow and then crossed your arms with a knowing smile."
     p "Let me guess. Another band with double-digit monthly listeners on Spotify, and you're about to spend half your allowance on an import vinyl that'll take three months to clear customs?"
 
+    show radit amused with dissolve
     n "Radit just stared at you for a beat, with an amused twitch at the corner of his mouth."
     radit "First of all, it's a cassette tape, not a vinyl. Get your indie hipster formats right."
     radit "Second is... wow, okay! Look at you, tracking my purchasing habits like an auditor."
@@ -154,6 +162,7 @@ label week7_grapos_radit:
 
     n "With an eased shrug, Radit pushed away from the railing, withdrawing one hand from his pocket briefly to point toward the door."
     n "With an unhurried pace, the two of you turned and floated back into the classroom together."
+    hide radit with dissolve
     jump week7_civics_assignment
 
 
@@ -164,11 +173,13 @@ label week7_stay_trida:
 
     n "Instead of going outside in the sweltering midday heat or grabbing something from the canteen, you chose to stay in the quiet, air-conditioned classroom."
     n "You pulled an empty wooden chair over to Trida's desk."
+    show trida uniform neutral at center with dissolve
     n "They stared blankly at an open notebook filled with chaotic character sketches and rough storyboard panels, lost in their thoughts."
 
     p "If you keep staring at that paper, the ink is going to run away."
     n "You said, resting your chin on your hand as you leaned against the edge of their desk."
 
+    show trida uniform embarrassed at center, panic
     n "Trida flinched, their pencil clattering onto the desk as they spun around in their chair."
     n "They let out a loud, high-pitched squawk and threw their hands up dramatically."
     trida "Oh, you're going to give me a heart attack!"
@@ -180,6 +191,7 @@ label week7_stay_trida:
     trida "I swear, every time I try to map out the pacing for this sequence, my brain just short circuits."
     trida "Why is structuring a story so hard? I just wanted to make something cool that made you feel like you could take on the world, but here I am making garbage."
 
+    show trida uniform sad at center, dip
     n "They slumped forward, letting their forehead thump gently against the edge of the desk next to your arm, letting out a heavy sigh."
     trida "Sometimes I wonder why I even try to aim high. Look at the other kids in our major—they're already creating amazing animation with gorgeous concepts, and here I am struggling to make a simple timeline make sense."
     trida "I kind of felt stupid, you know..."
@@ -187,6 +199,7 @@ label week7_stay_trida:
     n "You chuckled and reached over to give their shoulder a comforting squeeze."
     p "You're too hard on yourself, Trida. You just need a break."
 
+    show trida uniform happy at center, hop
     n "At your warm touch, Trida perked up, a bright smile replacing their moment of doubt as if those heavy thoughts had vanished."
     n "They leaned into your touch, bumping their shoulder against yours without realizing it."
     trida "See? That's why you're the best. Always showing up with the right words at the right time."
@@ -209,6 +222,7 @@ label week7_stay_trida:
     n "You replied with a smirk tugging as you saw Trida let out a flustered laugh affectionately."
     trida "Jeez, you're impossible. Yeah, I'm glad you're here."
     $ tridaAffection += 1
+    hide trida with dissolve
     jump week7_civics_assignment
 
 
@@ -225,18 +239,23 @@ label week7_civics_assignment:
     n "In their place, vibrant notebooks and well-worn textbooks are spread out across the desks, hinting at a bustling environment where creativity intertwines with academic pursuit."
 
     n "The civics teacher walked in front of the class, her black shoes squeaking softly against the linoleum floor as she dropped a handful of reference handouts onto the front desk."
+    show civics_teacher at right with dissolve
     civics_teacher "Quiet down, please. For today's assignment, you don't need the computers. Just open your textbook to the chapter on the 1945 Constitution."
     civics_teacher "Your task is simple: look at the group task, circle the instructions, and coordinate with your group to either answer the exercise questions, draft a short paper, or summarise the material. Get to work."
 
+    hide civics_teacher with dissolve
     n "With a sharp click of her pen, she turned back to the whiteboard to write down the page numbers."
     n "Around the room, the sound of chairs scraping against the worn floor echoed as students pulled out sheets of loose-leaf paper and began rifling through their textbooks."
     n "Yet, at your cluster of desks, a sense of tension hung in the air, palpable and suffocating."
 
     n "The boy seated directly across from you—typically so inconspicuous that he practically faded into the background of the classroom—exhaled a heavy, deliberate sigh that seemed to slice through the ambient noise."
     n "With an air of practiced detachment, as if viewing group work merely as an unwelcome administrative chore rather than an opportunity for collaboration, he snapped open his hefty civics textbook with a dull thwack."
+    show glasses_boy neutral at right with dissolve
+    show trida uniform neutral at left with dissolve
     n "His gaze remained fixed on the pages before him, avoiding eye contact as he methodically adjusted his glasses."
     n "With a stillness that suggested he was accustomed to being overlooked, he turned straight to the assigned page without a single word escaping his lips."
 
+    show trida uniform embarrassed at left, panic
     n "Beside him, Trida sat frozen."
     n "They stared down at their textbook, but their eyes were completely glazed over, not registering a single word of the printed text."
     n "Their fingers were locked tightly together in their lap, trembling slightly as their gaze darted anxiously around the desk, refusing to meet anyone's eyes."
@@ -248,6 +267,7 @@ label week7_civics_assignment:
     n "The boy didn't even look up from his page. His expression remained entirely flat, devoid of any emotional spike, as he delivered a deadpan critique with the casual detachment of an automated system reading a prompt."
     glasses_boy "You dropped it. And you skipped the circle instruction. It's not that complicated."
 
+    show trida uniform sad at left, dip
     n "Trida's hand froze mid-air above the floor. The tips of their ears turned into a mortified shade of red, and they pulled their arm back in an instant, resting it limply against their knee."
     n "Trida didn't bend down to pick up the eraser. The only thing they did was stare blankly at the crease of the book, biting their lower lip until it turned white."
     n "All of their worst, deep-seated fears—the ones they always tried to mask behind loud banter or constant jokes—were completely exposed by the uninterested dismissiveness of their groupmate."
@@ -365,9 +385,14 @@ label week7_reassure_silent:
 
 label week7_conclusion:
     n "The painful quiet at the desk continues until the school bell finally cuts through the room."
+    hide glasses_boy
+    hide trida
+    with dissolve
     n "Without a single word, Trida sweeps their books into their bag, keeping their eyes glued to the floor as they slip quickly out the door."
     n "You stand alone by your desk, a heavy ache lingering in your chest."
     n "You know you cannot leave things like this..."
 
+    scene black
+    with fade
     # Connect to Week 8
     jump week8_start
