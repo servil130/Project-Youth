@@ -101,7 +101,7 @@ screen say(who, what):
     window:
         id "window"
 
-        if who is not None:
+        if who is not None and who != "":
 
             window:
                 id "namebox"
@@ -121,6 +121,15 @@ screen say(who, what):
 init python:
     config.character_id_prefixes.append('namebox')
 
+## DDLC Click-To-Continue animated indicator
+image ctc:
+    xalign 0.805 yalign 0.972 xoffset -4 alpha 0.0 subpixel True
+    "gui/ctc.png"
+    block:
+        easeout 0.75 alpha 1.0 xoffset 0
+        easein 0.75 alpha 0.4 xoffset -4
+        repeat
+
 style window is default
 style say_label is default
 style say_dialogue is default
@@ -136,27 +145,28 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Transform(
-        Image("images/background_ui.png"),
-        xalign=0.5, yalign=0.02,
-        xsize=1920, ysize=300,
-        alpha=0.7
-    )
+    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
     xanchor gui.name_xalign
     xsize gui.namebox_width
-    ypos gui.name_ypos
+    xminimum 220
+    yanchor 1.0
+    ypos 56
     ysize gui.namebox_height
 
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    padding (24, 8, 24, 8)
 
 style say_label:
     properties gui.text_properties("name", accent=True)
-    xalign gui.name_xalign
+    font gui.name_text_font
+    color "#ffffff"
+    size gui.name_text_size
+    xalign 0.5
     yalign 0.5
+    outlines [(3, "#b59", 0, 0), (1, "#b59", 1, 1)]
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
@@ -164,6 +174,7 @@ style say_dialogue:
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
+    outlines [(2, "#000000aa", 0, 0)]
 
     adjust_spacing False
 
@@ -206,6 +217,38 @@ style input_prompt:
 style input:
     xalign gui.dialogue_text_xalign
     xmaximum gui.dialogue_width
+
+screen custom_name_input(prompt):
+    style_prefix "custom_name"
+    
+    add Solid("#00000088")
+    
+    frame:
+        xalign 0.5 yalign 0.5
+        xpadding 50 ypadding 50
+        background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
+        vbox:
+            spacing 30
+            xalign 0.5
+            text prompt style "custom_name_prompt"
+            input value VariableInputValue("player_name") style "custom_name_input_text" length 20
+            textbutton _("Confirm") action Return(True) xalign 0.5
+
+style custom_name_prompt:
+    properties gui.text_properties("prompt")
+    xalign 0.5
+    text_align 0.5
+    size 32
+    color "#ffffff"
+
+style custom_name_input_text:
+    properties gui.text_properties("input")
+    xalign 0.5
+    text_align 0.5
+    size 45
+    color "#ffcc66"
+    outlines [(2, "#000000", 0, 0)]
+
 
 
 ## Choice screen ###############################################################
@@ -263,14 +306,12 @@ screen quick_menu():
             style_prefix "quick"
             style "quick_menu"
 
-            textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton (_("Skip (DBG)") if debug_auto_skip else _("Skip")) action ToggleDebugAutoSkip()
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Load") action ShowMenu('load')
+            textbutton _("Preferences") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -345,13 +386,15 @@ style quick_button_text is button_text
 
 style quick_menu:
     xalign 0.5
-    yalign 1.0
+    yalign 0.980
+    spacing 14
 
 style quick_button:
     properties gui.button_properties("quick_button")
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
+    outlines [(1, "#000000aa", 1, 1)]
 
 
 ################################################################################

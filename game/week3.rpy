@@ -1,7 +1,8 @@
 label week3_start:
     $ current_week = "Week 3"
     scene bg classroom
-    with fade
+    with dissolve_scene_full
+    play music audio.t3 fadein 1.5 loop volume 0.7
 
     # Visual: 3D LAB - MORNING
     n "The dim light casts pale shadows across the room, carrying the scent of cool air and faint pine from the woods outside."
@@ -38,6 +39,7 @@ label week3_start:
     classmate_b "Yeah, you are more capable than us!"
 
     n "You overheard those arguments as you glance toward Trida, who is getting dragged by two of your classmates to help with their work."
+    play music audio.t5 fadein 1.0 loop volume 0.7
     n "Trida groaned as they began to explain one and two to them."
     n "You start to wonder what you should do next…"
 
@@ -53,6 +55,7 @@ label week3_start:
 # ==============================================================================
 
 label week3_ask_trida:
+    play music audio.t4 fadein 1.0 loop volume 0.7
     n "You hesitate for a second, still looking at Trida and both of your classmates arguing."
     n "Trida looked like they were surrounded by two chickens poking at them to demand help."
     n "The wheels roll softly as you make your way over them, and Trida is in the middle of finally explaining with their hand moving through the mouse."
@@ -331,7 +334,7 @@ label week3_work_alone:
 
 label week3_break_time:
     scene bg classroom
-    with fade
+    with dissolve_scene_full
 
     # Visual: 3D LAB - MORNING
     n "The moment lingered, thick and heavy, until it was gradually swallowed by the low, omnipresent hum of the computer fans."
@@ -354,7 +357,8 @@ label week3_break_time:
 # --- OPTION 01: SABIAN ROUTES (RUS Animation Studio) ---
 label week3_studio_sabian:
     scene bg rus_studio
-    with fade
+    with dissolve_scene_full
+    play music audio.t3 fadein 1.5 loop volume 0.7
 
     # Visual: Gedung Studio Animasi
     n "You decided to walk to the main studio of RUS Animation, heading toward the large room that smelled like a library and hummed with the sound of computers."
@@ -371,7 +375,7 @@ label week3_studio_sabian:
 
     n "You step in before that guy notices you, while some of their friends beside them also shift their attention towards you."
     n "They see you instantly, like radar locking on."
-    show sabian at center with dissolve
+    show sabian at to_center
     sabian "AYO—new face!"
 
     n "He gestures wildly, beckoning you to move closer."
@@ -381,7 +385,7 @@ label week3_studio_sabian:
     n "He leans in slightly, grinning."
     sabian "Name’s Sabian. Sophomore year and currently an intern here."
     n "He shakes your hand confidently, offering a firm grip."
-    show sabian smile with dissolve
+    show sabian smile at center, sway with dissolve
     n "Sabian's face breaks into a surprisingly friendly smile, reminiscent of any corporate CEO you could’ve seen on the big screen."
 
     p "I’m [player_name], nice to know you-uh, Sabian."
@@ -409,7 +413,7 @@ label week3_studio_sabian:
     sabian "C’mon, you’re on break. You don’t look like you’ve eaten either."
 
     n "He gestures toward the screen, directing you as they look at you, his smile growing."
-    show sabian smile with dissolve
+    show sabian smile at center, hop with dissolve
     sabian "We’re grabbing snacks."
     n "Sabian pauses."
     sabian "You’re coming by the way. No arguments."
@@ -420,7 +424,7 @@ label week3_studio_sabian:
 # --- OPTION 02: JULIA ROUTES (Photography Lounge) ---
 label week3_lounge_julia:
     scene bg grapos_field
-    with fade
+    with dissolve_scene_full
 
     n "A soft breeze drifts lazily through the open space, wrapping around you like a gentle embrace and carrying with it a profound sense of quiet stillness."
     n "In stark contrast to the bustling crowds below, this elevated spot feels almost deserted, as if time has slowed down just for you."
@@ -431,7 +435,7 @@ label week3_lounge_julia:
     n "There, all alone, sits a girl whose expression is inscrutable, her features soft yet distant."
     n "Hanging loosely around her neck is a camera, its presence suggesting a hidden passion or a story yet to be told."
 
-    show julia at center with dissolve
+    show julia at slide_center
     julia "You’re from my class, right?"
     n "Her voice is quiet, perhaps a little unsure. She still isn’t fully facing you—more angled to the side, as if that makes it easier."
     n "A silence follows, as if she’s second-guessing herself."
@@ -451,13 +455,13 @@ label week3_lounge_julia:
     p "Are you into photography?"
 
     n "Julia stills. For a moment, she looks like she’s going to give a polite, one-word answer, but then her expression softens."
-    show julia smile with dissolve
+    show julia smile at center, hop with dissolve
     julia "…Yeah. I mean—yeah. A little."
 
     n "She shifts her weight, angling her body toward yours. Her grip on the camera lens relaxes as her fingers trace the edge of the frame."
     julia "I just like capturing… the quiet stuff. The small things that people usually walk right past without seeing."
     n "She holds your gaze for a beat longer than usual, then suddenly blinks, her eyes dropping back to the floor as she realises how much she just shared."
-    show julia shy with dissolve
+    show julia shy at center, dip with dissolve
     julia "…Sorry. Was that a bit too much? I’m probably rambling."
 
     p "No. It’s fine."
@@ -505,7 +509,7 @@ label week3_lounge_julia:
 # --- OPTION 03: TRIDA ROUTES (Stay in 3D Lab) ---
 label week3_lab_trida:
     scene bg classroom
-    with fade
+    with dissolve_scene_full
 
     n "The 3D lab empties gradually—the low hum of rolling chairs, the rhythmic thud of the heavy exit door, and finally, a profound silence except for one corner."
     n "A single monitor casts a sharp, clinical blue glow over Trida."
@@ -557,7 +561,7 @@ label week3_lab_trida:
 
 label week3_second_break:
     scene bg rus_studio
-    with fade
+    with dissolve_scene_full
 
     # Visual: Studio Animasi
     n "After the sixth period, there will be a second breaktime for students."
@@ -573,19 +577,19 @@ label week3_second_break:
 
 label week3_chie_encounter:
     scene bg gates_morning
-    with fade
+    with dissolve_scene_full
 
     n "The clock is ticking faster than a blink of an eye, after the break time your body has to drag yourself back to the studio."
     n "You step yourself moving from the door when suddenly, you stumble across a very familiar figure now locking their eyes on you."
     n "The bright gleaming eyes that waved their hands vigorously."
 
-    show chie at center with dissolve
+    show chie at to_center
     chie "Hey [player_name]!"
     chie "Going back to class?"
     n "The sound of Chie giggling waving through your ears. You stunned for a moment, before opening your lips."
 
     p "Yeah, kind of. Are you still at work?"
-    show chie smile with dissolve
+    show chie smile at center, dip with dissolve
     n "Chie looks making a sound of tired laughter hearing that. She tucked her hair to her ears."
     n "There is a nervous gesture she kind of pushes to the air. She makes a vague, restless gesture in the air."
     chie "Well, I don't wanna look like I'm whining about my work. But you know the deadlines are ruthless.."
@@ -615,7 +619,8 @@ label week3_chie_encounter:
 
 label week3_bedroom_night:
     scene bg bedroom_late_afternoon
-    with fade
+    with dissolve_scene_full
+    play music audio.t10 fadein 2.0 loop volume 0.6
 
     # Visual: Player’s Room
     n "Finally, after a click, the sound of your keys turning, and the smell of your room swarming through your nose."

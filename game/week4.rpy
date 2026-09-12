@@ -1,7 +1,8 @@
 label week4_start:
     $ current_week = "Week 4"
     scene bg classroom
-    with fade
+    with dissolve_scene_full
+    play music audio.t2 fadein 1.5 loop volume 0.7
 
     # Visual: Classroom Morning
     n "The morning breeze, infused with a subtle hint of air conditioning, greeted you as you entered the classroom."
@@ -9,7 +10,7 @@ label week4_start:
     n "Your gaze landed on Trida's vacant desk."
     n "A short pause occurred as you recognized they were probably going to be late, and a slight smile appeared on your face."
 
-    show radit at center with dissolve
+    show radit at to_center
     radit "Did they install a new statue in class or something?"
     n "You jolted, turning to find Radit's signature cheeky grin. Right, him."
     p "Morning, Radit."
@@ -22,9 +23,10 @@ label week4_start:
     radit "Probably late. You know how they are. By the way, did you finish that math assignment?"
 
     # Trida skids in
-    show radit at right with ease
-    show trida uniform neutral at left with dissolve
+    show radit at slide_right
+    show trida uniform neutral at to_left
     trida "RADIT!"
+    play music audio.t4 fadein 1.0 loop volume 0.7
     n "A rhythmic jingle of keys announced their presence before the door even clicked open."
     n "Trida skidded into the room, their chest heaving and their hair disheveled from the dash."
     n "They didn't have the breath for a full speech—just enough for a pointed glare."
@@ -85,7 +87,7 @@ label week4_start:
 label week4_agree_radit:
     $ radit_affection += 1
     p "He's got a point, Trida. You're overthinking the mechanics. Just listen to him for once."
-    show radit smile with dissolve
+    show radit smile at right, hop with dissolve
     n "Radit's smirk turns into a genuine, smug grin. He points a finger at Trida with a triumphant look."
     radit "See? Even [player_name] is tired of your noise pollution. Admit it, I'm right."
     show trida sad at left, dip
@@ -100,7 +102,7 @@ label week4_agree_radit:
 label week4_defend_trida:
     $ tridaAffection += 1
     p "Stop being a jerk, Radit. Just because you're good at the game doesn't mean you have to be a total elitist about it."
-    show radit neutral with dissolve
+    show radit neutral at right, sway with dissolve
     n "He stops spinning his pen as his smirk fades, replaced by an unreadable expression. He shrugs, looking unaffected."
     radit "Elitist? Just being honest. But sure, keep playing wrong if it makes you feel better."
     show trida happy at left, hop
@@ -118,7 +120,7 @@ label week4_defend_trida:
 
 label week4_break_grapos:
     scene bg grapos_field
-    with fade
+    with dissolve_scene_full
 
     # Visual: Lapangan Grapos
     n "After the most chaotic morning you could imagine, the three of you finally managed to get along in class."
@@ -127,7 +129,7 @@ label week4_break_grapos:
 
     n "You've just come back from the teacher's office after delivering everyone's math books when you spot a tall person in front of the studio talking with some seniors."
     n "Out of nowhere, they all turn to face you and then walk away, leaving Radit by himself."
-    show radit at center with dissolve
+    show radit at slide_center
     radit "You finished?"
     p "Yeah, I already turned in everyone's books."
     radit "Great job. You handle everything well, unlike someone, I guess..."
@@ -146,8 +148,8 @@ label week4_break_grapos:
 
     # Sabian appears
     n "Before you can even reply, a voice cuts through the air. You look up to see Sabian looking super spirited as he moves from the studio doors."
-    show radit at left with ease
-    show sabian at right with dissolve
+    show radit at slide_left
+    show sabian at slide_right
     sabian "Yo, [player_name]! Finally done?"
     p "Oh-yeah, just running a couple of errands."
     sabian "Come on, skip studying for a second. We're grabbing lunch, you should come through."
@@ -171,11 +173,11 @@ label week4_canteen_sabian:
     hide radit with dissolve
 
     scene bg teddy_cup
-    with fade
+    with dissolve_scene_full
     # Visual Canteen
-    show sabian at center with dissolve
+    show sabian at slide_center
     n "You jog to catch up with Sabian, leaving the studio behind. The canteen is buzzing—a welcome escape from the tension of the workspace."
-    show sabian smile with dissolve
+    show sabian smile at center, hop with dissolve
     n "As you enter, Sabian claps a hand on your shoulder."
     sabian "Took you long enough! Thought you were going to spend your whole break running errands. Sit, sit."
     n "You made your orders and hopped into the seat across from him."
@@ -187,15 +189,15 @@ label week4_canteen_sabian:
 
 label week4_classroom_radit:
     $ radit_affection += 2
-    show radit smile with dissolve
+    show radit smile at left, sway with dissolve
     n "Radit looks at you, his smirk softening into something almost... relieved."
     n "He starts walking toward the classroom, his posture finally relaxing."
     radit "Honestly? Let's go, I've got some leftover snacks in my bag if you're actually gonna die of hunger."
 
     scene bg classroom
-    with fade
+    with dissolve_scene_full
     # Visual Classroom
-    show radit at center with dissolve
+    show radit at slide_center
     n "You walk through with Radit as the chaotic noise of break time slowly fades behind you, replaced by the cool air of the empty classroom."
     n "Radit drops into his chair and tosses a bag of chips to you."
     n "He doesn't say anything for a while, just pulls out his phone to scroll through game forums."
@@ -215,7 +217,7 @@ label week4_classroom_radit:
         "I'm literally too fried to talk. Just enjoying the silence, man. Don't take it the wrong way.":
             p "I'm literally too fried to talk. Just enjoying the silence, man. Don't take it the wrong way."
 
-    show radit laugh with dissolve
+    show radit laugh at center, hop with dissolve
     n "Radit lets out a low, genuine laugh that you rarely catch; he looks more relaxed. He taps his screen down, then glances over at you."
     radit "Don't get used to it, man. I've got a whole list of sarcastic comments ready for when the others get back."
     n "He tosses his phone onto his desk and leans back, closing his eyes for a second. The classroom is silent again; even so, it was not an awkward quietness. There is something warmer about it."
@@ -234,7 +236,8 @@ label week4_classroom_radit:
 
 label week4_sunset_walk:
     scene bg gates_morning
-    with fade
+    with dissolve_scene_full
+    play music audio.t6 fadein 2.0 loop volume 0.7
 
     # Visual: SMK Raden Umar Said Gates
     show trida uniform happy at center with dissolve

@@ -19,6 +19,19 @@ transform tright:
     xalign 0.85
     yalign 1.0
 
+# Aliases for default Ren'Py positions to match DDLC / VN stage padding
+transform left:
+    xalign 0.15
+    yalign 1.0
+
+transform center:
+    xalign 0.5
+    yalign 1.0
+
+transform right:
+    xalign 0.85
+    yalign 1.0
+
 # Karakter slide dengan dynamic bounce
 transform to_left:
     easein_back 0.50 xalign 0.15
@@ -61,6 +74,7 @@ transform panic:
 
 # lagi mikir
 transform sway:
+    transform_anchor True
     easein 0.22 rotate -3
     easeout 0.25 rotate 3
     easein 0.22 rotate 0

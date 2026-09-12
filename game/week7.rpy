@@ -1,7 +1,8 @@
 label week7_start:
     $ current_week = "Week 7"
     scene bg classroom
-    with fade
+    with dissolve_scene_full
+    play music audio.t3 fadein 1.5 loop volume 0.7
 
     # Visual: Classroom Morning
     n "Soft morning light spilled across rows of empty seats, and the low hum of desktop fans blended with the faint tapping of keys."
@@ -93,7 +94,7 @@ label week7_start:
 
 label week7_break_time:
     scene bg classroom
-    with fade
+    with dissolve_scene_full
 
     n "You can't focus the whole time in class, the voice of the teacher passing by like a buzzing sound through your head."
     n "You kept stealing glances at Trida's desk, where that chocolate belongs."
@@ -111,7 +112,7 @@ label week7_break_time:
 # --- OPTION 1: RADIT ROUTE (Grapos) ---
 label week7_grapos_radit:
     scene bg grapos_field
-    with fade
+    with dissolve_scene_full
 
     n "The Grapos field outside hummed with life, a vibrant tapestry of students stretching their limbs and leaning against the weathered concrete pillars, savoring the brief yet precious respite from their hectic schedules."
     n "Clusters of them flocked to the canteen, drawn in like moths to a flickering flame, their laughter and chatter creating a symphony of youthful exuberance."
@@ -119,7 +120,7 @@ label week7_grapos_radit:
     n "You found yourself leaning against the cool concrete railing, relishing the quiet reprieve, the bustle around you fading into a soft background hum."
 
     n "Suddenly, you noticed footsteps padding softly against the pavement nearby."
-    show radit neutral at center with dissolve
+    show radit neutral at to_center
     n "Radit appeared, his easy-going demeanor evident as he sauntered over, hands tucked deep into the pockets of his jacket."
     n "With a gentle shake of his head, he cast off the last remnants of moisture from his hurried trip to the washroom."
 
@@ -132,7 +133,7 @@ label week7_grapos_radit:
     p "Your bed is a mattress on the floor in a cramped boarding room, Radit. It's not calling you, it's begging for mercy."
 
     radit "True. But at least my mattress doesn't crash when I'm halfway through saving a file."
-    show radit smile with dissolve
+    show radit smile at center, hop with dissolve
     n "Radit gave a leisurely grin as his shoulders dropped with a laugh."
     radit "Speaking of terrible life choices..."
     n "He hesitated, transferring his weight to the opposite foot, his gaze wandering toward the horizon before returning to you with a wry sparkle in his eye."
@@ -144,7 +145,7 @@ label week7_grapos_radit:
     n "You raised an eyebrow and then crossed your arms with a knowing smile."
     p "Let me guess. Another band with double-digit monthly listeners on Spotify, and you're about to spend half your allowance on an import vinyl that'll take three months to clear customs?"
 
-    show radit amused with dissolve
+    show radit amused at center, sway with dissolve
     n "Radit just stared at you for a beat, with an amused twitch at the corner of his mouth."
     radit "First of all, it's a cassette tape, not a vinyl. Get your indie hipster formats right."
     radit "Second is... wow, okay! Look at you, tracking my purchasing habits like an auditor."
@@ -169,7 +170,7 @@ label week7_grapos_radit:
 # --- OPTION 2: TRIDA ROUTE (Stay in Class) ---
 label week7_stay_trida:
     scene bg classroom
-    with fade
+    with dissolve_scene_full
 
     n "Instead of going outside in the sweltering midday heat or grabbing something from the canteen, you chose to stay in the quiet, air-conditioned classroom."
     n "You pulled an empty wooden chair over to Trida's desk."
@@ -232,14 +233,14 @@ label week7_stay_trida:
 
 label week7_civics_assignment:
     scene bg classroom
-    with fade
+    with dissolve_scene_full
 
     n "The classroom is bathed in the warm, golden glow of the afternoon sunlight, which streams through the towering windows and creates a dramatic interplay of light and shadow."
     n "The tall shadows stretch languidly across the floor, juxtaposing the neat rows of bulky drawing tablets that have been momentarily set aside."
     n "In their place, vibrant notebooks and well-worn textbooks are spread out across the desks, hinting at a bustling environment where creativity intertwines with academic pursuit."
 
     n "The civics teacher walked in front of the class, her black shoes squeaking softly against the linoleum floor as she dropped a handful of reference handouts onto the front desk."
-    show civics_teacher at right with dissolve
+    show civics_teacher at slide_right
     civics_teacher "Quiet down, please. For today's assignment, you don't need the computers. Just open your textbook to the chapter on the 1945 Constitution."
     civics_teacher "Your task is simple: look at the group task, circle the instructions, and coordinate with your group to either answer the exercise questions, draft a short paper, or summarise the material. Get to work."
 
@@ -250,7 +251,7 @@ label week7_civics_assignment:
 
     n "The boy seated directly across from you—typically so inconspicuous that he practically faded into the background of the classroom—exhaled a heavy, deliberate sigh that seemed to slice through the ambient noise."
     n "With an air of practiced detachment, as if viewing group work merely as an unwelcome administrative chore rather than an opportunity for collaboration, he snapped open his hefty civics textbook with a dull thwack."
-    show glasses_boy neutral at right with dissolve
+    show glasses_boy neutral at slide_right, dip with dissolve
     show trida uniform neutral at left with dissolve
     n "His gaze remained fixed on the pages before him, avoiding eye contact as he methodically adjusted his glasses."
     n "With a stillness that suggested he was accustomed to being overlooked, he turned straight to the assigned page without a single word escaping his lips."
@@ -293,6 +294,7 @@ label week7_civics_assignment:
     n "The boy didn't look up from his textbook, letting out a sharp, dismissive sigh through his nose as he tapped his pen against the margin."
     glasses_boy "Well, whatever, it doesn't matter, let's just get this over with."
 
+    play music audio.t9 fadein 1.5 loop volume 0.5
     n "The flatness of his tone carried a sharp edge of annoyance, dropping like another lead weight over the small cluster of desks."
     n "Instantly, any lingering sound from their corner completely vanished. The silence that followed was an absolute, suffocating awkward tension that made the air feel thin."
 
@@ -318,6 +320,7 @@ label week7_civics_assignment:
 # --- OPTION 1: "ARE YOU OKAY?" ---
 label week7_reassure_okay:
     $ tridaAffection += 1
+    play music audio.t6 fadein 2.0 loop volume 0.7
     p "Are you okay?"
 
     n "Trida didn't look up when you spoke."
@@ -393,6 +396,6 @@ label week7_conclusion:
     n "You know you cannot leave things like this..."
 
     scene black
-    with fade
+    with dissolve_scene_full
     # Connect to Week 8
     jump week8_start

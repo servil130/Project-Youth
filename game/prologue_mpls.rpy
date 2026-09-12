@@ -11,13 +11,14 @@ label start:
     scene black
     with dissolve_scene_full
 
-    $ player_name = renpy.input(_("Please enter your name:"), default="You", length=20).strip()
+    call screen custom_name_input(_("Please enter your name:"))
+    $ player_name = player_name.strip()
     if not player_name:
         $ player_name = "You"
 
     scene bg room
     with dissolve_scene_full
-    # play music "audio/bgm_classroom.ogg" fadein 2.0 loop volume 0.5 # [Pending BGM asset]
+    play music audio.t10 fadein 2.0 loop volume 0.6
 
     n "The dim light of a study lamp casts a shadow across the desk."
     n "The soft, amber glow bathed the room in warmth, creating a cozy cocoon against the creeping chill of the evening outside."
@@ -49,14 +50,15 @@ label start:
     n "Two months later…"
 
     scene bg gates_morning
-    with fade
+    with dissolve_scene_full
+    play music audio.t2 fadein 1.5 loop volume 0.7
 
     n "The wind blows, causing your hair to move in waves."
     n "Your shoes tap against the ground as you walk with a nervous thrill towards the building of your new school."
     n "Today marks your first day as an official student at SMK Raden Umar Said."
 
     scene lobby_sketch
-    with dissolve
+    with dissolve_scene_full
 
     n "As you walked deeper into the school grounds, the striking red and grey buildings loomed above you, exuding a sense of modernity and excitement."
     n "The air buzzed with energy as students and parents hurried about, chatting and unloading supplies."
@@ -83,7 +85,7 @@ label start:
 label inside_MPLS_tent:
     # ===== PROLOGUE: Tenda MPLS (kelanjutan setelah sampai/ketemu tenda) =====
     scene bg grapos_field
-    with fade
+    play music audio.t3 fadein 1.5 loop volume 0.7
     n "Following the instructions, you headed toward the chairs arranged in the school field."
     n "Amidst the bustling voices announcing the start of the ceremonies, you hurried to find your designated spot."
     n "You take a seat with your group."
@@ -123,7 +125,7 @@ label inside_MPLS_tent:
     committee "It's break time! We repeat, it's break time!"
     committee "If anyone has brought lunch, feel free to enjoy it now."
     committee "But, if you prefer the school canteen, TeddyCup stall, or RB Mart, they are open for food too!"
-    with dissolve
+    with blinds
     n "Excitement ripples through the crowd as students spring to their feet."
     n "Eager for a moment of freedom and the chance to explore the tantalising options awaiting them."
     n "You start to feel your stomach rumbling as everyone starts to disperse and take out their lunch boxes."
@@ -141,6 +143,7 @@ label inside_MPLS_tent:
 
 # ===== ROUTE 01: TRIDA =====
 label trida_lunch:
+    play music audio.t4 fadein 1.0 loop volume 0.7
     n "You sat there, slowly opening your blue container box with a bunny drawing that you had doodled when you were younger."
     n "The smell of the fresh savoury sandwich hits your nose."
     n "Before you could pick it up, you could feel eyes glancing towards you."
@@ -199,7 +202,7 @@ label trida_lunch_bad:
 # ===== ROUTE 02: RADIT =====
 label radit_teddy:
     scene bg teddy_cup
-    with fade
+    with dissolve_scene_full
     n "You stood up from your chair and walked out of the tents."
     n "A lot of people are walking around like an army of ants, their stomachs empty."
     n "Before you could hesitate, your foot turned toward one of the food stalls full of new students."
@@ -220,7 +223,7 @@ label radit_teddy:
 
 label radit_nice:
     # OPTION 02.5 - Normal Option
-    show radit smile with dissolve
+    show radit smile at center, hop
     radit "Mmm, I can see why. The ground's very down-to-earth."
     n "He said with a soft laugh that colored his tone."
     n "He appeared more approachable, a warmth radiating from his expression as he gradually moved closer."
@@ -228,7 +231,7 @@ label radit_nice:
     n "He drew out the last syllable of his phrase, leaving a deliberate pause so you may introduce yourself."
     p "I'm [player_name]. Nice to meet you, too, Radit."
     n "You intertwine your hand with his, creating a small, unexpected handshake."
-    show radit amused with dissolve
+    show radit amused at center, sway with dissolve
     radit "So, are you joining the queue?"
     n "He raises one eyebrow, making you realise that the line is getting longer, and you haven't stepped in line."
     p "You're right. I should hurry!"
@@ -245,7 +248,7 @@ label radit_nice:
 
 label radit_bad:
     # OPTION 02.5 - Bad Option
-    show radit frown with dissolve
+    show radit frown at center, dip with dissolve
     n "Wordlessly, you begin to turn your back on the calm boy and search for another food stall to retreat to."
     n "For a split second out of the corner of your eye, you notice the boy's playful expression subtly sour into a small frown."
     hide radit with dissolve
@@ -256,7 +259,7 @@ label radit_bad:
 # ===== ROUTE 03: CHIE =====
 label chie_bathroom:
     scene bg gates_morning
-    with fade
+    with dissolve_scene_full
     n "You arise from your seat, following the crowd as it exits."
     n "The din of bustling crowds emphasizes your need to locate a restroom, urging you to get a move on."
     n "You pause, realising just how large the area of this school is."
@@ -264,7 +267,7 @@ label chie_bathroom:
     n "Before you can decide where to go, you feel a light tap on your shoulder, making you jolt slightly."
     n "Your eyes are caught by a glow of dandelion petals in various shades of amber hair."
     n "You freeze as a cheerful-looking girl stands in front of you."
-    show chie happy at center with dissolve
+    show chie happy at to_center
     chie "Hey! Are you lost?"
     menu:
         "Not really, I just... need the bathroom":
@@ -299,7 +302,7 @@ label chie_nice:
     chie "Nice to meet you then, [player_name]!"
     n "Suddenly, an announcement was faintly heard in your ears."
     n "It must have been a sign that your break was ending. Chie lightly tapped your back."
-    show chie happy with dissolve
+    show chie happy at center, hop with dissolve
     chie "I think it's also my time to head back. Good luck!"
     hide chie with dissolve
     n "You waved at her as you watched her run and disappear around the corner."
@@ -330,7 +333,8 @@ label chie_bad:
 # ==== Penutup prologue + sambung cerita ====
 label mpls_end:
     scene black
-    with fade
+    with dissolve_scene_full
+    play music audio.t6 fadein 1.5 loop volume 0.7
     n "The rest of the MPLS Day passes in a blur of introductions, games, and the warm buzz of a school finding its rhythm."
     n "By the time you head home, the first seeds of this new chapter have been planted—and a new school year is only just beginning."
     jump week1_start

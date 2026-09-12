@@ -3,51 +3,57 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define p = Character("[player_name]")
-define n = Character("")
+define narrator = Character(ctc="ctc", ctc_position="fixed")
+define p = Character("[player_name]", ctc="ctc", ctc_position="fixed")
+define n = Character("", ctc="ctc", ctc_position="fixed")
 
-# Core Engine Transitions
 define ease = MoveTransition(0.5, enter=None, leave=None, enter_time_warp=_warper.ease, leave_time_warp=_warper.ease)
 
-# Team Salvato / DDLC Cinematic Scene Transitions
+define config.dismiss_blocking_transitions = False
+default _dismiss_pause = False
+
+define dissolve = Dissolve(0.25)
+define dissolve_cg = Dissolve(0.75)
 define dissolve_scene_full = MultipleTransition([
-    False, Dissolve(1.0),
+    False, Dissolve(0.5),
     Solid("#000"), Pause(0.5),
-    Solid("#000"), Dissolve(1.0),
+    Solid("#000"), Dissolve(0.5),
+    True, Pause(0.5),
     True])
 define dissolve_scene_half = MultipleTransition([
     Solid("#000"), Pause(0.5),
-    Solid("#000"), Dissolve(1.0),
+    Solid("#000"), Dissolve(0.5),
+    True, Pause(0.5),
     True])
 
-image black = Solid("#000")
+define audio.t1 = "audio/bgm/1.ogg"        
+define audio.t2 = "audio/bgm/2.ogg"          
+define audio.t3 = "audio/bgm/3.ogg"         
+define audio.t4 = "audio/bgm/4.ogg"          
+define audio.t5 = "audio/bgm/5.ogg"       
+define audio.t6 = "audio/bgm/6.ogg"        
+define audio.t7 = "audio/bgm/7.ogg"     
+define audio.t8 = "audio/bgm/8.ogg"     
+define audio.t9 = "audio/bgm/9.ogg" 
+define audio.t10 = "audio/bgm/10.ogg" 
+define audio.tcredits = "audio/bgm/credits.ogg" 
 
-
-# ==============================================================================
-# CHARACTER
-# ==============================================================================
-
-define trida = Character("Trida")
-define committee = Character("Student Committee")
-define radit = Character("Radit")
-define chie = Character("Chie")
-define shy_classmate = Character("Shy Classmate")
-define sabian = Character("Sabian")
-define julia = Character("Julia")
-define modelling_teacher = Character("Modelling Teacher")
-define civics_teacher = Character("Civics Teacher")
-define teacher = Character("Teacher")
-define glasses_boy = Character("Glasses Boy")
-define cap_boy = Character("Cap Boy")
-define braided_girl = Character("Braided Girl")
-define moderator = Character("Moderator")
-define classmate_a = Character("Classmate A")
-define classmate_b = Character("Classmate B")
-
-
-# ==============================================================================
-# GAME STATE
-# ==============================================================================
+define trida = Character("Trida", ctc="ctc", ctc_position="fixed")
+define committee = Character("Student Committee", ctc="ctc", ctc_position="fixed")
+define radit = Character("Radit", ctc="ctc", ctc_position="fixed")
+define chie = Character("Chie", ctc="ctc", ctc_position="fixed")
+define shy_classmate = Character("Shy Classmate", ctc="ctc", ctc_position="fixed")
+define sabian = Character("Sabian", ctc="ctc", ctc_position="fixed")
+define julia = Character("Julia", ctc="ctc", ctc_position="fixed")
+define modelling_teacher = Character("Modelling Teacher", ctc="ctc", ctc_position="fixed")
+define civics_teacher = Character("Civics Teacher", ctc="ctc", ctc_position="fixed")
+define teacher = Character("Teacher", ctc="ctc", ctc_position="fixed")
+define glasses_boy = Character("Glasses Boy", ctc="ctc", ctc_position="fixed")
+define cap_boy = Character("Cap Boy", ctc="ctc", ctc_position="fixed")
+define braided_girl = Character("Braided Girl", ctc="ctc", ctc_position="fixed")
+define moderator = Character("Moderator", ctc="ctc", ctc_position="fixed")
+define classmate_a = Character("Classmate A", ctc="ctc", ctc_position="fixed")
+define classmate_b = Character("Classmate B", ctc="ctc", ctc_position="fixed")
 
 default player_name = "You"
 default current_week = "Prologue"
@@ -62,9 +68,6 @@ default ch_affection = 0
 default sabian_affection = 0
 default julia_affection = 0
 
-# ==============================================================================
-# BACKGROUNDS (DDLC 1080p)
-# ==============================================================================
 image bg classroom = "images/ddlc/class.png"
 image bg rus_studio = "images/ddlc/club.png"
 image bg grapos_field = "images/ddlc/corridor.png"
@@ -73,7 +76,6 @@ image bg bedroom_late_afternoon = "images/ddlc/bedroom.png"
 image bg teddy_cup = "images/ddlc/kitchen.png"
 image bg room = "images/ddlc/bedroom.png"
 
-# DDLC Additional Backgrounds
 image bg club = "images/ddlc/club.png"
 image bg corridor = "images/ddlc/corridor.png"
 image bg closet = "images/ddlc/closet.png"
@@ -83,10 +85,6 @@ image bg kitchen = "images/ddlc/kitchen.png"
 image bg sayori_bedroom = "images/ddlc/sayori_bedroom.png"
 image bg space_room = "images/ddlc/space_room.png"
 
-# ==============================================================================
-# CHARACTER EXPRESSIONS (Ren'Py Tag Attributes)
-# ==============================================================================
-# Trida (Outfits: uniform, casual | Expressions: neutral, happy, sad, embarrassed)
 init -1 python:
     TRIDA_ZOOM = 1.30
     TRIDA_YOFFSET = 240
@@ -97,30 +95,36 @@ init -1 python:
             return Transform(path, zoom=TRIDA_ZOOM, yoffset=TRIDA_YOFFSET)
         return Placeholder("boy", text=f"Trida\n[{outfit.capitalize()}]\n{expr.capitalize()}")
 
-# Base fallback (Uniform Neutral)
+    RADIT_ZOOM = 1.30
+    RADIT_YOFFSET = 240
+
+    def radit_sprite(expr="neutral", outfit="uniform"):
+        specific_path = f"images/radit/radit_{outfit}_{expr}.png"
+        fallback_path = "images/radit/radit.png"
+        if renpy.loadable(specific_path):
+            return Transform(specific_path, zoom=RADIT_ZOOM, yoffset=RADIT_YOFFSET)
+        elif renpy.loadable(fallback_path):
+            return Transform(fallback_path, zoom=RADIT_ZOOM, yoffset=RADIT_YOFFSET)
+        return Placeholder("boy", text=f"Radit\n({expr.capitalize()})")
+
 image trida = trida_sprite("uniform", "neutral")
 
-# --- UNIFORM ---
 image trida uniform neutral = trida_sprite("uniform", "neutral")
 image trida uniform happy = trida_sprite("uniform", "happy")
 image trida uniform sad = trida_sprite("uniform", "sad")
 image trida uniform embarrassed = trida_sprite("uniform", "embarrassed")
 
-# --- CASUAL ---
 image trida casual neutral = trida_sprite("casual", "neutral")
 image trida casual happy = trida_sprite("casual", "happy")
 image trida casual sad = trida_sprite("casual", "sad")
 image trida casual embarrassed = trida_sprite("casual", "embarrassed")
 
-# --- BACKWARD COMPATIBILITY & CONVENIENCE ALIASES ---
-# Default to uniform when outfit is omitted:
 image trida neutral = "trida uniform neutral"
 image trida happy = "trida uniform happy"
 image trida sad = "trida uniform sad"
 image trida embarrassed = "trida uniform embarrassed"
 image trida blush = "trida uniform embarrassed"
 
-# Aliases for existing script scenes (Week 1 - Week 9)
 image trida smile = "trida uniform happy"
 image trida laugh = "trida uniform happy"
 image trida surprised = "trida uniform happy"
@@ -128,7 +132,6 @@ image trida nervous = "trida uniform embarrassed"
 image trida crying = "trida uniform sad"
 image trida annoyed = "trida uniform sad"
 
-# Casual aliases
 image trida casual blush = "trida casual embarrassed"
 image trida casual smile = "trida casual happy"
 image trida casual laugh = "trida casual happy"
@@ -138,16 +141,36 @@ image trida casual crying = "trida casual sad"
 image trida casual annoyed = "trida casual sad"
 
 # Radit
-image radit = Placeholder("boy", text="Radit")
-image radit neutral = Placeholder("boy", text="Radit\n(Neutral)")
-image radit smile = Placeholder("boy", text="Radit\n(Smile)")
-image radit happy = Placeholder("boy", text="Radit\n(Happy)")
-image radit laugh = Placeholder("boy", text="Radit\n(Laugh)")
-image radit surprised = Placeholder("boy", text="Radit\n(Surprised)")
-image radit sad = Placeholder("boy", text="Radit\n(Sad)")
-image radit frown = Placeholder("boy", text="Radit\n(Frown)")
-image radit amused = Placeholder("boy", text="Radit\n(Amused)")
-image radit annoyed = Placeholder("boy", text="Radit\n(Annoyed)")
+image radit = radit_sprite()
+image radit neutral = radit_sprite("neutral")
+image radit smile = radit_sprite("smile")
+image radit happy = radit_sprite("happy")
+image radit laugh = radit_sprite("laugh")
+image radit surprised = radit_sprite("surprised")
+image radit sad = radit_sprite("sad")
+image radit frown = radit_sprite("frown")
+image radit amused = radit_sprite("amused")
+image radit annoyed = radit_sprite("annoyed")
+
+image radit uniform neutral = radit_sprite("neutral", "uniform")
+image radit uniform smile = radit_sprite("smile", "uniform")
+image radit uniform happy = radit_sprite("happy", "uniform")
+image radit uniform laugh = radit_sprite("laugh", "uniform")
+image radit uniform surprised = radit_sprite("surprised", "uniform")
+image radit uniform sad = radit_sprite("sad", "uniform")
+image radit uniform frown = radit_sprite("frown", "uniform")
+image radit uniform amused = radit_sprite("amused", "uniform")
+image radit uniform annoyed = radit_sprite("annoyed", "uniform")
+
+image radit casual neutral = radit_sprite("neutral", "casual")
+image radit casual smile = radit_sprite("smile", "casual")
+image radit casual happy = radit_sprite("happy", "casual")
+image radit casual laugh = radit_sprite("laugh", "casual")
+image radit casual surprised = radit_sprite("surprised", "casual")
+image radit casual sad = radit_sprite("sad", "casual")
+image radit casual frown = radit_sprite("frown", "casual")
+image radit casual amused = radit_sprite("amused", "casual")
+image radit casual annoyed = radit_sprite("annoyed", "casual")
 
 # Chie
 image chie = Placeholder("girl", text="Chie")
@@ -207,4 +230,31 @@ image teacher = Placeholder("boy", text="Teacher")
 image teacher neutral = Placeholder("boy", text="Teacher\n(Neutral)")
 image teacher smile = Placeholder("boy", text="Teacher\n(Smile)")
 
+image white = Solid("#ffffff")
+image logo = "images/logo.png"
+image judul_game = "images/judul-game.png"
+
+transform splash_logo:
+    truecenter
+    zoom 0.3
+
+transform splash_judul:
+    truecenter
+    zoom 0.175
+
+label splashscreen:
+    scene white
+    with Pause(0.5)
+    
+    show logo at splash_logo with dissolve
+    with Pause(1.5)
+    hide logo with dissolve
+
+    show judul_game at splash_judul with dissolve
+    with Pause(1.5)
+    hide judul_game with dissolve
+    
+    with Pause(0.5)
+    
+    return
 

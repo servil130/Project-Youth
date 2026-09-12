@@ -85,3 +85,4 @@ build/
 *.tar.bz2
 *.apk
 *.aab
+AGENTS.md

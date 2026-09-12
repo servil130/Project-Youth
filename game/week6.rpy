@@ -1,7 +1,8 @@
 label week6_start:
     $ current_week = "Week 6"
     scene bg grapos_field
-    with fade
+    with dissolve_scene_full
+    play music audio.t1 fadein 1.5 loop volume 0.7
 
     # Visual: Lapangan Grapos - Competition & Live Festival
     n "The atmosphere in Grapos was filled with excitement and energy."
@@ -48,8 +49,9 @@ label week6_cheer_subtle:
 # ==============================================================================
 
 label week6_quiz_start:
+    play music audio.t5 fadein 1.0 loop volume 0.7
     n "The referee steps up to the center mic and clears his throat. The crowd goes quiet."
-    show moderator at center with dissolve
+    show moderator at slide_center
     moderator "Alright! Candidates, assume positions. We're going to test your general knowledge. First to three points takes the prize!"
 
     $ quiz_score = 0
@@ -134,7 +136,7 @@ label week6_quiz_lose:
 
 label week6_post_competition:
     scene bg grapos_field
-    with fade
+    with dissolve_scene_full
 
     n "They do not wait for you to come to them. They jog over, dodging through the crowd that is getting smaller."
     n "Their hair is all messy from the humidity. Their cheeks are red from cheering so much. They're full of energy."
@@ -252,7 +254,8 @@ label week6_post_competition:
 
 label week6_bouquet_gifting:
     scene bg gates_morning
-    with fade
+    with dissolve_scene_full
+    play music audio.t8 fadein 1.5 loop volume 0.7
 
     n "The walk back is silent, the rustling of leaves covering the noise of the school's rabble after the performance."
     n "You find yourself by the trunk of a tree, feeling that you have found a part of the world that is solely your own."
@@ -291,20 +294,20 @@ label week6_bouquet_gifting:
 
     # Friends interrupt
     show trida uniform embarrassed at left with ease
-    show braided_girl at right with dissolve
+    show braided_girl at slide_right, hop with dissolve
     braided_girl "Trida! Hey, come here! We were looking for you!"
     n "Two of their friends round the corner from the gym, cell phones in hand, shouting excitedly."
     n "Trida jumps at the sudden intrusion, eyes widening in surprise as they cradle the small bouquet of flowers."
 
     trida "Oh! Uh, hey guys..."
-    show cap_boy at center with dissolve
+    show cap_boy at to_center
     cap_boy "Radit has already begun his competition. Let us go and watch!"
     trida "Uhm..."
     p "It's fine, just go there. I still have to do something after this..."
     trida "Really? But..."
     p "...it's fine, Trida."
 
-    show trida uniform happy at left with dissolve
+    show trida uniform happy at left, hop with dissolve
     trida "Oh god. Sorry, I... I have to go. I mean, I'll see you later."
     p "Yeah, yeah..."
     trida "Thank you so much for all of this, by the way... See you later, I mean—I hope I see you later!"

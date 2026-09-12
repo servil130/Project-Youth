@@ -6,9 +6,9 @@ label week9_start:
     # ==============================================================================
 
     scene bg classroom
-    with fade
+    with dissolve_scene_full
     play sound "audio/school_bell.ogg"
-    # play music "audio/bgm_classroom.ogg" fadein 2.0 loop volume 0.5 # [Pending BGM asset]
+    play music audio.t4 fadein 1.5 loop volume 0.7
 
     n "The sound of the school bell's ring fills the room in a familiar rhythm, signaling the usual 12 PM break."
     n "After the events of Saturday night, the return to routine feels welcome and reassuring, a breath of fresh air for your mind."
@@ -88,7 +88,7 @@ label week9_start:
         "Call out to the boy":
             p "Oh hey there!"
             show trida neutral at left with ease
-            show glasses_boy neutral at right with dissolve
+            show glasses_boy neutral at slide_right, dip with dissolve
             glasses_boy "Ah—[player_name]…"
             n "You peek from behind Trida's focused stance, hoping to catch the boy's attention, and soon enough he was looking right at you with a small frown and furrowed brows."
             n "His narrowed eyes looked away as he kept walking towards you two, as if taken aback by your sudden call."
@@ -100,7 +100,7 @@ label week9_start:
             n "The rapid rhythmic taps of Trida's gameplay catch the attention of the boy; he glanced in your direction and his gaze landed on you keenly monitoring him."
             n "It seemed to confuse the boy a little, as his narrowed eyes did quick glances between you and the rest of the class, his movements becoming slower and more hesitant."
 
-    show glasses_boy neutral at right with dissolve
+    show glasses_boy neutral at slide_right, dip with dissolve
     show trida neutral at left with ease
     n "It wasn't long until the boy in glasses was awkwardly hovering around the two of you, clearly wanting to talk, but seeing how focused Trida was on beating the level 27 chart, he hesitated on interjecting."
     n "You sighed and tapped on the table to get Trida's attention."
@@ -135,6 +135,7 @@ label week9_start:
     glasses_boy "…I wanted to apologize, Trida… for last time, during our discussions."
 
     trida "…!"
+    play music audio.t6 fadein 1.5 loop volume 0.7
     glasses_boy "I just… let my confusion turn to anger and went off the deep end, when I really should've just… tried to be cool about it."
 
     show trida happy at left with dissolve
@@ -174,7 +175,7 @@ label week9_start:
     # CANTEEN SCENE
     # ==============================================================================
     scene bg teddy_cup
-    with fade
+    with dissolve_scene_full
 
     n "Trida leads you to the lively canteen. Although not without bumping into at least one other student, they swiftly pocketed their phone and approached the noodle stall."
     show trida uniform happy at center with dissolve
@@ -197,7 +198,7 @@ label week9_start:
     n "Hushed like a secret, Trida proceeded to sprint out of the crowd like a leaf through wind, until they had left your sight toward the hallways."
     n "You're left to sit with yourself as you wait for Trida's noodle order on their behalf."
 
-    show julia smile at center with dissolve
+    show julia smile at to_center
     julia "Oh, hey [player_name]! It's been a while!"
     n "Julia greeted you with a little more excitement than what you would've expected from someone as initially reserved as her."
     n "She made her way to the empty space beside you and sat down."
@@ -218,7 +219,7 @@ label week9_start:
     julia "Oh, it's just… to be frank, I've been noticing you and Trida becoming closer for quite a while now."
     julia "You guys seem to make a great pair. Seeing you two have fun always brings up the mood, and I can't imagine the two of you ever separating, so I was just wondering…"
 
-    show julia neutral with dissolve
+    show julia neutral at center, sway with dissolve
     n "Julia suddenly turns toward you and holds eye contact, an uncharacteristic but sincere, determined look on her face."
     julia "Perhaps this is a bit too direct, but if you don't mind being honest with me for a second…"
     julia "…Who is Trida to you, [player_name]?"
@@ -227,13 +228,14 @@ label week9_start:
         "Someone… I want to be more than friends with":
             $ tridaAffection += 2
             $ trida_route = "romance"
+            play music audio.t8 fadein 1.5 loop volume 0.7
             n "You stutter out your honest feelings, thinking back to how many times the small moments with Trida have made your heart race."
             n "Everything from the funny moments, the tender moments, the emotional Saturday night in your room… all culminating into a first admission of your feelings for Trida to Julia."
             show julia smile with dissolve
             julia "I see…"
             n "Julia smiles to herself upon hearing your confession, sighing quietly in relief."
             p "…What? Don't go around telling people."
-            show julia shy with dissolve
+            show julia shy at center, dip with dissolve
             julia "Oh, of course not! You see… I had a feeling you'd say that. From what I've observed, the way you look at Trida is simply unmistakable…!"
             julia "If I may admit something too, I've had a few romantic escapades with my own friends in the past, so I understand you must be feeling very conflicted."
             p "Oh! Well… yeah, but I wouldn't have expected that from you."
@@ -265,14 +267,15 @@ label week9_start:
             julia "It's nothing, just looking out for you two!"
 
     n "It was then you heard loud pants and footsteps approaching from behind."
-    show julia smile at left with ease
+    show julia smile at slide_left
     show trida uniform happy at right with dissolve
     trida "I'm back!!"
+    play music audio.t4 fadein 1.0 loop volume 0.7
     n "Trida's announcement pierced through the ambiance of the crowd as they came running towards you, flailing the acquired wallet in their hand like a gold medal."
     n "Within barely a second, Trida speeded past you and Julia, bent over gasping for air as they counted the bills in their hand."
 
     p "Speak of the devil…"
-    show julia shy at left with dissolve
+    show julia shy at left, dip with dissolve
     julia "I reckon you'd like to keep our discussions a secret, yes?"
     n "Julia chuckled with a glint in her eyes, her knowing grin playfully teasing your embarrassment."
 
@@ -280,7 +283,7 @@ label week9_start:
     show trida happy at right with dissolve
     trida "Sorry for the wait, guys! I swear I did {i}not{/i} recall my wallet being under my table of all places—"
     trida "Eh, Julia? Hey, Julia! Didn't realize you were here too!"
-    show julia smile at left with dissolve
+    show julia smile at left, sway with dissolve
     julia "Ah, hey, Trida…! It's been a while since we talked, right?"
     trida "Oh, totally!"
 
@@ -304,7 +307,7 @@ label week9_start:
             p "We were just chatting about nothing in particular."
             show trida neutral at right with dissolve
             trida "And why do I find that hard to believe, hm? You two seem a little less awkward now."
-            show julia shy at left with dissolve
+            show julia shy at left, dip with dissolve
             julia "Heh…"
             trida "And that laugh isn't convincing either!"
         "About Nimecart":
@@ -326,14 +329,15 @@ label week9_start:
             julia "Ehehe…"
 
     show trida happy at right, hop
-    show julia smile at left with dissolve
+    show julia smile at left, hop with dissolve
     n "The three of you laugh together around the warm smell of noodles and canteen chatter."
     n "As the lunch bell approaches, you look at Trida—happier, lighter, and closer to you than ever before."
 
     hide trida
     hide julia
     with dissolve
-    scene black with fade
+    scene black with dissolve_scene_full
+    play music audio.tcredits fadein 2.0 loop volume 0.7
 
     # End of Week 9
     $ debug_auto_skip = False

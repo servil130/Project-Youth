@@ -17,7 +17,8 @@ label week8_start:
     play sound "audio/bump.opus"
     n "Frowning, you pushed yourself up and pulled the door open, expecting the building manager or a neighbour. Instead, your breath caught."
 
-    show trida casual embarrassed at center with dissolve
+    show trida casual embarrassed at center, dip with dissolve
+    play music audio.t7 fadein 2.0 loop volume 0.7
     n "Standing in the dim hallway light was Trida. They looked a little worn out, and they offered a painfully hesitant, tight-lipped smile that didn't quite reach their eyes."
     n "Their hands were shoved deep into their front pocket, nervously fidgeting with the fabric."
 
@@ -33,7 +34,7 @@ label week8_start:
     n "Trida blinked, clearly startled that you let them in so easily, but they stepped across the threshold with quiet, cautious movements."
     n "They didn't linger by the desk or pace around as they normally did; instead, they walked straight over to the small lounge area in your boarding house and sat on the edge of the couch, pulling their knees up slightly and looking entirely too small."
 
-    show trida sad at center with dissolve
+    show trida sad at center, dip with dissolve
     n "The small lounge area felt entirely too quiet, the steady hum of the small wall-mounted air conditioner serving as the only background noise against the heavy, palpable tension in the air."
     n "Trida sat rigidly on the edge of the worn fabric couch, their posture tightly coiled and defensive."
     n "They had pulled their knees up slightly, arms wrapped defensively across the oversized fabric of their hoodie, fingers clutching at the opposite sleeves as if trying to hold themselves together physically."
@@ -75,7 +76,7 @@ label week8_start:
     n "You shifted closer on the couch, with your chest tightening."
     p "Trida, he wasn't right. He was just being an asshole."
 
-    show trida sad at center with dissolve
+    show trida sad at center, panic with dissolve
     trida "No, he {i}was{/i} right!"
     n "Trida suddenly snapped, their voice cracking sharply as the fragile barrier they'd built all week finally shattered."
     n "They turned to look at you, their eyes swimming with tears, the raw, unfiltered devastation on their face making it hard to breathe."
@@ -101,6 +102,7 @@ label week8_start:
 
     # Visual Splash Art: Trida Held Hands with Players
     $ splash_art = True
+    play music audio.t8 fadein 2.0 loop volume 0.7
     n "Slowly your hands took Trida's fingers as both of your skin brushed against each other, making a little shudder through their hands."
     n "Your voice was firm with deep earnestness, and stripped of any hesitation."
     n "It took a moment, but Trida slowly raised their head, their tear-filled eyes blinking in surprise as they met your gaze."
@@ -119,7 +121,7 @@ label week8_start:
     n "A fresh swell of emotion hit them, but this time, the heavy, crushing despair began to dissolve, replaced by a sudden, overwhelming rush of warmth."
 
     # Visual Splash Art: Trida Blushing and Smiling to Players While Holding Hands
-    show trida embarrassed at center with dissolve
+    show trida embarrassed at center, dip with dissolve
     n "A watery chuckle slipped past Trida's lips, and despite the fresh tears still tracking down their flushed cheeks, a wide, genuine grin broke across their face—radiant, messy, and entirely disarming."
     n "Seeing that sudden, brilliant smile bloom right through their tears made your breath hitch, and your heart gave an unexpected, heavy thud against your ribs, skipping a beat entirely."
 
@@ -142,7 +144,7 @@ label week8_start:
 
     n "For a few quiet moments, the only sound in the room was the steady hum of the air conditioner and the even rhythm of their breathing as it finally stabilised."
 
-    show trida happy at center with dissolve
+    show trida happy at center, hop with dissolve
     n "Then, a faint, familiar spark flickered back to life behind their tear-damp lashes."
     n "Trida shifted slightly, letting out a small, self-deprecating snort as a hint of their classic, overly dramatic flair crept back into their voice."
 

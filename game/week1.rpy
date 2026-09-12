@@ -1,13 +1,13 @@
 label week1_start:
     $ current_week = "Week 1"
-    # play music "audio/bgm_classroom.ogg" fadein 1.5 loop volume 0.5 # [Pending BGM asset]
+    play music audio.t2 fadein 1.5 loop volume 0.7
 
     # ==============================================================================
     # ACT I - CHAPTER I: FIRST DAY OF CLASS & ENCOUNTERS
     # ==============================================================================
 
     scene bg gates_morning
-    with fade
+    with dissolve_scene_full
 
     # Ext. SMK RADEN UMAR SAID GATES - MORNING
     n "Your body comes back to those buildings. It was a breath of fresh air after a week of the MPLS event had finally ended."
@@ -15,7 +15,8 @@ label week1_start:
     n "Your heart thumps as you finally reach your class."
 
     scene bg classroom
-    with fade
+    with dissolve_scene_full
+    play music audio.t3 fadein 1.5 loop volume 0.7
 
     # Int. CLASSROOM - MORNING
     n "The loud hum of the air conditioner fills the room, making the walls feel chill and stiff as your eyes wander around."
@@ -43,7 +44,7 @@ label week1_start:
 
     n "You were about to respond when the sound of footsteps made you pause."
     n "The figure you recognised as your homeroom teacher entered the classroom."
-    show teacher at right with dissolve
+    show teacher at slide_right
     teacher "Sit down, everyone."
     n "The sound of scraping chairs and the clattering of desks shattered the lingering quiet, creating an echo that bounced off the walls."
     n "A few seats were occupied, their occupants shifting restlessly as they settled in. You glanced over at Trida, who remained poised beside your table."
@@ -106,17 +107,18 @@ label week1_start:
 # ==============================================================================
 
 label week1_grapos:
+    play music audio.t4 fadein 1.0 loop volume 0.7
     p "Maybe I should walk around for a bit."
     n "As you glance around the room, you realise that several students have already slipped out. With a sense of urgency, you step out into the fresh air."
 
     scene bg grapos_field
-    with fade
+    with dissolve_scene_full
 
     # Visual Lapangan Grapos
     n "As you walk along the familiar trail, you find yourself arriving at the open field where you participated in MPLS not long ago."
     n "In the distance, the building marked 'Grapos' looms, its weathered façade a testament to the years that have passed. Tall grasses sway gently in the breeze."
 
-    show radit smile at center with dissolve
+    show radit smile at to_center
     radit "Hi, [player_name]."
     n "You turn around when you hear your name called. A figure you're already familiar with walks toward you casually, giving your shoulder a gentle tap."
     p "…?"
@@ -127,24 +129,24 @@ label week1_grapos:
     menu:
         "Only if there's a binding snack-sharing agreement involved.":
             $ radit_affection += 1
-            show radit amused with dissolve
+            show radit amused at center, hop with dissolve
             n "Radit looked at you with an amused expression as he let out a small scoff, placing one hand in his pocket."
             radit "Straight to negotiation, huh? Fair enough."
-            show radit smile with dissolve
+            show radit smile at center, sway with dissolve
             radit "Deal. But don't complain when I take the better snacks."
 
         "I mean… I don't fight people usually, so… that counts as getting along, right?":
             $ radit_affection += 1
-            show radit neutral with dissolve
+            show radit neutral at center, sway with dissolve
             n "Radit tilted his head as his calm eyes glanced straight towards you."
             radit "That's… a pretty low standard."
-            show radit smile with dissolve
+            show radit smile at center, hop with dissolve
             n "After a pause, a small chuckle slips from his lips."
             radit "But I'll take it. Peaceful is a good start."
 
         "Yeah, sure. We'll be seeing each other a lot anyway, so might as well get along.":
             $ radit_affection += 1
-            show radit smile with dissolve
+            show radit smile at center, sway with dissolve
             n "There was a brief silence before you saw him nod lightly, placing a smirk on his lips."
             radit "Guess we're stuck with each other then."
 
@@ -159,17 +161,18 @@ label week1_grapos:
 # ==============================================================================
 
 label week1_rus:
+    play music audio.t4 fadein 1.0 loop volume 0.7
     p "Maybe I should walk around for a bit."
     n "You rise from your seat and make your way toward the door, stepping out into the fresh air."
 
     scene bg rus_studio
-    with fade
+    with dissolve_scene_full
 
     # Visual Gedung Studio Animasi
     n "The animation studio building looms impressively against the backdrop of a blazing sun, radiating heat that shimmers in the air."
     n "As you take in your surroundings, a sense of purpose washes over you."
 
-    show chie happy at center with dissolve
+    show chie happy at to_center
     chie "Hello there! How are you doing?"
     n "A girl with long, flowing golden hair stands just two meters away, her bright smile lighting up her face."
     n "In a burst of energy, she takes both your hands and shakes them enthusiastically."
@@ -179,7 +182,7 @@ label week1_rus:
     menu:
         "Hey, I remember you, of course. You're not that easy to forget!":
             $ ch_affection += 1
-            show chie smile with dissolve
+            show chie smile at center, hop with dissolve
             n "Hearing that, her shoulders visibly relaxed, the tension melting away."
             chie "Really? You do?"
             chie "Aaa, that makes me so happy! I was seriously overthinking it."
@@ -197,7 +200,7 @@ label week1_rus:
 
         "Chie, right? About that internship… then you are my senior?":
             $ ch_affection += 1
-            show chie smile with dissolve
+            show chie smile at center, sway with dissolve
             chie "Oh! Yeah, I guess that makes me your senior, huh?"
             chie "Don't worry, I'm a nice one! If you need help, you can totally ask me!"
 
@@ -213,7 +216,7 @@ label week1_rus:
 
 label week1_stay:
     scene bg classroom
-    with fade
+    with dissolve_scene_full
     p "Maybe I should just stay in here."
     n "Half of the people in the room had already left. You sat there scrolling through your phone, passing the break time."
     scene black
@@ -229,6 +232,7 @@ label week1_back_to_class:
     scene bg classroom
     with dissolve_scene_half
     play sound "audio/school_bell.ogg"
+    play music audio.t3 fadein 1.5 loop volume 0.7
 
     n "The lights are cast through the window, making a faint glow in the classroom."
     n "The sound of complete silence wafting through the class only reached your homeroom teacher, who was now introducing 3D Animation."
@@ -266,7 +270,7 @@ label week1_back_to_class:
             trida "3D animation is basically giving digital stuff a little life—like, 'go on, move around, spin a bit'."
             trida "So it looks like it's living in a real 3D world, even though it's just chilling on a flat screen."
             teacher "That was the simplest one to say."
-            show teacher smile with dissolve
+            show teacher smile at right, hop with dissolve
             n "The teacher put on a slight smile before explaining more about the topic, leaving Trida to glance at you with a bright grin."
             # Visual Splash Art: Trida Leaning In and Smiling
             $ splash_art = True
@@ -315,7 +319,7 @@ label week1_back_to_class:
     show trida happy with dissolve
 
     trida "Anyways, that tension earlier makes me crave an iced tea."
-    show trida embarrassed with dissolve
+    show trida embarrassed at center, dip with dissolve
     n "Trida looks at the floor fidgeting with their tie, glancing from the corner of their eye waiting for your reaction."
 
     menu:
@@ -339,8 +343,9 @@ label week1_back_to_class:
 
 label week1_teddy_cup:
     scene bg teddy_cup
-    with fade
+    with dissolve_scene_full
     play sound "audio/glass_chime.wav"
+    play music audio.t6 fadein 1.5 loop volume 0.7
 
     # Visual Tenda TeddyCup
     n "The school was almost empty because most of the students had already gone home."
@@ -375,7 +380,8 @@ label week1_teddy_cup:
 
 label week1_bedroom:
     scene bg bedroom_late_afternoon
-    with fade
+    with dissolve_scene_full
+    play music audio.t10 fadein 2.0 loop volume 0.6
 
     # Visual Player Room
     n "You just arrived in your room and let out a slow exhale."

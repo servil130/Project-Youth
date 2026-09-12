@@ -1,7 +1,8 @@
 label week2_start:
     $ current_week = "Week 2"
     scene bg classroom
-    with fade
+    with dissolve_scene_full
+    play music audio.t3 fadein 1.5 loop volume 0.7
 
     # Visual: Classroom Afternoon
     n "The humming sound of the air conditioner fills the room as a gentle breeze blows through the warming space."
@@ -36,6 +37,7 @@ label week2_start:
 
     trida "Because I'm calling dibs on you as my partner!"
     show trida happy at center, hop
+    play music audio.t4 fadein 1.0 loop volume 0.7
     n "The quick, playful declaration catches you off guard."
     n "Even though you've only known each other for a couple of weeks, it's flattering to know they wanted to work with you."
 
@@ -68,7 +70,7 @@ label week2_start:
 
     shy_classmate "R-Really? Thank you..."
     n "A look of profound relief washes over her face, her knuckles unclenching slightly."
-    show shy_classmate at right with dissolve
+    show shy_classmate at slide_right, dip with dissolve
     n "She steps closer to your desks as a brief, awkward quiet settles among the three of you."
     n "Someone needs to break the ice..."
 
@@ -104,7 +106,7 @@ label week2_start:
 
 label week2_project_afternoon:
     scene bg classroom
-    with fade
+    with dissolve_scene_full
 
     # (Timeskip: Some hours later)
     n "Some hours pass, and the classroom gradually empties as students head home."
@@ -131,6 +133,7 @@ label week2_project_afternoon:
     n "She tries to brush it off, but her eyebrows twitch and she sways slightly in her chair."
     show trida embarrassed at to_center, dip
     trida "Whoa! Hey!"
+    play music audio.t5 fadein 0.5 loop volume 0.7
 
     n "Trida shoots up so fast the wooden legs of the chair screech harshly against the linoleum floor."
     n "Their hands shoot forward to catch her, then freeze awkwardly in mid-air, unsure of where to touch."
@@ -211,7 +214,8 @@ label week2_project_afternoon:
 
 label week2_classroom_sunset:
     scene bg classroom
-    with fade
+    with dissolve_scene_full
+    play music audio.t6 fadein 2.0 loop volume 0.7
 
     n "The classroom door clicks shut behind you as both of you return to the empty room."
     n "The afternoon sun has dipped lower, casting long, dusty amber rays across the vacant desks."

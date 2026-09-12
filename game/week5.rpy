@@ -1,7 +1,8 @@
 label week5_start:
     $ current_week = "Week 5"
     scene bg gates_morning
-    with fade
+    with dissolve_scene_full
+    play music audio.t2 fadein 1.5 loop volume 0.7
 
     # Visual: Kudus Town Square - Car Free Day (CFD)
     n "The morning sun feels nice and gentle as it shines through the trees on the street."
@@ -19,8 +20,8 @@ label week5_start:
     n "Then you catch a glimpse of someone familiar standing near a clothing stall."
     n "With your courage and curiosity peeking a sense to approach, you take a step there before finally spotting Trida, who was seen leaning against a rack of shirts, looking more at ease than you've seen them all week."
 
-    show cap_boy at left with dissolve
-    show braided_girl at right with dissolve
+    show cap_boy at slide_left
+    show braided_girl at slide_right
     cap_boy "...I'm telling you, I spent three hours just trying to get the bridge tool to cooperate in Blender. My mesh looked like a crumpled piece of paper by the time I was done."
     braided_girl "That's because you're probably just extruding faces without thinking about your topology, dude."
 
@@ -28,7 +29,7 @@ label week5_start:
     n "Their eyes light up with a spark igniting the room before their mouth is running around again."
     show cap_boy at to_left
     show braided_girl at to_right
-    show trida casual happy at center with dissolve
+    show trida casual happy at to_center
     trida "Oh, hey! Look who it is!"
 
     n "The two friends glance at each other before they turn to see what's happening."
@@ -95,6 +96,7 @@ label week5_start:
 # --- BRANCH: WALK WITH TRIDA ---
 label week5_cfd_walk_trida:
     $ tridaAffection += 1
+    play music audio.t4 fadein 1.0 loop volume 0.7
     p "Sure, I'd love to. It's nice to have some company."
     show trida casual happy at center, hop
     n "Trida's face lights up—not just a smile, but a look of genuine, unfiltered relief."
@@ -166,7 +168,7 @@ label week5_cfd_walk_alone:
     n "You get a snack, you get some cimol, and find a quiet place to watch the city."
     n "When the afternoon light starts to look like gold, your eyes catch a figure of your senior Sabian bargaining with a vendor cart."
     p "Sabian? You're out here?"
-    show sabian smile at center with dissolve
+    show sabian smile at to_center
     sabian "Yo! If it isn't my favorite junior themselves! I thought you were locked in on your work!"
     p "I actually managed to escape for once."
     sabian "Good! You gotta get out, man. I ran into Trida earlier—that kid's been stressed, right? Needs to eat. You should keep an eye on them—they forget to relax when they're deep in their work."
@@ -183,7 +185,8 @@ label week5_cfd_walk_alone:
 
 label week5_evening_dinner:
     scene bg bedroom_late_afternoon
-    with fade
+    with dissolve_scene_full
+    play music audio.t6 fadein 1.5 loop volume 0.7
 
     n "The room is dim, lit only by the warm glow of your monitor."
     n "You've been staring at a half-finished UV mesh for hours, and your stomach is finally making enough noise to drown out the hum of your PC fan."
@@ -202,15 +205,15 @@ label week5_evening_dinner:
 # --- OPTION 1: JULIA ROUTE (KPK Cafe) ---
 label week5_dinner_julia:
     scene bg classroom
-    with fade
+    with dissolve_scene_full
 
     n "The door is creaking open, cutting through the low hum of jazz music playing over the speakers."
     n "KPK Cafe is a sanctuary of warm atmosphere with a bittersweet scent of espresso."
     n "Julia is tucked into a booth near the back. A professional-grade camera lens is resting on the table next to a stack of reference books, and her attention is fixed on a handheld console."
     n "She's wearing oversized headphones, with a furrowed expression in deep concentration."
-    show julia neutral at center with dissolve
+    show julia neutral at slide_center
     n "She looks up, quickly pulling one earphone back, and a smile finally blooms."
-    show julia smile with dissolve
+    show julia smile at center, sway with dissolve
     julia "Oh. Hello. Didn't think I'd see you here tonight."
     n "She gestures to the empty seat opposite her."
 
@@ -223,7 +226,7 @@ label week5_dinner_julia:
     julia "I'm just... taking a break now. Choosing somewhere not in my room kind of helps me sometimes."
     julia "I was just doing some research for a project. I found this hidden lore bit in a game, and it's honestly fascinating how they handled the environmental storytelling, and I want to look it up."
     n "She pauses, her fingers tightening slightly on the edge of the table."
-    show julia shy with dissolve
+    show julia shy at center, dip with dissolve
     julia "Sorry. I—I didn't mean to info-dump. I just... I get lost in these things. Was that too much?"
 
     menu:
@@ -238,7 +241,7 @@ label week5_dinner_julia:
             $ julia_affection += 1
 
     n "Julia paused before you could see a glimpse of her eyes sparkling in the dim light of the cafe."
-    show julia smile with dissolve
+    show julia smile at center, hop with dissolve
     julia "That was—thank you, honestly... I really appreciate that. It's the first time someone really put their attention on this stuff."
     p "We are friends, right?"
     n "Both of you were drowned in that funny tickle in your feet, because a book of friendship journey is opened there."
@@ -249,23 +252,23 @@ label week5_dinner_julia:
 # --- OPTION 2: TRIDA ROUTE (Bazinga Food Restaurant) ---
 label week5_dinner_trida:
     scene bg teddy_cup
-    with fade
+    with dissolve_scene_full
 
     n "Bazinga is a total sensory overload. The air is thick with the scent of stir-fried garlic and heavy smoke."
     n "The heavy wooden chairs screech against the concrete, and the wall of chatter is loud enough to drown out the pop music blaring from a corner speaker."
     show trida casual happy at left with dissolve
-    show radit neutral at right with dissolve
+    show radit neutral at slide_right
     trida "YO! OVER HERE! HEY!"
     n "Trida's voice cuts through the noise like a siren. They're grinning and waving both arms like they're signaling a plane."
     n "Radit, sitting across from them, just drops his head into his hands, totally done with the drama."
 
     p "Hey, guys..."
-    show radit annoyed with dissolve
+    show radit annoyed at right, panic with dissolve
     radit "I swear, one day this guy is gonna get us banned from every place in town."
     trida "Relax! You're just boring. Look, I've got a craving for fried rice tonight. You should start ordering [player_name], I'm seriously starving."
 
     n "You grab the greasy, laminated menu. The talk shifts to gaming."
-    show radit neutral with dissolve
+    show radit neutral at right, sway with dissolve
     radit "Well, as I said, I finally cleared another run of Final Fantasy VII last night."
     trida "Yeah, the lore is actually insane. Honestly, you're right. Why am I killing myself over Maya when I could just live addicted to video games?"
     radit "You would miss touching grass."
@@ -327,10 +330,10 @@ label week5_dinner_trida:
 # --- OPTION 3: SENIORS ROUTE (Abahciek Food Restaurant) ---
 label week5_dinner_seniors:
     scene bg teddy_cup
-    with fade
+    with dissolve_scene_full
 
     n "Abahciek skips conventional doors; the front is a spacious, open-air gathering spot with elevated wooden platforms and floor mats."
-    show chie happy at left with dissolve
+    show chie happy at left, hop with dissolve
     show sabian smile at right with dissolve
     chie "[player_name]! No way, are you serious?! Over here!"
     n "Chie is halfway out of her seated position on the floor, waving animatedly in the air. Across from her, Sabian leans casually against the wall with an amused smirk."
@@ -361,7 +364,7 @@ label week5_dinner_seniors:
 label week5_night_end:
     $ splash_art = False
     scene bg bedroom_late_afternoon
-    with fade
+    with dissolve_scene_full
 
     n "Back in your room, the quiet hum of the night brings a soothing closure to a long, memorable weekend."
     n "You fall asleep with a light heart, looking forward to the school festival ahead."
