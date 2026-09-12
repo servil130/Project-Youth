@@ -112,7 +112,7 @@ label week2_project_afternoon:
     n "Some hours pass, and the classroom gradually empties as students head home."
     n "Long, golden shafts of afternoon sunlight stream through the tall windows, casting amber lines across the desks."
     n "Only the three of you remain, huddled around a shared table with notebooks and profile drafts spread out."
-    show trida uniform happy at tleft with dissolve
+    show trida uniform happy at tcenter with dissolve
     n "Trida is enthusiastically rambling about their hometown, gesturing animatedly with a pen."
 
     n "You chuckle along, but as you glance across the desk, a faint sense of unease tugs at you."

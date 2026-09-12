@@ -413,6 +413,9 @@ define gui.nvl_button_xalign = 0.0
 
 define gui.language = "unicode"
 
+define gui.button_hover_sound = "audio/sfx/ui_hover.wav"
+define gui.button_activate_sound = "audio/sfx/ui_click.wav"
+
 
 ################################################################################
 ## Mobile devices

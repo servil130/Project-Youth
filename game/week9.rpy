@@ -225,7 +225,7 @@ label week9_start:
     julia "…Who is Trida to you, [player_name]?"
 
     menu:
-        "Someone… I want to be more than friends with":
+        "Someone… I want to be more than friends with" if tridaAffection >= TRIDA_ROMANCE_THRESHOLD:
             $ tridaAffection += 2
             $ trida_route = "romance"
             play music audio.t8 fadein 1.5 loop volume 0.7
@@ -337,9 +337,5 @@ label week9_start:
     hide julia
     with dissolve
     scene black with dissolve_scene_full
-    play music audio.tcredits fadein 2.0 loop volume 0.7
+    jump week10_start
 
-    # End of Week 9
-    $ debug_auto_skip = False
-    $ config.skipping = None
-    return

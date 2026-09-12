@@ -118,7 +118,7 @@ label week1_grapos:
     n "As you walk along the familiar trail, you find yourself arriving at the open field where you participated in MPLS not long ago."
     n "In the distance, the building marked 'Grapos' looms, its weathered façade a testament to the years that have passed. Tall grasses sway gently in the breeze."
 
-    show radit smile at to_center
+    show radit smile at center with dissolve
     radit "Hi, [player_name]."
     n "You turn around when you hear your name called. A figure you're already familiar with walks toward you casually, giving your shoulder a gentle tap."
     p "…?"

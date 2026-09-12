@@ -27,6 +27,8 @@ style gui_text:
 
 style button:
     properties gui.button_properties("button")
+    hover_sound gui.button_hover_sound
+    activate_sound gui.button_activate_sound
 
 style button_text is gui_text:
     properties gui.text_properties("button")
@@ -285,6 +287,8 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    hover_sound gui.button_hover_sound
+    activate_sound "audio/sfx/ui_choice.wav"
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
@@ -319,8 +323,41 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
     config.overlay_screens.append("week_indicator")
+    config.overlay_screens.append("affection_counter")
 
 default quick_menu = True
+
+## Affection Counter HUD (displayed in-game at the top-left corner)
+screen affection_counter():
+    zorder 50
+    if quick_menu:
+        frame:
+            style "affection_counter_frame"
+            xalign 0.015
+            yalign 0.025
+            hbox:
+                spacing 8
+                yalign 0.5
+                text "♥":
+                    size 24
+                    color "#ff4d6d"
+                    outlines [ (1, "#590d22", 0, 0) ]
+                    yalign 0.5
+                text "Trida: [tridaAffection]":
+                    style "affection_counter_text"
+
+style affection_counter_frame:
+    background Frame("gui/frame.png", gui.frame_borders)
+    xpadding 20
+    ypadding 10
+
+style affection_counter_text:
+    size 22
+    bold True
+    color "#ffffff"
+    outlines [ (1, "#000000", 0, 0) ]
+    yalign 0.5
+
 
 ## Week & Splash Art indicator HUD (displayed in-game at the top-right corner)
 screen week_indicator():
@@ -888,8 +925,11 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
-                ## Additional vboxes of type "radio_pref" or "check_pref" can be
-                ## added here, to add additional creator-defined preferences.
+                vbox:
+                    style_prefix "radio"
+                    label _("Language")
+                    textbutton "English" action Language(None)
+                    textbutton "Bahasa Indonesia" action Language("indonesian")
 
             null height (4 * gui.pref_spacing)
 

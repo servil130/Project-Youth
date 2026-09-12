@@ -37,6 +37,17 @@ define audio.t8 = "audio/bgm/8.ogg"
 define audio.t9 = "audio/bgm/9.ogg" 
 define audio.t10 = "audio/bgm/10.ogg" 
 define audio.tcredits = "audio/bgm/credits.ogg" 
+define audio.door_open = "audio/sfx/door_open.ogg"
+define audio.door_close = "audio/sfx/door_close.ogg"
+define audio.paper_flip = "audio/sfx/paper_flip.ogg"
+define audio.book_open = "audio/sfx/book_open.ogg"
+define audio.footstep_1 = "audio/sfx/footstep_1.ogg"
+define audio.footstep_2 = "audio/sfx/footstep_2.ogg"
+define audio.keyboard_typing = "audio/sfx/keyboard_typing.mp3"
+define audio.ui_hover = "audio/sfx/ui_hover.wav"
+define audio.ui_click = "audio/sfx/ui_click.wav"
+define audio.ui_choice = "audio/sfx/ui_choice.wav"
+define audio.ui_back = "audio/sfx/ui_back.wav" 
 
 define trida = Character("Trida", ctc="ctc", ctc_position="fixed")
 define committee = Character("Student Committee", ctc="ctc", ctc_position="fixed")
@@ -54,6 +65,8 @@ define braided_girl = Character("Braided Girl", ctc="ctc", ctc_position="fixed")
 define moderator = Character("Moderator", ctc="ctc", ctc_position="fixed")
 define classmate_a = Character("Classmate A", ctc="ctc", ctc_position="fixed")
 define classmate_b = Character("Classmate B", ctc="ctc", ctc_position="fixed")
+define hizbul = Character("Hizbul", ctc="ctc", ctc_position="fixed")
+define ilham = Character("Ilham", ctc="ctc", ctc_position="fixed")
 
 default player_name = "You"
 default current_week = "Prologue"
@@ -63,6 +76,7 @@ default trida_route = None
 default mapAcquired = False
 default player_has_bouquet = False
 default tridaAffection = 0
+define TRIDA_ROMANCE_THRESHOLD = 15
 default radit_affection = 0
 default ch_affection = 0
 default sabian_affection = 0
@@ -107,6 +121,78 @@ init -1 python:
             return Transform(fallback_path, zoom=RADIT_ZOOM, yoffset=RADIT_YOFFSET)
         return Placeholder("boy", text=f"Radit\n({expr.capitalize()})")
 
+    JULIA_ZOOM = 1.30
+    JULIA_YOFFSET = 240
+
+    def julia_sprite(expr="neutral"):
+        path = f"images/julia/julia_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=JULIA_ZOOM, yoffset=JULIA_YOFFSET)
+        return Placeholder("girl", text=f"Julia\n({expr.capitalize()})")
+
+    SABIAN_ZOOM = 1.30
+    SABIAN_YOFFSET = 240
+
+    def sabian_sprite(expr="neutral"):
+        path = f"images/sabian/sabian_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=SABIAN_ZOOM, yoffset=SABIAN_YOFFSET)
+        return Placeholder("boy", text=f"Sabian\n({expr.capitalize()})")
+
+    CHIE_ZOOM = 1.30
+    CHIE_YOFFSET = 240
+
+    def chie_sprite(expr="neutral"):
+        path = f"images/chie/chie_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=CHIE_ZOOM, yoffset=CHIE_YOFFSET)
+        return Placeholder("girl", text=f"Chie\n({expr.capitalize()})")
+
+    def hizbul_sprite(expr="neutral"):
+        path = f"images/hizbul/hizbul_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=1.30, yoffset=240)
+        return Placeholder("boy", text=f"Hizbul\n({expr.capitalize()})")
+
+    def ilham_sprite(expr="neutral"):
+        path = f"images/ilham/ilham_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=1.30, yoffset=240)
+        return Placeholder("boy", text=f"Ilham\n({expr.capitalize()})")
+
+    def teacher_sprite(expr="neutral"):
+        path = f"images/teacher/teacher_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=1.30, yoffset=240)
+        return Placeholder("boy", text=f"Teacher\n({expr.capitalize()})")
+
+    GLASSES_BOY_ZOOM = 0.90
+    GLASSES_BOY_YOFFSET = 280
+
+    def glasses_boy_sprite(expr="neutral"):
+        path = f"images/glasses_boy/glasses_boy_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=GLASSES_BOY_ZOOM, yoffset=GLASSES_BOY_YOFFSET)
+        return Placeholder("boy", text=f"Glasses Boy\n({expr.capitalize()})")
+
+    def braided_girl_sprite(expr="neutral"):
+        path = f"images/braided_girl/braided_girl_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=1.30, yoffset=240)
+        return Placeholder("girl", text=f"Braided Girl\n({expr.capitalize()})")
+
+    def shy_classmate_sprite(expr="neutral"):
+        path = f"images/shy_classmate/shy_classmate_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=1.30, yoffset=240)
+        return Placeholder("girl", text=f"Shy Classmate\n({expr.capitalize()})")
+
+    def cap_boy_sprite(expr="neutral"):
+        path = f"images/cap_boy/cap_boy_{expr}.png"
+        if renpy.loadable(path):
+            return Transform(path, zoom=1.30, yoffset=240)
+        return Placeholder("boy", text=f"Cap Boy\n({expr.capitalize()})")
+
 image trida = trida_sprite("uniform", "neutral")
 
 image trida uniform neutral = trida_sprite("uniform", "neutral")
@@ -131,6 +217,14 @@ image trida surprised = "trida uniform happy"
 image trida nervous = "trida uniform embarrassed"
 image trida crying = "trida uniform sad"
 image trida annoyed = "trida uniform sad"
+
+image trida uniform smile = "trida uniform happy"
+image trida uniform laugh = "trida uniform happy"
+image trida uniform surprised = "trida uniform happy"
+image trida uniform blush = "trida uniform embarrassed"
+image trida uniform nervous = "trida uniform embarrassed"
+image trida uniform crying = "trida uniform sad"
+image trida uniform annoyed = "trida uniform sad"
 
 image trida casual blush = "trida casual embarrassed"
 image trida casual smile = "trida casual happy"
@@ -173,30 +267,37 @@ image radit casual amused = radit_sprite("amused", "casual")
 image radit casual annoyed = radit_sprite("annoyed", "casual")
 
 # Chie
-image chie = Placeholder("girl", text="Chie")
-image chie neutral = Placeholder("girl", text="Chie\n(Neutral)")
-image chie smile = Placeholder("girl", text="Chie\n(Smile)")
-image chie happy = Placeholder("girl", text="Chie\n(Happy)")
-image chie laugh = Placeholder("girl", text="Chie\n(Laugh)")
-image chie surprised = Placeholder("girl", text="Chie\n(Surprised)")
-image chie sad = Placeholder("girl", text="Chie\n(Sad)")
-image chie pout = Placeholder("girl", text="Chie\n(Pout)")
+image chie = chie_sprite("neutral")
+image chie neutral = chie_sprite("neutral")
+image chie smile = chie_sprite("happy")
+image chie happy = chie_sprite("happy")
+image chie laugh = chie_sprite("happy")
+image chie surprised = chie_sprite("embarrassed")
+image chie sad = chie_sprite("sad")
+image chie pout = chie_sprite("sad")
+image chie embarrassed = chie_sprite("embarrassed")
 
 # Sabian
-image sabian = Placeholder("boy", text="Sabian")
-image sabian neutral = Placeholder("boy", text="Sabian\n(Neutral)")
-image sabian smile = Placeholder("boy", text="Sabian\n(Smile)")
-image sabian laugh = Placeholder("boy", text="Sabian\n(Laugh)")
-image sabian surprised = Placeholder("boy", text="Sabian\n(Surprised)")
-image sabian confident = Placeholder("boy", text="Sabian\n(Confident)")
+image sabian = sabian_sprite("neutral")
+image sabian neutral = sabian_sprite("neutral")
+image sabian smile = sabian_sprite("happy")
+image sabian happy = sabian_sprite("happy")
+image sabian laugh = sabian_sprite("happy")
+image sabian surprised = sabian_sprite("sad")
+image sabian confident = sabian_sprite("happy")
+image sabian sad = sabian_sprite("sad")
+image sabian embarrassed = sabian_sprite("embarrassed")
 
 # Julia
-image julia = Placeholder("girl", text="Julia")
-image julia neutral = Placeholder("girl", text="Julia\n(Neutral)")
-image julia smile = Placeholder("girl", text="Julia\n(Smile)")
-image julia shy = Placeholder("girl", text="Julia\n(Shy)")
-image julia nervous = Placeholder("girl", text="Julia\n(Nervous)")
-image julia blush = Placeholder("girl", text="Julia\n(Blush)")
+image julia = julia_sprite("neutral")
+image julia neutral = julia_sprite("neutral")
+image julia smile = julia_sprite("happy")
+image julia happy = julia_sprite("happy")
+image julia shy = julia_sprite("embarrassed")
+image julia nervous = julia_sprite("sad")
+image julia blush = julia_sprite("embarrassed")
+image julia sad = julia_sprite("sad")
+image julia embarrassed = julia_sprite("embarrassed")
 
 # Supporting Characters
 image mas_it = Placeholder("boy", text="Mas It")
@@ -207,28 +308,65 @@ image committee = Placeholder("boy", text="Committee")
 image committee neutral = Placeholder("boy", text="Committee\n(Neutral)")
 image committee speaking = Placeholder("boy", text="Committee\n(Speaking)")
 
-image mod_t = Placeholder("boy", text="Modelling Teacher")
-image modelling_teacher = Placeholder("boy", text="Modelling Teacher")
+image mod_t = teacher_sprite("neutral")
+image modelling_teacher = teacher_sprite("neutral")
 image lc_a = Placeholder("boy", text="Classmate A")
 image classmate_a = Placeholder("boy", text="Classmate A")
 image lc_b = Placeholder("boy", text="Classmate B")
 image classmate_b = Placeholder("boy", text="Classmate B")
-image civ_t = Placeholder("boy", text="Civics Teacher")
-image civics_teacher = Placeholder("boy", text="Civics Teacher")
-image glasses = Placeholder("boy", text="Glasses Boy")
-image glasses_boy = Placeholder("boy", text="Glasses Boy")
-image cap_b = Placeholder("boy", text="Cap Boy")
-image cap_boy = Placeholder("boy", text="Cap Boy")
-image braid_g = Placeholder("girl", text="Braided Girl")
-image braided_girl = Placeholder("girl", text="Braided Girl")
+image civ_t = teacher_sprite("neutral")
+image civics_teacher = teacher_sprite("neutral")
+image glasses = glasses_boy_sprite("neutral")
+image glasses_boy = glasses_boy_sprite("neutral")
+image glasses_boy neutral = glasses_boy_sprite("neutral")
+image glasses_boy smile = glasses_boy_sprite("happy")
+image glasses_boy happy = glasses_boy_sprite("happy")
+image glasses_boy sad = glasses_boy_sprite("sad")
+image glasses_boy embarrassed = glasses_boy_sprite("embarrassed")
+image cap_b = cap_boy_sprite("neutral")
+image cap_boy = cap_boy_sprite("neutral")
+image cap_boy neutral = cap_boy_sprite("neutral")
+image cap_boy smile = cap_boy_sprite("happy")
+image cap_boy happy = cap_boy_sprite("happy")
+image cap_boy sad = cap_boy_sprite("sad")
+image cap_boy embarrassed = cap_boy_sprite("embarrassed")
+image braid_g = braided_girl_sprite("neutral")
+image braided_girl = braided_girl_sprite("neutral")
+image braided_girl neutral = braided_girl_sprite("neutral")
+image braided_girl smile = braided_girl_sprite("happy")
+image braided_girl happy = braided_girl_sprite("happy")
+image braided_girl sad = braided_girl_sprite("sad")
+image braided_girl embarrassed = braided_girl_sprite("embarrassed")
 image mod_announcer = Placeholder("boy", text="Moderator")
 image moderator = Placeholder("boy", text="Moderator")
-image shy = Placeholder("girl", text="Shy Classmate")
-image shy_classmate = Placeholder("girl", text="Shy Classmate")
+image shy = shy_classmate_sprite("neutral")
+image shy_classmate = shy_classmate_sprite("neutral")
+image shy_classmate neutral = shy_classmate_sprite("neutral")
+image shy_classmate smile = shy_classmate_sprite("happy")
+image shy_classmate happy = shy_classmate_sprite("happy")
+image shy_classmate sad = shy_classmate_sprite("sad")
+image shy_classmate embarrassed = shy_classmate_sprite("embarrassed")
 
-image teacher = Placeholder("boy", text="Teacher")
-image teacher neutral = Placeholder("boy", text="Teacher\n(Neutral)")
-image teacher smile = Placeholder("boy", text="Teacher\n(Smile)")
+image teacher = teacher_sprite("neutral")
+image teacher neutral = teacher_sprite("neutral")
+image teacher smile = teacher_sprite("happy")
+image teacher happy = teacher_sprite("happy")
+image teacher sad = teacher_sprite("sad")
+image teacher serious = teacher_sprite("serious")
+
+image hizbul = hizbul_sprite("neutral")
+image hizbul neutral = hizbul_sprite("neutral")
+image hizbul smile = hizbul_sprite("happy")
+image hizbul happy = hizbul_sprite("happy")
+image hizbul sad = hizbul_sprite("sad")
+image hizbul embarrassed = hizbul_sprite("embarrassed")
+
+image ilham = ilham_sprite("neutral")
+image ilham neutral = ilham_sprite("neutral")
+image ilham smile = ilham_sprite("happy")
+image ilham happy = ilham_sprite("happy")
+image ilham sad = ilham_sprite("sad")
+image ilham embarrassed = ilham_sprite("embarrassed")
 
 image white = Solid("#ffffff")
 image logo = "images/logo.png"
