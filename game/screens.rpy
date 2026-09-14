@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Initialization
 ################################################################################
 
@@ -27,6 +27,8 @@ style gui_text:
 
 style button:
     properties gui.button_properties("button")
+    hover_sound gui.button_hover_sound
+    activate_sound gui.button_activate_sound
 
 style button_text is gui_text:
     properties gui.text_properties("button")
@@ -101,7 +103,7 @@ screen say(who, what):
     window:
         id "window"
 
-        if who is not None:
+        if who is not None and who != "":
 
             window:
                 id "namebox"
@@ -121,6 +123,15 @@ screen say(who, what):
 init python:
     config.character_id_prefixes.append('namebox')
 
+## DDLC Click-To-Continue animated indicator
+image ctc:
+    xalign 0.805 yalign 0.972 xoffset -4 alpha 0.0 subpixel True
+    "gui/ctc.png"
+    block:
+        easeout 0.75 alpha 1.0 xoffset 0
+        easein 0.75 alpha 0.4 xoffset -4
+        repeat
+
 style window is default
 style say_label is default
 style say_dialogue is default
@@ -136,27 +147,28 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Transform(
-        Image("images/background_ui.png"),
-        xalign=0.5, yalign=0.02,
-        xsize=1920, ysize=300,
-        alpha=0.7
-    )
+    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
     xanchor gui.name_xalign
     xsize gui.namebox_width
-    ypos gui.name_ypos
+    xminimum 220
+    yanchor 1.0
+    ypos 56
     ysize gui.namebox_height
 
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    padding (24, 8, 24, 8)
 
 style say_label:
     properties gui.text_properties("name", accent=True)
-    xalign gui.name_xalign
+    font gui.name_text_font
+    color "#ffffff"
+    size gui.name_text_size
+    xalign 0.5
     yalign 0.5
+    outlines [(3, "#b59", 0, 0), (1, "#b59", 1, 1)]
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
@@ -164,6 +176,7 @@ style say_dialogue:
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
+    outlines [(2, "#000000aa", 0, 0)]
 
     adjust_spacing False
 
@@ -194,6 +207,9 @@ screen input(prompt):
             text prompt style "input_prompt"
             input id "input"
 
+    if debug_auto_skip:
+        timer 0.02 action Return("You")
+
 style input_prompt is default
 
 style input_prompt:
@@ -203,6 +219,38 @@ style input_prompt:
 style input:
     xalign gui.dialogue_text_xalign
     xmaximum gui.dialogue_width
+
+screen custom_name_input(prompt):
+    style_prefix "custom_name"
+    
+    add Solid("#00000088")
+    
+    frame:
+        xalign 0.5 yalign 0.5
+        xpadding 50 ypadding 50
+        background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
+        vbox:
+            spacing 30
+            xalign 0.5
+            text prompt style "custom_name_prompt"
+            input value VariableInputValue("player_name") style "custom_name_input_text" length 20
+            textbutton _("Confirm") action Return(True) xalign 0.5
+
+style custom_name_prompt:
+    properties gui.text_properties("prompt")
+    xalign 0.5
+    text_align 0.5
+    size 32
+    color "#ffffff"
+
+style custom_name_input_text:
+    properties gui.text_properties("input")
+    xalign 0.5
+    text_align 0.5
+    size 45
+    color "#ffcc66"
+    outlines [(2, "#000000", 0, 0)]
+
 
 
 ## Choice screen ###############################################################
@@ -220,6 +268,11 @@ screen choice(items):
         for i in items:
             textbutton i.caption action i.action
 
+    if debug_auto_skip and items:
+        $ _debug_choice_act = get_first_valid_choice(items)
+        if _debug_choice_act:
+            timer 0.02 action _debug_choice_act
+
 
 style choice_vbox is vbox
 style choice_button is button
@@ -234,6 +287,8 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    hover_sound gui.button_hover_sound
+    activate_sound "audio/sfx/ui_choice.wav"
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
@@ -255,22 +310,112 @@ screen quick_menu():
             style_prefix "quick"
             style "quick_menu"
 
-            textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton (_("Skip (DBG)") if debug_auto_skip else _("Skip")) action ToggleDebugAutoSkip()
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Load") action ShowMenu('load')
+            textbutton _("Preferences") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
 init python:
     config.overlay_screens.append("quick_menu")
+    config.overlay_screens.append("week_indicator")
+    config.overlay_screens.append("affection_counter")
 
 default quick_menu = True
+
+## Affection Counter HUD (displayed in-game at the top-left corner)
+screen affection_counter():
+    zorder 50
+    if quick_menu:
+        frame:
+            style "affection_counter_frame"
+            xalign 0.015
+            yalign 0.025
+            hbox:
+                spacing 8
+                yalign 0.5
+                text "♥":
+                    size 24
+                    color "#ff4d6d"
+                    outlines [ (1, "#590d22", 0, 0) ]
+                    yalign 0.5
+                text "Trida: [tridaAffection]":
+                    style "affection_counter_text"
+
+style affection_counter_frame:
+    background Frame("gui/frame.png", gui.frame_borders)
+    xpadding 20
+    ypadding 10
+
+style affection_counter_text:
+    size 22
+    bold True
+    color "#ffffff"
+    outlines [ (1, "#000000", 0, 0) ]
+    yalign 0.5
+
+
+## Week & Splash Art indicator HUD (displayed in-game at the top-right corner)
+screen week_indicator():
+    zorder 50
+    if quick_menu:
+        vbox:
+            xalign 0.985
+            yalign 0.025
+            spacing 8
+
+            if current_week:
+                frame:
+                    style "week_indicator_frame"
+                    if isinstance(current_week, int):
+                        text ("Prologue" if current_week <= 0 else "Week [current_week]"):
+                            style "week_indicator_text"
+                    else:
+                        text "[current_week]":
+                            style "week_indicator_text"
+
+            $ _splash = splash_art if splash_art else current_splash_art
+            if _splash:
+                frame:
+                    style "splash_indicator_frame"
+                    if isinstance(_splash, str) and _splash != "True":
+                        text "[_splash]":
+                            style "splash_indicator_text"
+                    else:
+                        text "Splash Art":
+                            style "splash_indicator_text"
+
+style week_indicator_frame:
+    xalign 1.0
+    background Frame("gui/frame.png", gui.frame_borders)
+    xpadding 24
+    ypadding 10
+
+style week_indicator_text:
+    size 24
+    bold True
+    color "#ffffff"
+    outlines [ (1, "#000000", 0, 0) ]
+    xalign 0.5
+    yalign 0.5
+
+style splash_indicator_frame:
+    xalign 1.0
+    background Frame("gui/frame.png", gui.frame_borders)
+    xpadding 24
+    ypadding 10
+
+style splash_indicator_text:
+    size 22
+    bold True
+    color "#ffcc66"
+    outlines [ (1, "#000000", 0, 0) ]
+    xalign 0.5
+    yalign 0.5
 
 style quick_menu is hbox
 style quick_button is default
@@ -278,13 +423,15 @@ style quick_button_text is button_text
 
 style quick_menu:
     xalign 0.5
-    yalign 1.0
+    yalign 0.980
+    spacing 14
 
 style quick_button:
     properties gui.button_properties("quick_button")
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
+    outlines [(1, "#000000aa", 1, 1)]
 
 
 ################################################################################
@@ -360,11 +507,13 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 transform button_hover:
+    subpixel True
     on hover:
         linear 0.15 xoffset -20 zoom 1.03
     on idle:
         linear 0.15 xoffset 0 zoom 1.0
 transform logo_hover:
+    subpixel True
     on hover:
         linear 0.2 zoom 1.05
     on idle:
@@ -776,8 +925,11 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
-                ## Additional vboxes of type "radio_pref" or "check_pref" can be
-                ## added here, to add additional creator-defined preferences.
+                vbox:
+                    style_prefix "radio"
+                    label _("Language")
+                    textbutton "English" action Language(None)
+                    textbutton "Bahasa Indonesia" action Language("indonesian")
 
             null height (4 * gui.pref_spacing)
 
@@ -1239,7 +1391,10 @@ screen skip_indicator():
         hbox:
             spacing 9
 
-            text _("Skipping")
+            if debug_auto_skip:
+                text _("Debug Auto-Skip (Opsi 1)") color "#ff5555"
+            else:
+                text _("Skipping")
 
             text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
             text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
@@ -1551,7 +1706,7 @@ screen quick_menu():
             style_prefix "quick"
 
             textbutton _("Back") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton (_("Skip (DBG)") if debug_auto_skip else _("Skip")) action ToggleDebugAutoSkip()
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Menu") action ShowMenu()
 
