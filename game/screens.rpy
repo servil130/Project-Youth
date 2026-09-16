@@ -222,9 +222,9 @@ style input:
 
 screen custom_name_input(prompt):
     style_prefix "custom_name"
-    
+
     add Solid("#00000088")
-    
+
     frame:
         xalign 0.5 yalign 0.5
         xpadding 50 ypadding 50

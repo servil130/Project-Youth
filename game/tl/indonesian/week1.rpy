@@ -1081,4 +1081,3 @@ translate indonesian strings:
     # game/week1.rpy:400
     old "Open a commission or a merchandise store"
     new "Buka jasa komisi gambar atau toko merchandise"
-

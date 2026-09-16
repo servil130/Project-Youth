@@ -5,4 +5,3 @@ translate indonesian strings:
     # game/options.rpy:15
     old "Project Youth"
     new "Project Youth"
-

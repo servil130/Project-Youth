@@ -1,0 +1,16 @@
+{
+  "name": "project-youth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Project Youth - Visual Novel",
+  "scripts": {
+    "format": "python3 tools/format_renpy.py && prettier --write \"**/*.{json,md,yml,yaml}\"",
+    "format:rpy": "python3 tools/format_renpy.py",
+    "format:check": "python3 tools/format_renpy.py --check",
+    "format:docs": "prettier --write \"**/*.{json,md,yml,yaml}\"",
+    "lint": "~/Documents/renpy-8.5.3-sdk/renpy.sh . lint"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.0"
+  }
+}

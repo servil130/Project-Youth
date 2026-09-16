@@ -5,5 +5,3 @@ translate indonesian rhythm_minigame_b6da3840:
 
     # "Final score: [rg.score]"
     "Skor akhir: [rg.score]"
-
-

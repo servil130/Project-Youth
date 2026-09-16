@@ -333,4 +333,3 @@ translate indonesian strings:
     # game/screens.rpy:1708
     old "Menu"
     new "Menu"
-

@@ -1221,4 +1221,3 @@ translate indonesian strings:
     # renpy/common/_errorhandling.rpym:892
     old "Parsing the script failed."
     new "Parsing the script failed."
-

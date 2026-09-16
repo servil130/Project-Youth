@@ -587,4 +587,3 @@ translate indonesian week8_start_03f0cda4:
 
     # n "It was the return of the Trida you knew—not hiding behind a loud, frantic mask this time, but sharing an intimate, quiet joke just between the two of you, sitting shoulder-to-shoulder in the dim light of your room."
     n  "Itu adalah kembalinya sosok Trida yang kamu kenal—bukan lagi bersembunyi di balik topeng keceriaan yang panik, melainkan berbagi lelucon intim yang sunyi hanya untuk kalian berdua, duduk berdampingan bahu-membahu di bawah temaramnya lampu kamarmu."
-

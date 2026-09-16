@@ -1175,4 +1175,3 @@ translate indonesian strings:
     # game/week5.rpy:347
     old "Fried Tofu"
     new "Tahu Goreng"
-
