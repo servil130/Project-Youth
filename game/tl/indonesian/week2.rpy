@@ -1105,4 +1105,3 @@ translate indonesian strings:
     # game/week2.rpy:333
     old "Oh-yeah. Don't mind it!"
     new "Oh—iya. Santai aja, jangan dipikirin!"
-

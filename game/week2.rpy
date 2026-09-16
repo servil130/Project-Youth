@@ -131,7 +131,7 @@ label week2_project_afternoon:
     shy_classmate "Ah—yeah, I'm fine. Just a little—"
 
     n "She tries to brush it off, but her eyebrows twitch and she sways slightly in her chair."
-    show trida embarrassed at to_center, dip
+    show trida sad at to_center, dip
     trida "Whoa! Hey!"
     play music audio.t5 fadein 0.5 loop volume 0.7
 
@@ -144,7 +144,7 @@ label week2_project_afternoon:
     n "Spotting their open notebook, Trida grabs it and begins fanning her with frantic, high-speed gusts."
 
     shy_classmate "I-I'm okay. Really—"
-    show trida embarrassed at center, panic
+    show trida sad at center, panic
     trida "What do we do?!"
 
     n "The violent flapping sends loose worksheets fluttering across the desk, only adding to the chaos."

@@ -2115,4 +2115,3 @@ translate indonesian strings:
     # game/week3.rpy:600
     old "You’ve been pushing yourself too hard. It’s okay to take a break."
     new "Kamu udah terlalu memaksakan diri lho. Nggak ada salahnya istirahat sebentar."
-

@@ -1543,4 +1543,3 @@ translate indonesian strings:
     # game/week10.rpy:486
     old "Your passion"
     new "Semangat dan passion-mu"
-

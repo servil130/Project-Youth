@@ -1037,4 +1037,3 @@ translate indonesian strings:
     # game/prologue_mpls.rpy:275
     old "No. Thank you"
     new "Tidak. Terima kasih"
-

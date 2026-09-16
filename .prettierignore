@@ -1,0 +1,17 @@
+# Ren'Py scripts (Ren'Py uses Python DSL with 4 spaces indentation, not supported by Prettier)
+game/**/*.rpy
+game/**/*.rpyc
+game/**/*.rpymc
+game/**/*.rpe.py
+game/cache/**
+game/saves/**
+game/_mcp/**
+game/_mcp_bridge.rpy
+game/mcp_bridge.rpy
+
+# Generated / runtime files
+errors.txt
+log.txt
+traceback.txt
+files.txt
+.DS_Store

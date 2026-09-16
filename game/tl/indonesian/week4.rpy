@@ -947,4 +947,3 @@ translate indonesian strings:
     # game/week4.rpy:269
     old "Don't 'crash out' yet. We haven't even finished our first animation project, and you're already worried about the end?"
     new "Jangan buru-buru nyerah dong. Proyek animasi pertama aja belum kelar, masa udah cemas mikirin akhir sih?"
-

@@ -26,17 +26,17 @@ define dissolve_scene_half = MultipleTransition([
     True, Pause(0.5),
     True])
 
-define audio.t1 = "audio/bgm/1.ogg"        
-define audio.t2 = "audio/bgm/2.ogg"          
-define audio.t3 = "audio/bgm/3.ogg"         
-define audio.t4 = "audio/bgm/4.ogg"          
-define audio.t5 = "audio/bgm/5.ogg"       
-define audio.t6 = "audio/bgm/6.ogg"        
-define audio.t7 = "audio/bgm/7.ogg"     
-define audio.t8 = "audio/bgm/8.ogg"     
-define audio.t9 = "audio/bgm/9.ogg" 
-define audio.t10 = "audio/bgm/10.ogg" 
-define audio.tcredits = "audio/bgm/credits.ogg" 
+define audio.t1 = "audio/bgm/1.ogg"
+define audio.t2 = "audio/bgm/2.ogg"
+define audio.t3 = "audio/bgm/3.ogg"
+define audio.t4 = "audio/bgm/4.ogg"
+define audio.t5 = "audio/bgm/5.ogg"
+define audio.t6 = "audio/bgm/6.ogg"
+define audio.t7 = "audio/bgm/7.ogg"
+define audio.t8 = "audio/bgm/8.ogg"
+define audio.t9 = "audio/bgm/9.ogg"
+define audio.t10 = "audio/bgm/10.ogg"
+define audio.tcredits = "audio/bgm/credits.ogg"
 define audio.door_open = "audio/sfx/door_open.ogg"
 define audio.door_close = "audio/sfx/door_close.ogg"
 define audio.paper_flip = "audio/sfx/paper_flip.ogg"
@@ -47,7 +47,7 @@ define audio.keyboard_typing = "audio/sfx/keyboard_typing.mp3"
 define audio.ui_hover = "audio/sfx/ui_hover.wav"
 define audio.ui_click = "audio/sfx/ui_click.wav"
 define audio.ui_choice = "audio/sfx/ui_choice.wav"
-define audio.ui_back = "audio/sfx/ui_back.wav" 
+define audio.ui_back = "audio/sfx/ui_back.wav"
 
 define trida = Character("Trida", ctc="ctc", ctc_position="fixed")
 define committee = Character("Student Committee", ctc="ctc", ctc_position="fixed")
@@ -383,7 +383,7 @@ transform splash_judul:
 label splashscreen:
     scene white
     with Pause(0.5)
-    
+
     show logo at splash_logo with dissolve
     with Pause(1.5)
     hide logo with dissolve
@@ -391,8 +391,7 @@ label splashscreen:
     show judul_game at splash_judul with dissolve
     with Pause(1.5)
     hide judul_game with dissolve
-    
-    with Pause(0.5)
-    
-    return
 
+    with Pause(0.5)
+
+    return

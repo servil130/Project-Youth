@@ -1235,4 +1235,3 @@ translate indonesian strings:
     # game/week9.rpy:322
     old "About how slow you were"
     new "Soal kamu yang lama banget baliknya"
-

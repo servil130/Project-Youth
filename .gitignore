@@ -85,4 +85,18 @@ build/
 *.tar.bz2
 *.apk
 *.aab
+# ==============================================================================
+# AI & Agent Artifacts
+# ==============================================================================
 AGENTS.md
+.scratch/
+docs/agents/
+.agents/
+.claude/
+CLAUDE.md
+.cursor/
+.cursorrules
+.windsurf/
+.windsurfrules
+*.prompt
+*.chat

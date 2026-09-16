@@ -1371,4 +1371,3 @@ translate indonesian strings:
     # game/week7.rpy:362
     old "Did I sound too interrogating?"
     new "Apa aku kedengeran kayak lagi nginterogasi?"
-

@@ -1017,4 +1017,3 @@ translate indonesian strings:
     # game/week6.rpy:219
     old "Geez. That’s—that’s really loud. Like, emotionally loud."
     new "Ya ampun. Itu... itu ngena banget. Bener-bener nyentuh ke perasaan."
-
