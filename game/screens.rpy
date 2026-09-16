@@ -146,15 +146,16 @@ style window:
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
+    left_margin 150
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Transform("gui/textbox.png", xysize=(1680, gui.textbox_height))
 
 style namebox:
     xpos gui.name_xpos
     xanchor gui.name_xalign
     xsize gui.namebox_width
     xminimum 220
-    yanchor 1.0
+    yanchor 1.7
     ypos 56
     ysize gui.namebox_height
 
@@ -1403,7 +1404,7 @@ screen skip_indicator():
 
 ## This transform is used to blink the arrows one after another.
 transform delayed_blink(delay, cycle):
-    alpha .5
+    alpha 0.5
 
     pause delay
 
@@ -1454,7 +1455,7 @@ screen notify(message):
 transform notify_appear:
     on show:
         alpha 0
-        linear .25 alpha 1.0
+        linear .25 alpha 0.7
     on hide:
         linear .5 alpha 0.0
 
@@ -1645,8 +1646,8 @@ style bubble_what:
     layout "subtitle"
     color "#000"
 
-define bubble.frame = Frame("gui/bubble.png", 55, 55, 55, 95)
-define bubble.thoughtframe = Frame("gui/thoughtbubble.png", 55, 55, 55, 55)
+define bubble.frame = Frame("gui/bubble.png", 60, 60, 60, 100)
+define bubble.thoughtframe = Frame("gui/thoughtbubble.png", 60, 60, 60, 60)
 
 define bubble.properties = {
     "bottom_left" : {
@@ -1675,10 +1676,10 @@ define bubble.properties = {
 }
 
 define bubble.expand_area = {
-    "bottom_left" : (0, 0, 0, 22),
-    "bottom_right" : (0, 0, 0, 22),
-    "top_left" : (0, 22, 0, 0),
-    "top_right" : (0, 22, 0, 0),
+    "bottom_left" : (0, 0, 0, 25),
+    "bottom_right" : (0, 0, 0, 25),
+    "top_left" : (0, 25, 0, 0),
+    "top_right" : (0, 25, 0, 0),
     "thought" : (0, 0, 0, 0),
 }
 

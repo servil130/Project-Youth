@@ -66,10 +66,10 @@ define gui.name_text_font = "gui/font/RifficFree-Bold.ttf"
 define gui.interface_text_font = "gui/font/Aller_Rg.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 34
+define gui.text_size = 40
 
 ## The size of character names.
-define gui.name_text_size = 36
+define gui.name_text_size = 40
 
 ## The size of text in the game's user interface.
 define gui.interface_text_size = 33
@@ -111,7 +111,7 @@ define gui.name_ypos = 24
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
-define gui.name_xalign = 0.0
+define gui.name_xalign = 1.5 
 
 ## The width, height, and borders of the box containing the character's name, or
 ## None to automatically size it.
@@ -130,11 +130,11 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
-define gui.dialogue_xpos = 402
-define gui.dialogue_ypos = 92
+define gui.dialogue_xpos = 52
+define gui.dialogue_ypos = 60
 
 ## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = 1116
+define gui.dialogue_width = 1600
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
