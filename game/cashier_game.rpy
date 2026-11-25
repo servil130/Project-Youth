@@ -71,4 +71,4 @@ label cashier_minigame:
     $ _rollback = True
     $ player_money += result // 10
     n "Shift selesai. Kamu dapat Rp[result // 10]00 dari tip!"
-    return
+    return 

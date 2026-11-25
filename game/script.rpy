@@ -90,6 +90,7 @@ image bg gates_morning = "images/ddlc/residential.png"
 image bg bedroom_late_afternoon = "images/ddlc/bedroom.png"
 image bg teddy_cup = "images/ddlc/kitchen.png"
 image bg room = "images/ddlc/bedroom.png"
+image bg supermarket = Transform(Transform("images/supermarket.jpg", zoom=1.6), crop=(0, 100, 1920, 1080))
 
 image bg club = "images/ddlc/club.png"
 image bg corridor = "images/ddlc/corridor.png"
