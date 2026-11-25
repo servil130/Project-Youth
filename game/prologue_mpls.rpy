@@ -33,9 +33,8 @@ label start:
     n "It echoed through the quiet room like a signal from another world."
     p "Oh its from school that i signed up for"
     show phone_foreground at pc_muncul zorder 2
-    n "You open the phone as you excited..."
-
     show phone_background at pc_muncul zorder 1
+    n "You open the phone as you excited..."    
     n "You scroll through the messages... You heartbeat quickens as you see the phone screen light up."
 
     n "It say you accepted to join the school, you feel a sense of accomplishment and excitement for the future."
