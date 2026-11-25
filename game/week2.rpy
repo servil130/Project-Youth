@@ -348,5 +348,14 @@ label week2_partner_moment:
     n "The quiet dusk wraps around the classroom as you both continue working side by side."
     n "And for the first time, you feel a quiet certainty that this year is going to be unforgettable."
     hide trida with dissolve
+    n "With the day's work done, you gather your belongings and step out into the cool evening air."
+    n "You arrive at the indoapril convenience store, where the neon lights flicker softly against the darkening sky."
+    p "Time to get to work."
+    jump part_time_shift
+    label part_time_shift:
+    if player_job == "Cashier":
+    show supermarket.jpg with dissolve
+        call cashier_minigame
+    return
     # End of Week 2 -> Continue to Week 3
     jump week3_start

@@ -6,7 +6,8 @@
 define narrator = Character(ctc="ctc", ctc_position="fixed")
 define p = Character("[player_name]", ctc="ctc", ctc_position="fixed")
 define n = Character("", ctc="ctc", ctc_position="fixed")
-
+default player_job = None
+default player_money = 0
 define ease = MoveTransition(0.5, enter=None, leave=None, enter_time_warp=_warper.ease, leave_time_warp=_warper.ease)
 
 define config.dismiss_blocking_transitions = False

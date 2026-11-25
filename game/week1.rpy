@@ -395,11 +395,13 @@ label week1_bedroom:
     menu:
         "Be an Indoapril Cashier":
             n "That sounds like easy money."
+            $ player_job = "Cashier"
         "Work as a barista at a cafe":
             n "Maybe you'll enjoy the calm atmosphere."
+            $ player_job = "Barista"
         "Open a commission or a merchandise store":
             n "A creative outlet — could be fun."
-
+            $ player_job = "Commission Artist"
     n "With a decision in mind, you close your eyes and let the exhaustion of the first week fade into sleep."
 
     n "Before you know it, another week at school begins..."
