@@ -3,7 +3,8 @@
     "**/*.rpyc": true,
     "**/*.rpa": true,
     "**/*.rpymc": true,
-    "**/cache/": true
+    "**/cache/": true,
+    "game/cache/": true
   },
   "renpyWarp.sdkPath": "c:\\Users\\Asus\\AppData\\Roaming\\Code\\User\\globalStorage\\paisleysoftworks.renpywarp\\file-downloader-downloads\\8.5.3",
   "[renpy]": {
