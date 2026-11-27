@@ -349,9 +349,7 @@ label week2_partner_moment:
     n "And for the first time, you feel a quiet certainty that this year is going to be unforgettable."
     hide trida with dissolve
     n "With the day's work done, you gather your belongings and step out into the cool evening air."
-    scene bg supermarket with dissolve
-    n "You arrive at the indoapril convenience store, where the neon lights flicker softly against the darkening sky."
-    p "Time to get to work."
+
 
     call part_time_shift
 
@@ -361,7 +359,14 @@ label week2_partner_moment:
 
 label part_time_shift:
     if player_job == "Cashier":
-
+        scene bg supermarket with dissolve
+        n "You arrive at the indoapril convenience store, where the neon lights flicker softly against the darkening sky."
+        p "Time to get to work."
         call cashier_minigame
+    elif player_job == "Barista":
+        scene bg teddy_cup with dissolve
+        n "You push open the door of the cafe, and the smell of fresh coffee greets you."
+        p "Time to get to work."
+        call barista_minigame
     return
 jump week3_start
